@@ -1,4 +1,7 @@
 <?php
 
-echo "nuevo archivo";
+echo "nuevo archivo cambiado";
+
+
+echo "otra cosa";
 ?>
