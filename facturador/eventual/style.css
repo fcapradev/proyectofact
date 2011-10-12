@@ -1,0 +1,35 @@
+body{
+	margin:0 auto;
+	width:100%;
+}
+
+.StyBoton{
+	background-color:transparent; 
+	cursor:pointer;
+	border:0px;
+}
+
+/*registros*/
+table.registros{
+		border:0;
+		width:100%;
+	}
+table.registros td{
+		font-weight:bold;
+		border:0;
+		color:#FFF; 
+	}	
+table.registros tr.titulos{
+		text-align:center;
+		text-transform:uppercase;
+	}
+table.registros tr.row0{
+		background-image:url(../Bus_Item.png); 
+		background-repeat:repeat-x; 
+		height:28px; 
+	}
+table.registros tr.row1{
+		background-image:url(../Bus_Item.png); 
+		background-repeat:repeat-x;
+		height:28px;
+	}

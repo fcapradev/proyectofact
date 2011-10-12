@@ -1,0 +1,12 @@
+2011-10-12 09:10:59 | exception 'MyException' with message 'mssql_connect() [<a href='function.mssql-connect'>function.mssql-connect</a>]: Unable to connect to server: CARRUSEL\SQLEXPRESS' in D:\xampp\htdocs\aukon\ultimo\config\config.php:79
+Stack trace:
+#0 [internal function]: MyException::errorHandler(2, 'mssql_connect()...', 'D:\xampp\htdocs...', 79, Array)
+#1 D:\xampp\htdocs\aukon\ultimo\config\config.php(79): mssql_connect('CARRUSEL\SQLEXP...', 'sa', 'xxzza')
+#2 D:\xampp\htdocs\aukon\ultimo\index.php(524): require('D:\xampp\htdocs...')
+#3 {main} 
+2011-10-12 09:10:32 | exception 'MyException' with message 'mssql_connect() [<a href='function.mssql-connect'>function.mssql-connect</a>]: Unable to connect to server: CARRUSEL\SQLEXPRESS' in D:\xampp\htdocs\aukon\ultimo\config\config.php:79
+Stack trace:
+#0 [internal function]: MyException::errorHandler(2, 'mssql_connect()...', 'D:\xampp\htdocs...', 79, Array)
+#1 D:\xampp\htdocs\aukon\ultimo\config\config.php(79): mssql_connect('CARRUSEL\SQLEXP...', 'sa', 'xxzza')
+#2 D:\xampp\htdocs\aukon\ultimo\index.php(524): require('D:\xampp\htdocs...')
+#3 {main} 

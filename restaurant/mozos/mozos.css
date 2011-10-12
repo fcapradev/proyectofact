@@ -1,0 +1,88 @@
+    #lista_mozo{
+        height: 235px;
+        width: 460px;
+        border: 1px;
+        left: 10px;
+        top: 30px;
+        position: absolute;
+        
+
+    }
+    
+    
+    .texteca{
+        background: transparent;
+        
+        width: 145px;
+        height: 15px;
+        margin-top: -2px !important;
+        border: none !important;
+    }
+
+    .fondoNaranja{
+        background-image: url("../images/fondo-naranja.png") !important;        
+    }
+    .fondoBlanco{
+        background-image: url("../images/fondo-blanco.png");     
+    }
+    .lista{
+        position:absolute; 
+        top:80px; 
+        left:5px; 
+        z-index:2;  
+        background: url("../../otros/fon-der.png") ;
+        width: 475px;
+        height: 293px;
+    }
+    
+    .panel_edicion{
+        position:absolute; 
+        top:80px; 
+        left:500px; 
+        z-index:2;  
+        background: url("../images/Fondo-mozo.png") ;
+        width: 285px;
+        height: 158px;
+    }
+    .panel_edicion table{
+        position: relative;
+        left: 130px;
+        top: 15px;
+    }
+    
+    .panel_edicion table tr{
+        height: 24px;
+        position: relative;
+    }
+    
+    .panel_edicion input{
+        border:none;
+    }
+    
+    .boton_guardar{
+        position: absolute;
+        top: 160px;
+        left: 90px;
+        width: 85px;
+        height: 35px;
+        z-index:100;  
+    }
+    
+    .boton_agregar{
+        position: absolute;
+        top: 160px;
+        left: 190px;
+        width: 85px;
+        height: 35px;
+        z-index:100;  
+    }
+    
+    .div-redondo{
+        height:15px;
+    }
+    
+    .selected_item_mozo{
+        background: white !important;
+        color: black;
+    }
+    

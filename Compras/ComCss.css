@@ -1,0 +1,1198 @@
+@charset "utf-8";
+/* CSS Document */
+
+#ComprasFondo{
+	position:absolute;
+	width:738px; 
+	height:354px;
+	left:0px; 
+	top:0px;
+}
+
+#ComprasDatos{
+	position:absolute;
+	width:738px; 
+	height:354px;
+	left:0px; 
+	top:0px;
+}
+
+#ComprasDfon{ 
+	background:url(con_nar.png); 
+	background-repeat:no-repeat;
+	position:absolute; 
+	height:280px;
+	width:614px;
+	top:57px;
+	left:89px;
+}
+
+#ComprasBot{
+	position:absolute; 
+	height:37px;
+	width:614px;
+	top:334px;
+	left:4px;
+}
+
+#Encabezado{
+	position:absolute; 
+	height:280px;
+	width:614px;
+	top:63px;
+	left:94px;
+}
+
+#EncabezadoDat{
+	position:absolute; 
+	height:280px;
+	width:614px;
+	top:63px;
+	left:94px;
+}
+
+.texteca{
+	background-color:transparent;
+	text-align:center;
+	font-family: "TPro";
+	margin-top:5px;
+	font-size:12px;
+	border:0px;
+}
+
+#BusquedaRemito{
+	position:absolute;
+	display:none;
+	top:63px;
+	left:165px;
+}
+
+#BusquedaPedido{
+	position:absolute;
+	display:none;
+	top:63px;
+	left:165px;
+}
+
+.ComConTil{
+	background-image:url(../producto/ProConTil.png); 
+	background-repeat:no-repeat; 
+	width:38px; 
+	height:28px;
+}
+
+.ComSinTil{
+	background-image:url(../producto/ProSinTil.png); 
+	background-repeat:no-repeat; 
+	width:38px; 
+	height:28px;
+}
+
+/****************************************************************************************************************************/
+/********************* BOTONES PRINCIPALES **********************************************************************************/
+/****************************************************************************************************************************/
+
+#ComBotBusDiv{
+	position:absolute;
+	top:1px;
+	left:-7px;
+}
+
+#ComBotEncDiv{
+	position:absolute;
+	top:1px;
+	left:86px;
+}
+
+#ComBotCueDiv{
+	position:absolute;
+	top:1px;
+	left:179px;
+}
+
+#ComBotPieDiv{
+	position:absolute;
+	top:1px;
+	left:272px;
+}
+
+#ComBotModDiv{
+	position:absolute;
+	top:1px;
+	left:510px;
+}
+
+#ComBotEliDiv{
+	position:absolute; 
+	top:1px;
+	left:600px;
+}
+
+/****************************************************************************************************************************/
+/****************************************************************************************************************************/
+/****************************************************************************************************************************/
+
+#EncabezadoLat{
+	position:absolute; 
+	height:261px;
+	width:70px;
+	top:57px;
+	left:10px;
+}
+
+#EncabezadoDLat{
+	position:absolute; 
+	height:280px;
+	width:70px;
+	top:57px;
+	left:10px;
+}
+
+#EncLat1{
+	position:absolute; 
+	left:1px; 
+	top:18px;
+}
+#EncLat2{
+	position:absolute; 
+	left:1px; 
+	top:63px;
+}
+#EncLat3{
+	position:absolute; 
+	left:1px; 
+	top:107px;
+}
+#EncLat4{
+	position:absolute; 
+	left:1px; 
+	top:152px;
+}
+#EncLat5{
+	position:absolute; 
+	left:1px; 
+	top:195px;
+}
+#EncLat6{
+	position:absolute; 
+	left:1px; 
+	top:239px;
+}
+
+/****************************************************************************************************************************/
+/****************************************************************************************************************************/
+/****************************************************************************************************************************/
+
+#EncDat1{
+	position:absolute; 
+	left:90px; 
+	top:-2px;
+}
+#EncDat2{
+	position:absolute; 
+	left:153px; 
+	top:-2px;
+}
+
+#EncDat3{
+	position:absolute; 
+	left:90px; 
+	top:23px;
+}
+#EncDat4{
+	position:absolute; 
+	left:153px; 
+	top:23px;
+}
+
+#EncDat5{
+	position:absolute; 
+	left:90px; 
+	top:48px;
+}
+#EncDat6{
+	position:absolute;
+	left:153px; 
+	top:49px;
+}
+
+/****************************************************************************************************************************/
+/****************************************************************************************************************************/
+/****************************************************************************************************************************/
+
+#EncDat771{
+	position:absolute;
+	width:86px; 
+	height:20px;
+	left:0px; 
+	top:76px; 
+	z-index:1;
+}
+	#EncDat7-1{
+		position:absolute;
+		left:89px; 
+		top:74px; 
+		z-index:2;
+	}
+	#EncDat7-2{
+		position:absolute;
+		left:146px;
+		top:74px; 
+		z-index:2;
+	}
+	#EncDat7-3{ 
+		position:absolute;
+		left:171px; 
+		top:74px; 
+		z-index:2;
+	}
+	#EncDat7-4{
+		position:absolute;
+		left:199px; 
+		top:74px; 
+		z-index:2;
+	}
+#EncDat772{
+	position:absolute;
+	width:86px; 
+	height:20px;
+	left:90px; 
+	top:77px; 
+	z-index:1;
+}
+
+/****************************************************************************************************************************/
+/****************************************************************************************************************************/
+/****************************************************************************************************************************/
+
+#EncDat8{
+	position:absolute;
+	left:90px; 
+	top:100px;
+}
+#EncDat9{
+	position:absolute;
+	left:268px; 
+	top:100px;
+}
+#EncDat10{
+	position:absolute;
+	left:90px; 
+	top:128px;
+}
+#EncDat11{
+	position:absolute;
+	left:90px; 
+	top:152px;
+}
+#EncDat12{
+	position:absolute;
+	left:373px; 
+	top:152px;
+}
+
+/****************************************************************************************************************************/
+/****************************************************************************************************************************/
+/****************************************************************************************************************************/
+
+#EncDat13{
+	position:absolute;
+	left:502px; 
+	top:-3px;
+}
+#EncDat14{
+	position:absolute;
+	left:502px; 
+	top:23px;
+}
+#EncDat15{
+	position:absolute;
+	left:502px; 
+	top:48px;
+}
+#EncDat16{
+	position:absolute;
+	left:502px; 
+	top:74px;
+}
+#EncDat17{
+	position:absolute;
+	left:502px; 
+	top:100px;
+}
+#EncDat18{
+	position:absolute;
+	left:502px; 
+	top:125px;
+}
+
+/****************************************************************************************************************************/
+/****************************************************************************************************************************/
+/****************************************************************************************************************************/
+
+#Proveedores{
+	position:absolute; 
+	display:none;
+	height:277px;
+	width:700px;
+	top:57px;
+	left:89px;
+}
+
+#ProveedoresDat{
+	position:absolute; 
+	display:none;
+	height:280px;
+	width:651px;
+	top:57px;
+	left:89px;
+}
+
+#ComDatosFon{
+	position:absolute; 
+	top:-25px;
+	left:35px;
+}
+
+#ComDatosEventualFon{
+	position:absolute;
+	display:none;
+	top:-25px;
+	left:35px;
+}
+
+#ComDatosEventual{
+	position:absolute;
+	display:none;
+	top:-25px;
+	left:35px;
+}
+
+#ComDatosEventualBot{
+	position:absolute; 
+	width:117px;
+	top:233px;
+	left:448px; 
+	z-index:4;
+}
+
+#ComDatos{
+	position:absolute; 
+	top:27px;
+	left:35px;
+}
+
+#ComDatosFor{
+	position:absolute; 
+	top:215px;
+	left:32px;
+}
+
+.ConTilde{ 
+	background-image:url(../producto/ProConTil.png); 
+	background-repeat:no-repeat; 
+	width:38px; 
+	height:28px;
+	float: left;
+	z-index:1;
+}
+
+.SinTilde{
+	background-image:url(../producto/ProSinTil.png); 
+	background-repeat:no-repeat;
+	cursor:pointer;
+	width:38px; 
+	height:28px; 
+	float: left;
+}
+
+.TitTilde{
+	font-family: 'TPro';
+	font-size:18px;
+	margin-top:5px;
+	color:#FFF; 
+	cursor:pointer;
+}
+
+#FormaPagoFon{ 
+	position:absolute; 
+	display:none;
+	top:138px;
+	left:241px;
+	z-index:2;
+}
+
+#FormaPago{
+	position:absolute; 
+	display:none;
+	top:138px;
+	left:241px; 
+	z-index:2;
+}
+
+#DesImputarAA{
+	background-color: #000;
+	position:absolute;
+	display:none;
+	left:95px;
+	top:193px; 
+	width:370px; 
+	height:50px;
+	z-index:3;	
+	opacity: .20;
+	-moz-opacity: .20;
+	filter:alpha(opacity=20);
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+#ImputarA{ 
+	background-image: url(imp.png);
+	background-repeat: no-repeat;
+	position:absolute; 
+	display:none;
+	width:152px; 
+	height:77px;
+	left:184px; 
+	top:217px;
+}
+
+#Imp1{
+	position:absolute;
+	cursor:pointer;
+	width:138px;
+	height:16px;
+	left:7px;
+	top:4px;
+	-webkit-border-radius: 8px;
+}
+
+#Imp2{
+	position:absolute;
+	cursor:pointer;
+	width:138px;
+	height:16px;
+	left:7px;
+	top:21px;
+	-webkit-border-radius: 8px;
+}
+
+#Imp3{
+	position:absolute; 
+	cursor:pointer;
+	width:138px; 
+	height:16px; 
+	left:7px; 
+	top:39px;
+	-webkit-border-radius: 8px;
+}
+
+#Imp4{
+	position:absolute; 
+	cursor:pointer;
+	width:138px; 
+	height:16px; 
+	left:7px; 
+	top:57px;
+	-webkit-border-radius: 8px;
+}
+
+.Imp1-2{ 
+	background-image: url(imp_bie.png);
+}
+
+.Imp2-2{
+	background-image: url(imp_ser.png);
+}
+
+.Imp3-2{
+	background-image: url(imp_con.png);
+}
+
+.Imp4-2{
+	background-image: url(imp_gas.png);
+}
+
+#Cantidadesx{
+	position:absolute; 
+	display:none;
+	width:614px;
+	top:63px;
+	left:94px;
+}
+
+#CantidadesxDat{
+	position:absolute;
+	display:none;
+	width:614px;
+	top:105px;
+	left:94px;
+}
+
+
+/**********************************************************************************************/
+/*********************************** CUERPO ***************************************************/
+/**********************************************************************************************/
+
+
+#Cuerpo{
+	position:absolute;
+	display:none;
+	height:280px;
+	width:614px;
+	top:55px;
+	left:87px;	
+}
+
+#CuerpoDat{
+	position:absolute;
+	display:none;
+	height:280px;
+	width:614px;
+	top:55px;
+	left:87px;
+}
+
+#CuerpoLista{
+	position:absolute;
+	height:25px;
+	width:640px;
+	top:3px;
+	left:10px;	
+}
+
+#CuerpoProdu{
+	position:absolute;
+	height:57px;
+	width:682px;
+	top:220px;
+	left:1px;
+}
+
+#CuerpoProduTxt{
+	position:absolute;
+	height:57px;
+	width:682px;
+	top:220px;
+	left:1px;
+}
+
+	#CueDat1{
+		position:absolute;
+		top:20px;
+		left:0px;
+	}
+	#CueDat2{
+		position:absolute;
+		top:20px;
+		left:2px;
+	}
+	#CueDat3{
+		position:absolute;
+		top:20px;
+		left:34px;
+	}
+	#CueDat4{
+		position:absolute;
+		top:-47px;
+		left:3px; 
+		z-index:2;
+	}
+		#CueDat4-2{
+			position:absolute;
+			top:-65px;
+			left:0px;
+		}
+		
+	#CueDat5{
+		position:absolute;
+		top:21px;
+		left:112px;
+	}
+	#CueDat6{
+		position:absolute;
+		top:22px;
+		left:177px;
+	}
+	#CueDat7{
+		position:absolute;
+		top:22px;
+		left:400px;
+	}
+	#CueDat8{
+		position:absolute;
+		top:22px;
+		left:497px;
+	}
+	#CueDat9{
+		position:absolute; 
+		display:none;
+		top:0px;
+		left:500px; 
+		z-index:2;
+	}
+		#CueDat9-2{
+			position:absolute;
+			display:none;
+			top:-19px;
+			left:498px;
+		}
+		
+	#CueDat10{
+		position:absolute;
+		top:22px;
+		left:600px;
+	}
+	#CueDat11{
+		position:absolute;
+		top:20px;
+		left:400px;
+	}
+
+/***********************************************************************************************************************/
+/***********************************************************************************************************************/
+/***********************************************************************************************************************/
+
+#BusquedaCodDebo{ 
+	position:absolute;
+	display:none;
+	width:440px;
+	left:100px;
+	top:3px;
+}
+
+#BusquedaCodOrigen{
+	position:absolute;
+	display:none;
+	width:440px;
+	left:100px;
+	top:3px;
+}
+
+#BusquedaCodDetalle{
+	position:absolute;
+	display:none;
+	width:440px;
+	left:100px;
+	top:3px;
+}
+
+/***********************************************************************************************************************/
+/***********************************************************************************************************************/
+/***********************************************************************************************************************/
+
+#botonesdebusqueda{
+	position:absolute;
+	display:none;
+	top:224px;
+	left:127px;
+}
+
+#CuerpoLista2{
+	position:absolute;
+	display:none; 
+	width:676px; 
+	height:160px;
+	left:10px;
+	top:3px;
+}
+
+#CuerpoListaStock{
+	position:absolute;
+	width:676px;
+	height:160px;
+	left:10px;
+	top:3px;
+}
+
+#CuerpoProdu2{
+	position:absolute;
+	display:none;
+	height:57px;
+	width:682px;
+	top:220px;
+	left:1px;
+}
+
+#CuerpoProdu3{
+	position:absolute;
+	display:none;
+	height:57px;
+	width:682px;
+	top:220px;
+	left:1px;
+}
+
+#CuerpoProdu4{
+	position:absolute;
+	display:none;
+	height:57px;
+	width:682px;
+	top:220px;
+	left:1px;
+}
+
+#CuerpoProdu5{
+	position:absolute;
+	display:none;
+	height:57px;
+	width:682px;
+	top:220px;
+	left:1px;
+}
+
+.texteca2{
+	background-color:transparent;
+	text-align:center;
+	font-family: "TPro";
+	margin-top:5px;
+	font-size:12px;
+	border:0px;
+}
+
+	#CueDatInf1{
+		position:absolute; 	
+		font-family: Arial;
+		font-size:11px; 
+		color:#FFF;
+		top:25px;
+		left:120px;
+	}
+	#CueDatInf2{
+		position:absolute;
+		font-family: Arial;
+		font-size:11px; 
+		color:#FFF;
+		top:54px;
+		left:120px;
+	}
+	#CueDatInf3{
+		position:absolute;
+		font-family: Arial;
+		font-size:11px; 
+		color:#FFF;	
+		top:40px;
+		left:120px;
+	}
+	#CueDatInf4{
+		position:absolute;
+		font-family: Arial;
+		font-size:11px; 
+		color:#FFF;	
+		top:79px;
+		left:120px;
+	}
+	#CueDatInf5{
+		position:absolute;
+		font-family: Arial;
+		font-size:11px; 
+		color:#FFF;	
+		top:91px;
+		left:120px;
+	}
+	#CueDatInf6{
+		position:absolute;
+		font-family: Arial;
+		font-size:11px; 
+		color:#FFF;	
+		top:104px;
+		left:120px;
+	}
+	
+	#StockTitulo{
+		position:absolute;
+		font-family:'TPro';
+		font-size:12px;
+		color:#DD7927;
+		left:444px;
+		top:2px;
+	}
+	
+	#StockCriticoVta{
+		background-image:url(stock.png);
+		position:absolute;
+		font-family: "TPro";
+		font-size:12px; 
+		color:#FFF; 
+		width:324px;
+		height:158px;
+		top:18px;
+		left:345px;
+	}
+		#StockCriticoVta1{
+			position:absolute; left:20px; top:20px;
+		}
+		#StockCriticoVta2{
+			position:absolute; left:175px; top:36px;
+		}
+		#StockCriticoVta3{
+			position:absolute; left:175px; top:62px;
+		}
+		#StockCriticoVta4{
+			position:absolute; left:175px; top:86px;
+		}
+		#StockCriticoVta5{
+			position:absolute; left:80px; top:117px;
+		}
+	#StockCriticoBot{
+		position:absolute; left:235px; top:135px; display:none;
+	}
+	#StockCriticoDep{ 
+		background-image:url(stock.png);
+		font-family: "TPro";
+		position:absolute;
+		font-size:12px; 
+		display:none;
+		color:#FFF;	
+		width:324px;
+		height:158px;
+		top:18px;
+		left:345px;
+	}
+		#StockCriticoDep1{
+			position:absolute; left:20px; top:20px;
+		}
+		#StockCriticoDep2{
+			position:absolute; left:175px; top:36px;
+		}
+		#StockCriticoDep3{
+			position:absolute; left:175px; top:62px;
+		}
+		#StockCriticoDep4{
+			position:absolute; left:175px; top:86px;
+		}
+		#StockCriticoDep5{
+			position:absolute; left:80px; top:117px;
+		}
+
+.ClaStockMax{
+	font-family:"TPro";
+	font-size:12px;
+	color:#F00;
+	border:0px; 
+}
+
+.ClaStockMin{
+	font-family:"TPro";
+	font-size:12px;
+	color:#0F0;
+	border:0px;
+}
+
+.CCom{ 
+	background: url(Bus_Item.png);
+	background-repeat:repeat-x; 
+	font-family: "TPro"; 
+	font-size:12px;
+	cursor:pointer;
+	color:#FFF; 
+	height:26px;
+
+}
+
+.CCom2{ 
+	background: url(../RetiroCaja/FonSel.png);
+	background-repeat:repeat-x; 
+	font-family: "TPro"; 
+	font-size:12px;
+	cursor:pointer;
+	color:#FFF; 
+	height:26px;
+}
+
+.itemslista{ 
+	font-family: "TPro"; 
+	font-size:12px;
+	cursor:pointer;
+	height:26px;
+}
+
+.itemslista:active{ 
+	position:relative;
+	left:1px;
+	top:1px;
+	
+	-moz-box-shadow:0px 1px 0;
+	-webkit-box-shadow:0px 1px 0;
+}
+
+.CComSinP{ 
+	background: url(Bus_Item.png);
+	background-repeat:repeat-x;
+	font-family: "TPro";
+	font-size:12px;
+	color:#FFF;
+	height:26px;
+}
+
+#LisFacComFon{
+	position:absolute;
+	display:none;
+	top:112px;
+	left:7px; 
+	z-index:3;
+}
+
+#LisFacComFon2{
+	position:absolute;
+	display:none;
+	top:141px;
+	left:300px;
+	z-index:3;
+}
+
+#LisFacComLis{
+	position:absolute;
+	font-family: 'TPro'; 
+	text-align:center; 
+	font-size:12px; 
+	display:none;
+	color:#FFF;
+	height:57px;
+	width:267px;
+	top:162px;
+	left:19px;
+	z-index:3;
+}
+
+
+#LisFacComDat{
+	font-family: "TPro";
+	position:absolute;
+	display:none;
+	color:#FFF; 
+	width:473px; 
+	height:308px;
+	top:142px;
+	left:300px;
+	z-index:3;
+}
+
+	#LisFacComDatEnc{
+		position:absolute;
+		font-size:14px; 
+		width:473px; 
+		top:0px;
+		left:0px;
+		z-index:3;
+	}
+	
+	#LisFacComDatMed{
+		position:absolute;
+		font-size:11px; 
+		width:473px;
+		top:86px;
+		left:0px;
+		z-index:3;
+	}
+	
+	#LisFacComDatTot{
+		position:absolute;
+		font-size:12px; 
+		width:473px;
+		top:214px;
+		left:0px;
+		z-index:3;
+	}
+
+#TituloLis{
+	position:absolute; 
+	font-family: 'TPro'; 
+	text-align:center; 
+	font-size:16px; 
+	display:none;
+	color:#FFF;
+	top:115px; 
+	left:18px; 
+	width:267px;
+	z-index:3;
+}
+
+#TituloNom{
+	position:absolute; 
+	font-family: 'TPro'; 
+	text-align:center; 
+	font-size:12px; 
+	display:none;
+	color:#FFF;
+	top:115px; 
+	left:270px; 
+	width:388px;
+	z-index:3;
+}
+
+#TituloLisFac{
+	position:absolute; 
+	font-family: 'TPro'; 
+	text-align:center; 
+	font-size:14px; 
+	display:none;
+	color:#FFF;
+	top:140px; 
+	left:18px; 
+	width:267px;
+	z-index:3;
+}
+
+#BotonesLis{
+	position:absolute; 
+	font-family: 'TPro'; 
+	text-align:center; 
+	font-size:16px; 
+	display:none;
+	color:#FFF;
+	top:455px; 
+	left:7px; 
+	width:777px;
+	z-index:3;
+}
+	#BotonesLisSal{
+		position:absolute;
+		top:0px;
+		left:5px;
+	}
+	#BotonesLisTar{
+		position:absolute; 
+		display:none;
+		top:0px;
+		left:285px;
+	}
+
+
+/**********************************************************************************************/
+/************************************** PIE ***************************************************/
+/**********************************************************************************************/
+
+
+
+#Pie{
+	position:absolute;
+	display:none;
+	height:280px;
+	width:614px;
+	top:100px;
+	left:120px;
+}
+
+#PieDat{
+	position:absolute;
+	display:none;
+	height:280px;
+	width:614px;
+	top:100px;
+	left:120px;
+}
+
+	#PieDat1{
+		position:absolute;
+		top:-5px;
+		left:129px;
+	}
+	#PieDat2{
+		position:absolute;
+		top:23px;
+		left:129px;
+	}
+	#PieDat3{
+		position:absolute;
+		top:48px;
+		left:129px;
+	}
+	#PieDat4{
+		position:absolute;
+		top:74px;
+		left:129px;
+	}
+	#PieDat5{
+		position:absolute;
+		top:100px;
+		left:129px;
+	}
+	#PieDat6{
+		position:absolute;
+		top:125px;
+		left:129px;
+	}
+	#PieDat7{
+		position:absolute;
+		top:150px;
+		left:129px;
+	}
+	/*****************************************************************************************/
+	#PieDat8{
+		position:absolute;
+		top:-3px;
+		left:415px;
+	}
+	#PieDat9{
+		position:absolute;
+		top:23px;
+		left:415px;
+	}
+	#PieDat10{
+		position:absolute;
+		top:48px;
+		left:415px;
+	}
+	#PieDat11{
+		position:absolute;
+		top:74px;
+		left:415px;
+	}
+	#PieDat12{
+		position:absolute;
+		top:100px;
+		left:415px;
+	}
+	#PieDat13{
+		position:absolute;
+		top:125px;
+		left:415px;
+	}
+	#PieDat14{
+		position:absolute;
+		top:172px;
+		left:417px;
+	}
+	
+/*****************************************************************************************/
+/*****************************************************************************************/
+
+#ComModCosto{
+	position:absolute; 
+	display:none;
+	top:342px;
+	left:417px;
+}
+
+.ModCostoCla{ 
+	background-color:transparent; 
+	font-family: "TPro";
+	text-align:center;
+	font-size:12px;
+	color:#FFF;
+	width:90px; 
+	border:0px;
+}
+
+/*****************************************************************************************/
+/*****************************************************************************************/
+
+.texteca3{
+	background-color:transparent;
+	text-align:center;
+	font-family: "TPro";
+	margin-top:5px;
+	font-size:14px;
+	border:0px;
+}
+
+#botoncerrar{
+	position:absolute; 
+	top:-5px;
+	left:750px;
+}
+
+/*****************************************************************************************/
+/*****************************************************************************************/
+

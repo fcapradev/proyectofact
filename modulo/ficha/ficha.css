@@ -1,0 +1,75 @@
+
+
+#ficha {
+    position: absolute;
+    width: 695px;
+    height: 341px;
+    top: 43px;
+    left : 3px;
+    z-index: 15;
+    background: url("images/ficha-normal.png");    
+    
+}
+#ficha span{
+    position: absolute;
+}
+
+
+
+#ficha span.sp_descripcion{
+    top: 280px;
+    left :305px;
+}
+#ficha span.sp_precio{
+    top: 235px;
+    left :540px;
+    width: 120px;
+    text-align: center;
+    font-size: 32px;
+}
+#ficha span.sp_codigo{
+    top: 280px;
+    left :180px;
+}
+#ficha span.sp_seccion{
+    top: 280px;
+    left :83px;
+}
+#ficha span.sp_stock_deposito{
+    top: 320px;
+    left :450px;
+}
+#ficha span.sp_stock_venta{
+    top: 319px;
+    left :163px;
+}
+#ficha span.sp_imagen{
+    top: 10px;
+    left :17px;
+    
+}
+#ficha span.sp_check_espromo{
+    background: url("images/tilde.png");
+    top: 305px;
+    left :456px;
+    width: 14px;
+    height: 10px;
+    position: absolute;
+}
+#ficha span.sp_check_espromo.none{
+    display: none;
+}
+
+
+
+#ficha span.sp_check_fpp{
+    position: absolute;
+    background: url("images/tilde.png");
+    top: 305px;
+    left :255px;
+    width: 14px;
+    height: 10px;
+}
+#ficha span.sp_check_fpp.none{
+    display: none;
+}

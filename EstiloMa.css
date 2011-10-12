@@ -1,0 +1,252 @@
+
+#Mamicapa1{ 
+	position:absolute; 
+	display:none;
+	width:400px; 
+	height:300px; 
+	left:322px; 
+	top:89px; 
+	z-index:1; 
+}
+
+#MaMiProd{
+	position:absolute;
+	display:none;
+	left:322px; 
+	top:90px; 
+	z-index:0; 
+}
+
+#MaImagenProd{ 
+	background-image: url(producto/cont_fotos.png); 
+	background-repeat:no-repeat;
+	width:350px;
+	height:227px;
+}
+
+#MaLoading{
+	position:absolute; 
+	text-align:center;
+	display:none; 
+	width:475px; 
+	height:293px;
+	left:322px; 
+	top:90px; 
+	z-index:2; 
+}
+
+#MaPromo{
+	position:absolute;
+	display:none;
+	left:322px; 
+	top:90px; 
+	z-index:4; 
+}
+
+#MaMPromo{
+	position:absolute;
+	display:none;
+	left:322px; 
+	top:90px; 
+	z-index:4; 
+}
+
+#Matoda_la_bus{
+	position:absolute; 
+	left:10px; 
+	top:0px; 	
+}
+
+#Matoda_la_busC{
+	position:absolute; 
+	left:10px; 
+	top:0px; 	
+}
+
+#MaAnterior_Pro{
+	position:absolute;
+	left:412px; 
+	top:21px;
+}
+
+#MaSiguiente_Pro{
+	position:absolute;
+	left:412px; 
+	top:229px;
+}
+
+#Mamostrar{ 
+	display:none; 
+	position:absolute; 
+	left:325px; 
+	top:97px; 
+	z-index:1; 
+}
+
+#Mamostrar2{ 
+	display:none; 
+	position:absolute; 
+	left:325px; 
+	top:97px; 
+	z-index:1; 
+}
+
+#Macodigo{ 
+	position:absolute; 
+	left:100px; 
+	top:650px; 
+	z-index:1; 
+}
+
+#MaCarAyudaFon{
+	background-image:url(otros/fondoayuda.png); 
+	background-repeat:no-repeat; 
+	position:absolute;
+	display:none;
+	width:465px;
+	left:57px;
+	top:581px;
+	z-index:7;
+}
+
+#MaCarAyuda{
+	font-family: "TPro";
+	position:absolute;
+	display:none;
+	width:465px;
+	left:110px;
+	top:579px;
+	z-index:7;
+}
+
+#MaFacTotal{ 
+	display:none;
+	position:absolute; 
+	left:150px; 
+	top:358px;
+	z-index:1; 
+}
+
+#Matotal{ 
+	background-color:transparent;
+	font-family: "TPro";
+	font-size:16px;
+	width:120px;
+	z-index:1; 
+	border:0; 
+	text-align:right;
+}
+
+.items{ 
+	background-image: url(ticket/barras.png);
+	width:246px;
+	height:28px;
+	margin:0;
+	padding:0; 
+	z-index:10; 
+	cursor:pointer; 
+	azimuth:center; 
+}
+
+#MaBotMins{
+	display:none;
+	position:absolute; 
+	width:258px; 
+	left:542px;
+	top:575px;
+	z-index:1;
+}
+
+#MaAT_efe_rec{
+	background-color:transparent;
+	font-weight:bold; 
+	width:235px; 
+	height:17px; 
+	border:0px; 
+}
+
+#MaAT_obs{
+	background-color:transparent;
+	font-weight:bold; 
+	width:235px; 
+	height:17px; 
+	border:0px; 
+}
+
+.ParaDiv{
+	position:absolute; 
+	font-family: "TPro";
+	font-size:16px;
+	color:#FFFFFF;
+}
+
+.ParaDiv2{ 
+	font-family: "TPro";
+	font-size:16px;
+	color:#FFFFFF;
+}
+
+#MaAnterior_ProC{
+	position:absolute;
+	left:412px; 
+	top:21px;
+}
+
+#MaSiguiente_ProC{
+	position:absolute;
+	left:412px; 
+	top:199px;
+}
+
+#MaBotonesParaO{
+	position:absolute;
+	left:334px; 
+	top:334px;
+}
+
+
+#MaLetEntPro { left: 390px; top: 535px; width: 80px;  height: 35px; }
+#MaNumVolPro { left: 628px; top: 535px; width: 80px; height: 35px; }
+
+
+
+/*********** PARA FACTURADOR MANUAL ***********/
+
+.EstFormComprobante{
+	background-color:transparent; 
+	text-align:center;
+	font-family: "TPro";
+	font-size:17px; 
+	color:#000;
+	border:0px;
+	height:17px;
+}
+
+#MaComprobanteFon{ 
+	position:absolute;
+	display:none;
+	left:227px; 
+	top:300px;
+	z-index:3;
+}
+
+#MaComprobante{
+	position:absolute;
+	display:none;
+	left:227px; 
+	top:300px; 
+	z-index:3;
+}
+
+
+/**************************************************/
+
+.Sombra14{
+	-moz-border-radius: 14px;
+	-webkit-border-radius: 14px;
+	
+	box-shadow:	0px 7px 7px #DD7927;
+	-o-box-shadow: 0px 7px 7px #DD7927;
+	-moz-box-shadow: 0px 7px 7px #DD7927;
+	-webkit-box-shadow:	0px 7px 7px #DD7927;
+}

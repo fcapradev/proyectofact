@@ -1,0 +1,1131 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face{ 
+/*
+	font-family: "TPro" ; 
+	src: url(fuentes/TektonPro-Bold.otf);
+*/
+	font-family: "TPro";
+	src: url(fuentes/ARIALN.ttf);
+
+}
+
+#Teclado_Completo{ 
+	position:absolute;
+	left:-50px; 
+	top:1px;	
+}
+
+.StyBoton{ 
+	background-color:transparent; 
+	cursor:pointer;
+	border:0px;
+}
+
+.PosDivv1{
+	position:absolute;
+	z-index:0;
+}
+.PosDivv2{
+	position:absolute; 
+	z-index:2;
+}
+
+.PosDiv{
+	position:absolute;
+	z-index:0;
+}
+
+.PosDiv1{
+	position:absolute;
+	z-index:1;
+}
+
+.PosPri1{
+	position:absolute;
+	z-index:1;
+}
+
+.PosPri2{
+	position:absolute;
+	z-index:2;
+}
+
+.PosPri10{
+	position:absolute;
+	z-index:10;
+}
+
+#BarraPro {
+	width:120px;
+	height:12px;
+	left: 20px;
+	top: 17px;
+	display:block;
+}
+
+#BotonesPri {
+	width: 800px; 
+	height: 600px;
+	left: 0px; 
+	top: 0px;
+}
+
+#Marca {
+	left:298px;
+	top:2px; 
+	display:block;
+}
+
+#SobreFoca {
+	display:block;
+	cursor:pointer;
+	left:767px;
+	top:1px;
+	z-index:5;
+}
+
+#MosAyuda1 {
+	width:630px;
+	height:300px;
+	left:80px;
+	top:135px; 
+	z-index:5;
+	display:none; 
+}
+
+#MosAyuda2 {
+	display:none;
+	width:610px;
+	height:280px;
+	left:80px;
+	top:135px;
+	margin-bottom:10px;
+	margin-left:10px; 
+	margin-right:10px;
+	margin-top:10px;
+	z-index:5; 
+	font-family: "TPro"; 
+	font-size:14px;
+}
+
+#ErrorConex{ 
+	position:absolute;
+	font-family: "TPro";
+	font-size:24px;
+	color:#FF0000; 
+	width:630px;
+	height:280px;
+	left:85px;
+	top:100px;
+	display:none; 
+	z-index:7;
+}
+
+#boton1  { left: 55px;  top: 115px; }
+	#boton2  { left: 175px; top: 155px; }
+		#boton3  { left: 295px; top: 185px; }
+/***************************************************************************/
+		#boton4  { left: 415px; top: 185px; }
+	#boton5  { left: 535px; top: 155px; }
+#boton6  { left: 655px; top: 115px; }
+/***************************************************************************/
+#boton7  { left: 55px;  top: 195px; }
+	#boton8  { left: 175px; top: 235px; }
+		#boton9  { left: 295px; top: 265px; }
+/***************************************************************************/
+		#boton10 { left: 415px; top: 265px; }
+	#boton11 { left: 535px; top: 235px; }
+#boton12 { left: 655px; top: 195px; }
+/***************************************************************************/
+#boton13 { left: 55px;  top: 275px; }
+	#boton14 { left: 175px; top: 315px; }
+		#boton15 { left: 295px; top: 345px; }
+/***************************************************************************/
+		#boton16 { left: 415px; top: 345px; }
+	#boton17 { left: 535px; top: 315px; }
+#boton18 { left: 655px; top: 275px; }
+/***************************************************************************/
+#boton19 { left: 55px;  top: 355px; }
+	#boton20 { left: 175px; top: 395px; }
+/***************************************************************************/
+	#boton21 { left: 535px; top: 395px; }
+#boton22 { left: 655px; top: 355px; }
+
+
+#boton23 { left: 363px; top: 480px; }
+
+#boton24 { left: 295px; top: 345px; }
+
+
+/***************************************************************************/
+/***************************************************************************/
+
+#BarFac { left: 1px; top: 4px; display:block; z-index:5; }
+#BarFacD { left: 1px; top: 4px; display:block; z-index:5; }
+
+/*
+#BotonFac1  { left: 135px; top: 8px;  z-index:2; }
+#BotonFac2  { left: 200px; top: 16px; z-index:2; }
+#BotonFac3  { left: 265px; top: 24px; z-index:2; }
+#BotonFac4  { left: 330px; top: 32px; z-index:2; }
+
+#BotonFac6  { left: 400px; top: 32px; z-index:2; }
+#BotonFac7  { left: 465px; top: 24px; z-index:2; }
+#BotonFac8  { left: 530px; top: 16px; z-index:2; }
+#BotonFac9  { left: 595px; top: 8px;  z-index:2; }
+*/
+
+#BotonFac1  { left: 137px; top: 5px; z-index:2; }
+#BotonFac2  { left: 207px; top: 15px; z-index:2; }
+#BotonFac3  { left: 277px; top: 25px; z-index:2; }
+
+#BotonFac4  { left: 347px; top: 35px; z-index:2; }
+
+#BotonFac6  { left: 417px; top: 25px; z-index:2; }
+#BotonFac7  { left: 487px; top: 15px; z-index:2; }
+#BotonFac8  { left: 557px; top: 5px;  z-index:2; }
+#BotonFac9  { left: 626px; top: 5px;  z-index:2; }
+
+/***************************************************************************/
+/***************************************************************************/
+
+.PosFac1{
+	position:absolute;
+	z-index:3;
+}
+.PosFac2{
+	position:absolute;
+	z-index:4;
+}
+
+#fondotranspletras{
+	position:absolute;
+	left: 52px; 
+	top: 385px;
+	width: 554px; 
+	height: 192px;
+}
+
+#TecladoLet{
+	position:absolute;
+	left:2px; 
+	top:0px;
+}
+
+/********* Letras *********/
+#LetQ { left: 55px;  top: 410px; }
+#LetW { left: 107px; top: 410px; }
+#LetE { left: 159px; top: 410px; }
+#LetR { left: 211px; top: 410px; }
+#LetT { left: 263px; top: 410px; }
+#LetY { left: 315px; top: 410px; }
+#LetU { left: 367px; top: 410px; }
+#LetI { left: 419px; top: 410px; }
+#LetO { left: 471px; top: 410px; }
+#LetP { left: 523px; top: 410px; }
+
+#LetA { left: 55px;  top: 450px; }
+#LetS { left: 107px; top: 450px; }
+#LetD { left: 159px; top: 450px; }
+#LetF { left: 211px; top: 450px; }
+#LetG { left: 263px; top: 450px; }
+#LetH { left: 315px; top: 450px; }
+#LetJ { left: 367px; top: 450px; }
+#LetK { left: 419px; top: 450px; }
+#LetL { left: 471px; top: 450px; }
+#LetÑ { left: 523px; top: 450px; }
+
+#LetZ { left: 55px;  top: 490px; }
+#LetX { left: 107px; top: 490px; }
+#LetC { left: 159px; top: 490px; }
+#LetV { left: 211px; top: 490px; }
+#LetB { left: 263px; top: 490px; }
+#LetN { left: 315px; top: 490px; }
+#LetM { left: 367px; top: 490px; }
+#LetCO{ left: 419px; top: 490px; }
+#LetCE{ left: 471px; top: 490px; }
+#LetBO{ left: 523px; top: 490px; }
+
+#LetAre { left: 58px;  top: 386px; }
+	#LetTexDiv { left: 60px;  top: 388px; width:533px; height:15px;	 z-index:5; } 
+		#LetTex { width:517px; height:17px; border:0px; top:-1px; left:2px; position:absolute; background-color:transparent; } 
+		
+#LetSal { left: 70px;  top: 535px; }
+#LetBar { left: 160px; top: 535px; }
+#LetEnt { left: 390px; top: 535px; }
+#LetTer { left: 490px; top: 535px; }
+
+/********* Letras *********/
+
+#fondotranspnumeros{
+	position:absolute;
+	left: 608px; 
+	top: 385px;
+	width: 141px; 
+	height: 192px;
+}
+
+#TecladoNum{ 
+	position:absolute;
+	left:-3px; 
+	top:-4px;
+}
+
+/********* Numeros *********/
+
+#Num7 { left: 605px; top: 385px; }
+#Num8 { left: 650px; top: 385px; }
+#Num9 { left: 695px; top: 385px; }
+
+#Num4 { left: 605px; top: 415px; }
+#Num5 { left: 650px; top: 415px; }
+#Num6 { left: 695px; top: 415px; }
+
+#Num1 { left: 605px; top: 445px; }
+#Num2 { left: 650px; top: 445px; }
+#Num3 { left: 695px; top: 445px; }
+
+#Num0 {  left: 605px; top: 475px; }
+#NumBA { left: 650px; top: 475px; }
+#NumSU { left: 695px; top: 475px; }
+
+#NumCO { left: 605px; top: 505px; }
+#NumAS { left: 650px; top: 505px; }
+#NumCE { left: 695px; top: 505px; }
+
+/*
+#NumAre { left: 603px;  top: 354px; width: 124px; height: 21px; } 
+	#NumTexDiv { left: 612px;  top: 356px; width: 107px; height: 21px; z-index:5; } 
+		#NumTex { width:107px; border:0px; background-image: url(facturador/teclado/otros/fon-esc.png); }
+*/
+#NumVol { left: 628px; top: 535px; }
+/********* Numeros *********/
+
+
+
+#LetAux { left: 703px; top: 535px; display:none; }
+
+#NumAre { position:absolute; left: 616px; top: 390px; display:none; }
+	#NumTexDiv { position:absolute; left: 573px;  top: 390px; display:none; }
+		#NumTex { font-family:'TPro'; font-size:14px; width:107px; height:17px; border:0px; background-color:transparent; }
+
+		
+/***************************************************************************/
+/***************************************************************************/
+/***************************************************************************/
+
+
+/* General Links */
+
+.content {
+	margin:20px;
+	line-height:20px;
+}
+
+body h1 {
+	font-size:14px;
+	font-weight:bold;
+	color:#FFFFFF;
+	padding:5px;
+	border-bottom:solid;
+	border-bottom-width:1px;
+	border-bottom-color:#FFFFFF;
+}
+
+body h2 {
+	font-size:14px;
+	font-weight:bold;
+	color:#CC0000;
+	padding:5px;
+	border-bottom:solid;
+	border-bottom-width:1px;
+	border-bottom-color:#FFFFFF;
+}
+
+#demo {
+	margin : 0 auto;
+	width:100%;
+}
+
+#demo .extra {
+	padding-left:30px;
+}
+
+#demo .options {
+	padding-left:10px;
+}
+
+#demo .getOption {
+	padding-left:10px;
+	padding-right:20px;
+}
+
+/*******************************************************************/
+
+#FondoAukonOriginal{ 
+	position:absolute;
+	padding: 0em;
+	margin: 0em;
+	left:0px;
+	top:0px;
+}
+
+#FondoAukon{ 
+	position:absolute;
+	padding: 0em;
+	margin: 0em;
+	left:0px;
+	top:0px;
+	z-index:-2;
+}
+
+#micapa1{ 
+	position:absolute; 
+	display:none;
+	left:322px; 
+	top:89px; 
+	z-index:1; 
+}
+
+#MiProd{
+	position:absolute;
+	display:none;
+	left:322px; 
+	top:90px; 
+	z-index:0; 
+}
+
+#ImagenProd{ 
+	background-image: url(producto/cont_fotos.png); 
+	background-repeat:no-repeat;
+	width:350px;
+	height:227px;
+}
+
+#Loading{
+	position:absolute; 
+	text-align:center;
+	display:none; 
+	width:475px; 
+	height:293px;
+	left:322px; 
+	top:90px; 
+	z-index:2; 
+}
+
+#Promo{
+	position:absolute;
+	display:none;
+	left:322px; 
+	top:90px; 
+	z-index:4; 
+}
+
+#MPromo{
+	position:absolute;
+	display:none;
+	left:322px; 
+	top:90px; 
+	z-index:4; 
+}
+
+.fon_itm{ 
+	background-image:url(producto/Bus_Item.png); 
+	height:28px; 
+}
+
+#toda_la_bus{
+	position:absolute; 
+	left:10px; 
+	top:0px; 
+	z-index:3; 	
+}
+
+#toda_la_busC{
+	position:absolute; 
+	left:10px; 
+	top:0px; 	
+}
+
+#Anterior_Pro{
+	position:absolute;
+	left:412px; 
+	top:21px;
+}
+
+#Siguiente_Pro{
+	position:absolute;
+	left:412px; 
+	top:229px;
+}
+
+#mostrar{ 
+	display:none; 
+	position:absolute; 
+	left:325px; 
+	top:97px; 
+	z-index:1; 
+}
+
+#mostrar2{ 
+	display:none; 
+	position:absolute; 
+	left:325px; 
+	top:97px; 
+	z-index:1; 
+}
+
+#codigo{ 
+	position:absolute; 
+	left:100px; 
+	top:650px; 
+	z-index:1; 
+}
+
+#CarAyudaFon{
+	background-image:url(otros/fondoayuda.png); 
+	background-repeat:no-repeat; 
+	position:absolute;
+	display:none;
+	width:465px;
+	left:57px;
+	top:581px;
+	z-index:7;
+}
+
+#CarAyuda{
+	font-family: "TPro";
+	position:absolute;
+	display:none;
+	width:465px;
+	left:110px;
+	top:579px;
+	z-index:7;
+}
+
+#FacTotal{ 
+	display:none;
+	position:absolute; 
+	left:150px; 
+	top:358px;
+	z-index:1; 
+}
+
+#total{ 
+	background-color:transparent;
+	font-family: "TPro";
+	font-size:16px;
+	width:120px;
+	z-index:1; 
+	border:0; 
+	text-align:right;
+}
+
+.items{ 
+	background-image: url(ticket/barras.png);
+	width:246px;
+	height:28px;
+	margin:0;
+	padding:0; 
+	z-index:10; 
+	cursor:pointer; 
+	azimuth:center; 
+}
+
+#BotMins{ 
+	background-image:url(teclado/teclado_derecho.png);
+	display:none;
+	position:absolute; 
+	left:701px;
+	top:386px; 
+	height:192px;
+	width:96px; 
+	z-index:0;
+}
+
+#BotMins1{
+	background-image:url(teclado/teclado_derecho.png);
+	display:none;
+	position:absolute; 
+	left:701px;
+	top:386px;
+	height:192px;
+	width:96px; 	
+	z-index:0;
+}
+
+#BotMins2{
+	background-image:url(teclado/teclado_derecho.png);
+	display:none;
+	position:absolute; 
+	left:701px;
+	top:386px;
+	height:192px;
+	width:96px; 	
+	z-index:0;
+}
+
+#AT_efe_rec{
+	background-color:transparent;
+	font-weight:bold; 
+	width:235px; 
+	height:17px; 
+	border:0px; 
+}
+
+#AT_obs{
+	background-color:transparent;
+	font-weight:bold; 
+	width:235px; 
+	height:17px; 
+	border:0px; 
+}
+
+.ParaDiv{
+	position:absolute; 
+	font-family: "TPro";
+	font-size:16px;
+	color:#FFFFFF;
+}
+
+.ParaDiv2{ 
+	font-family: "TPro";
+	font-size:16px;
+	color:#FFFFFF;
+}
+
+.form_tick{ 
+	background-color:transparent; 
+	font-family: Arial;
+	font-size:13px;
+	height:11px;
+	color:#FFF; 
+	cursor:pointer;
+	border:0px; 
+}
+
+#Anterior_ProC{
+	position:absolute;
+	left:412px; 
+	top:21px;
+}
+
+#Siguiente_ProC{
+	position:absolute;
+	left:412px; 
+	top:199px;
+}
+
+#BotonesParaO{
+	position:absolute;
+	left:334px; 
+	top:334px;
+}
+
+
+/****************************************************************/
+/****************************************************************/
+/********************** Alert Modificado ************************/
+/****************************************************************/
+/****************************************************************/
+
+#LetEntPro { left: 390px; top: 535px; width: 80px;  height: 35px; }
+#NumVolPro { left: 747px; top: 535px; width: 80px; height: 35px; }
+
+
+/*********** FABIAN *******************/
+
+#Bloquear{ 
+	background-image:url(images/blo.png);
+	position:absolute;
+	text-align:center;
+	display:none; 
+	top:0px; 
+	left:0px; 
+	width:800px; 
+	height:600px; 
+	z-index:10;
+}
+
+#MaxMinTecladoDiv{ 
+	display:block;
+}
+
+#Confirmar{ 
+	position:absolute;
+	width:738px; 
+	height:354px;
+	left:37px; 
+	top:27px;
+}
+
+#Compras{
+	position:absolute; 
+	width:792px; 
+	height:377px;
+	left:4px; 
+	top:5px;	
+}
+
+.TituloFacCa{
+	position:absolute;
+	font-family: 'TPro'; 
+	text-align:center; 
+	font-size:16px;
+	color:#DD7927;
+	width:800px;
+	left:0px;
+	top:7px;
+	z-index:1;
+	border:0px;
+}
+
+/**************************************************************************************/
+.Sombra5{
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	
+	box-shadow:	0px 7px 7px #DD7927;
+	-o-box-shadow: 0px 7px 7px #DD7927;
+	-moz-box-shadow: 0px 7px 7px #DD7927;
+	-webkit-box-shadow:	0px 7px 7px #DD7927;
+}
+.Sombra8{
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	
+	box-shadow:	0px 7px 7px #DD7927;
+	-o-box-shadow: 0px 7px 7px #DD7927;
+	-moz-box-shadow: 0px 7px 7px #DD7927;
+	-webkit-box-shadow:	0px 7px 7px #DD7927;
+}
+.Sombra11{
+	-moz-border-radius: 11px;
+	-webkit-border-radius: 11px;
+	
+	box-shadow:	0px 7px 7px #DD7927;
+	-o-box-shadow: 0px 7px 7px #DD7927;
+	-moz-box-shadow: 0px 7px 7px #DD7927;
+	-webkit-box-shadow:	0px 7px 7px #DD7927;
+}
+.Sombra14{
+	-moz-border-radius: 14px;
+	-webkit-border-radius: 14px;
+	
+	box-shadow:	0px 7px 7px #DD7927;
+	-o-box-shadow: 0px 7px 7px #DD7927;
+	-moz-box-shadow: 0px 7px 7px #DD7927;
+	-webkit-box-shadow:	0px 7px 7px #DD7927;
+}
+.sombrabor{
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	
+	box-shadow:	0px 7px 7px #DD7927;
+	-o-box-shadow: 0px 7px 7px #DD7927;
+	-moz-box-shadow: 0px 7px 7px #DD7927;
+	-webkit-box-shadow:	0px 7px 7px #DD7927;
+}
+
+/**************************************************************************************/
+/**************************************************************************************/
+/**************************************************************************************/
+/**************************************************************************************/
+/**************************************************************************************/
+
+
+/*********** FRANCO *******************/
+
+#retiroefectivoimagen{ 
+	position:absolute; 
+	width:800px; 
+	height:600px;
+	left:37px; 
+	top:100px;
+}
+
+#retiroefectivo{
+	position:absolute;
+	width:726px; 
+	height:260px;
+	left:50px; 
+	top:130px; 
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+}
+
+#retiroefectivoboton{ 
+	position:absolute; 
+	width:726px; 
+	height:36px; 
+	top:410px; 
+	left:50px;
+}
+
+/*** FRANCO CAPRA 08-04-11  17:21 ***/
+
+.lineare1{
+	background-image:url(RetiroCaja/FonDef.png);
+	background-repeat:repeat-x;
+	cursor:pointer; 
+	font-family: "TPro";
+	height:28px;
+}
+
+.lineare2{
+	background-image:url(RetiroCaja/FonSel.png); 
+	background-repeat:repeat-x;
+	cursor:pointer;
+	font-family: "TPro";
+	height:28px;
+}
+
+#Gastos{
+	position:absolute;
+	width:726px; 
+	height:260px;
+	left:35px; 
+	top:100px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+}
+
+#TicketEM{
+	position:absolute;
+	width:780px; 
+	height:300px;
+	left:11px; 
+	top:96px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+}
+
+#Cip{
+	position:absolute;
+	left:226px; 
+	top:130px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+}
+
+#ChequesCar{
+	position:absolute;
+	width:726px; 
+	height:260px;
+	left:11px; 
+	top:96px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+}
+
+#Tarjetas{
+	position:absolute;
+	width:726px; 
+	height:260px;
+	left:11px; 
+	top:96px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:10px; 
+	z-index:1;
+}
+
+#Recuento{
+	position:absolute;
+	width:726px; 
+	height:260px;
+	left:150px; 
+	top:92px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+}
+
+#Movimientos{
+	position:absolute;
+	width:726px; 
+	height:260px;
+	left:25px; 
+	top:99px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+}
+
+#Novedades{
+	position:absolute;
+	width:726px; 
+	height:260px;
+	left:35px; 
+	top:95px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+}
+
+#Arqueo{
+	position:absolute;
+	width:726px; 
+	height:260px;
+	left:35px; 
+	top:95px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+}
+
+#TomaInv{
+	position:absolute;
+	width:726px; 
+	height:360px;
+	left:65px; 
+	top:5px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+}
+
+#CargaInv{
+	position:absolute;
+	width:726px; 
+	height:260px;
+	left:28px; 
+	top:9px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+}
+
+.BotEsc{
+	background-image:url(otros/bot.png); 
+	font-family: 'TPro'; 
+	font-size:14px; 
+	cursor:pointer;
+	color:#DD7713;
+	height:32px;
+	width:32px; 
+}
+
+.BotImg{
+	background-image:url(otros/scr_arri-up.png);
+	font-family: 'TPro'; 
+	font-size:14px; 
+	cursor:pointer;
+	color:#DD7713;
+	height:30px;
+	width:30px; 
+}
+
+#ProcesoSusp{ 
+	display:none;
+}
+
+#ProcesoSusp1{ 
+	font-family:'TPro'; 
+	position:absolute; 
+	cursor:default;
+	display:block;
+	display:none;
+	color:#00F;
+	left:180px; 
+	top:207px; 
+}
+
+#ProcesoSusp2{ 
+	font-family:'TPro'; 
+	position:absolute; 
+	cursor:default;
+	display:block;
+	display:none;
+	color:#00F;
+	left:300px; 
+	top:235px; 
+}
+
+#ProcesoSusp3{ 
+	font-family:'TPro'; 
+	position:absolute; 
+	cursor:default;
+	display:block;
+	display:none;
+	color:#00F;
+	left:300px; 
+	top:317px; 
+}
+
+#Bloquear2{ 
+	background-image:url(images/blo.png);
+	position:absolute;
+	text-align:center;
+	display:none; 
+	top:0px; 
+	left:0px; 
+	width:800px; 
+	height:600px; 
+	z-index:10;
+}
+
+.StyBoton:active{
+	position:relative;	
+	left:1px;
+	top:1px;
+	
+	-moz-box-shadow:0px 1px 0 ;
+	-webkit-box-shadow:0px 1px 0 ;
+}
+
+#ComAut{
+	position:absolute;
+	width:726px; 
+	height:260px;
+	left:28px; 
+	top:10px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+}
+
+#ComAutAce{
+	position:absolute;
+	width:592px; 
+	height:260px;
+	left:56px; 
+	top:110px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+}
+
+#ComAutPro{
+	position:absolute;
+	width:592px; 
+	height:260px;
+	left:56px; 
+	top:78px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+}
+
+#CierreTurno2{
+	position:absolute;
+	width:726px; 
+	height:392px;
+	left:11px; 
+	top:96px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+}
+
+#NaNb{
+	position:absolute;
+	width:799px; 
+	height:380px;
+	left:0px; 
+	top:0px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+}
+
+#CarAyudaFon2{
+	background-image:url(otros/fondoayuda.png); 
+	background-repeat:no-repeat; 
+	position:absolute;
+	display:none;
+	width:465px;
+	left:57px;
+	top:581px;
+	z-index:7;
+}
+
+#CarAyuda2{
+	font-family: "TPro";
+	position:absolute;
+	display:none;
+	width:465px;
+	left:110px;
+	top:579px;
+	z-index:7;
+}
+
+/*	ESTILO REDONDO	*/
+.div-redondo{
+	font-family: "TPro";
+	font-size:12px;
+	position:absolute;
+	height:13px;
+	-webkit-border-radius: 15px;
+	border-color: transparent;
+	border-style:solid;
+	border-width:3px;
+}
+
+
+
+div#Restaurant{
+	position:absolute;
+	width:799px; 
+	height:380px;
+	left:0px; 
+	top:0px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+        display: none;
+    
+}
+
+
+div#login_admin{
+	position:absolute;
+	width:799px; 
+	height:380px;
+	left:0px; 
+	top:0px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+}
+div#admin_mozos{
+	position:absolute;
+	width:799px; 
+	height:380px;
+	left:0px; 
+	top:0px;
+	font-weight:bold; 
+	color:#FFFFFF; 
+	font-size:12px; 
+	z-index:1;
+}
+
+div.active{
+    border-color: #F90;
+    
+}

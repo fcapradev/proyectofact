@@ -1,0 +1,97 @@
+.mesa_edicion{
+     background: url("../images/boton-edicion.png") no-repeat;
+}
+    
+    .mesa_pos.selected{
+        background: #bbb;
+    }
+    
+    .mesa_pos.mesa_edicion.selected_mesa{
+        border:1px solid red;
+    }
+    
+    .mesa_pos.unselected{
+        background: transparent;
+    }
+
+    #Teclado_Completo{
+        z-index: 1000;
+    }
+    
+    .capa_edicion{
+        position: absolute;
+        width: 100%;
+        height:380px;
+        background: transparent;
+        z-index: 5 !important;
+    }
+    
+    .nombre_mesa{
+        position: absolute;
+        left: 300px;
+        top:170px;
+        width: 216px;
+        height: 44px;
+        background: url(../images/ventana-mesa-num.png);
+        z-index: 6;
+    }
+    
+    .div-text{
+        position: relative;
+        left: 78px;
+        top: 20px;
+        width:130px;
+    }
+    
+    .texteca{
+        background: transparent;
+
+        width: 130px;
+        height: 15px;
+        margin-top: -2px !important;
+        border: none !important;
+;             
+    }
+    
+    span.sp_numero_mesa{
+        display: block;
+        margin-left: 6px;
+        float: left;
+        margin-top: 1px;
+        width:12px;
+        color: black;
+        text-align: center;
+    }
+    
+    
+    span.sp_nombre_mesa{
+        display: block;
+        margin-left: 6px;
+        float: left;
+        margin-top: 50px;
+        width:75px;
+        color: black;
+    }
+     
+    #btnSalirEdicionMesa{
+         position: absolute;
+         top: 520px;
+         left : 485px;
+     }
+     
+    #btnEliminar{
+         position: absolute;
+         top: 530px;
+         left : 160px;
+    }
+    #btnAgregar{
+         position: absolute;
+         top: 530px;
+         left : 260px;
+    }
+    #btnMover{
+         position: absolute;
+         top: 530px;
+         left : 360px;
+    }
+    
