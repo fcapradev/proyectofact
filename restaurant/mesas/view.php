@@ -38,12 +38,12 @@
     
     
 
-        <button onclick="agregarMesa();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btnAgregar','','botones/bot-agregar-mesa-over.png',0)"><img src="botones/bot-agregar-mesa-up.png" name="Enter" title="Enter" border="0" id="btnAgregar"/></button>
+        <button id="btnAgregarMesa" onclick="agregarMesa();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btnAgregar','','botones/bot-agregar-mesa-over.png',0)"><img src="botones/bot-agregar-mesa-up.png" name="Enter" title="Enter" border="0" id="btnAgregar"/></button>
 
-        <button onclick="eliminarMesa();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btnEliminar','','botones/eli-over.png',0)"><img src="botones/eli-up.png" name="Enter" title="Enter" border="0" id="btnEliminar"/></button>
+        <button id="btnEliminarMesa" onclick="eliminarMesa();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btnEliminar','','botones/eli-over.png',0)"><img src="botones/eli-up.png" name="Enter" title="Enter" border="0" id="btnEliminar"/></button>
 
 
-        <button onclick="moverMesa();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btnMover','','botones/bot-mover-mesa-over.png',0)"><img src="botones/bot-mover-mesa-up.png" name="Enter" title="Enter" border="0" id="btnMover"/></button>
+        <button id="btnMoverMesa" onclick="moverMesa();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btnMover','','botones/bot-mover-mesa-over.png',0)"><img src="botones/bot-mover-mesa-up.png" name="Enter" title="Enter" border="0" id="btnMover"/></button>
         <button onclick="irASalon();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btnSalirEdicionMesa','','botones/botonvolver-over.png',0)"><img src="botones/botonvolver-up.png" name="Enter" title="Enter" border="0" id="btnSalirEdicionMesa"/></button>
 
 

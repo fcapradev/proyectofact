@@ -1,6 +1,23 @@
-
+    var _panelEdicionMesa = {
+        tab : ".lista_mesa",
+        left : "left_mesa();",
+        right : "right_mesa();",
+        up : "up_mesa();",
+        down : "down_mesa();",
+        intro : "mesa_enter_edicion();",
+        insert : "agregarMesa();",
+        del : "eliminarMesa();",
+        esc : "salir_mesa();",
+        ctrl : "moverMesa();"
+    };
+    
+    var tm_edit_mesa;
  
-
+    $(".mesa_pos").mouseover(function(){
+        $(".over").removeClass("over");
+        $(this).addClass("over");
+    });
+        
     function insertarNuevo(){
 
         var numero_mesa = $("#selected_mesa").val().substr(5, ($("#selected_mesa").val().length-5));
@@ -22,10 +39,12 @@
     }
     
     function agregarMesa(){
-        $(".capa_edicion").show();
-        set_next("nombre", 15,0); 
-        replace_func("LetEnt",'insertarNuevo();guardarMesa();');  
-        $("#Teclado_Completo, #tec_num").show();
+        if ($("#btnAgregar").attr("display")!='none'){
+            $(".capa_edicion").show();
+            set_next("nombre", 15,0); 
+            replace_func("LetEnt",'insertarNuevo();guardarMesa();');  
+            $("#Teclado_Completo, #tec_num").show();
+        }
     }
     
     function guardarMesa(){
@@ -43,25 +62,27 @@
     
     
     function eliminarMesa(){
-        var numero_mesa = $("#selected_mesa").val().substr(5, ($("#selected_mesa").val().length-5));
-        var descripcion = $("#mess_"+numero_mesa+" > .sp_numero_mesa").text();        
-         $.ajax({url: "Restaurant_mesas.php", 
-                data: {eliminar: 1, numero_mesa: numero_mesa, descripcion: descripcion},
-                type: "POST", 
-                success: function(data){
-                       //borra valor anterior
-                       $("#mess_"+numero_mesa+" > .sp_numero_mesa").text("");  
-                       $("#mess_"+numero_mesa).removeClass("mesa_edicion")  ;                  
-                    
-                }
-        })   
+        if ($("#btnEliminar").attr("display")!='none'){
+            var numero_mesa = $("#selected_mesa").val().substr(5, ($("#selected_mesa").val().length-5));
+            var descripcion = $("#mess_"+numero_mesa+" > .sp_numero_mesa").text();        
+             $.ajax({url: "Restaurant_mesas.php", 
+                    data: {eliminar: 1, numero_mesa: numero_mesa, descripcion: descripcion},
+                    type: "POST", 
+                    success: function(data){
+                           //borra valor anterior
+                           $("#mess_"+numero_mesa+" > .sp_numero_mesa").text("");  
+                           $("#mess_"+numero_mesa).removeClass("mesa_edicion")  ;                  
+
+                    }
+            })               
+        }
     }
     
     function moverMesa(){
- 
-        
-        var numero_mesa = $("#selected_mesa").val().substr(5, ($("#selected_mesa").val().length-5));
-        $("#mover").val(numero_mesa);
+         if ($("#btnMover").attr("display")!="none"){
+            var numero_mesa = $("#selected_mesa").val().substr(5, ($("#selected_mesa").val().length-5));
+            $("#mover").val(numero_mesa);
+        }
     }
     
 
@@ -78,10 +99,39 @@
                 }
         })       
     }
+    
+    function mesa_enter_edicion(){
+        $(".mesa_pos.over").click();
+    }
+    
+    
+    
+    
+    function salir_mesa(){
+        jConfirm("Desea salir de edicion de mesas?","Debo Retail - Global Business Solution",function(r){
+            if (r){
+             irASalon();
+            }
+            else busqueda_escape();
+            })
+    }
+    
+    
+    
    $(document).ready(function(){
+       
+       
+       
         var $css_new = $("#ajax_css").clone();
         $css_new.attr("id", "ajax_css_2");
         $css_new.attr("href","restaurant/mesas/mesas.css");
+        
+        
+        tm_edit_mesa = new tabmanager();
+        tm_edit_mesa.add(_panelEdicionMesa);
+        tm_edit_mesa.set_tab(_panelEdicionMesa);
+        
+        
         
         $("head").append($css_new);
         $(".interna_salon").remove();

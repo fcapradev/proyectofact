@@ -1,19 +1,22 @@
     
 
-    var panel1 = {};
-    panel1.tab = ".panel_edicion";
-    panel1.up = "arriba_edicion();";
-    panel1.down = "abajo_edicion();";
-    panel1.intro = "abajo_edicion();";
-  //  panel1.esc = "salir();";
+    var _panelEdicionMozo = {
+        tab : ".panel_edicion",
+        up : "arriba_edicion();",
+        down : "abajo_edicion();",
+        intro : "abajo_edicion();",
+        esc : "salir_mozo();"
+    };
 
-    var panel2 = {};
-    panel2.insert = "#lista_mozo";
-    panel2.tab = "#lista_mozo";
-    panel2.up = "lista_edicion_mozo_up();";
-    panel2.down = "lista_edicion_mozo_down();";
-    panel2.intro = "sel_editar_mozo();";
-   // panel2.esc = "salir();";
+    var _panelListaEdicionMozo = {
+        tab : "#lista_mozo",
+        insert : "insertarNuevo();",
+        intro : "sel_editar_mozo();",
+        up : "lista_edicion_mozo_up();",
+        down : "lista_edicion_mozo_down();",
+        esc : "salir_mozo();"        
+    };
+    
     
  
     var tm_mozo;
@@ -114,7 +117,9 @@
                 $("#num").addClass("fondoNaranja");
                 $("#num").attr("disabled","true");
                 set_next(inputs_val[1]['nombre'],inputs_val[1]['max_length'],inputs_val[1]['tipo'],2);          
-            });        
+            });     
+            //tm.set_tab(_panelEdicionMozo);
+            
 
        
     }
@@ -227,10 +232,20 @@
             set_next(inputs_val[1]['nombre'],inputs_val[1]['max_length'],inputs_val[1]['tipo'],2);               
     }
 
+    function salir_mozo(){
+        jConfirm("Desea salir de edicion de mozos?","Debo Retail - Global Business Solution",function(r){
+            if (r){
+             irASalon();
+            }
+            else busqueda_escape();
+            })
+    }
+
+
    $(document).ready(function(){
         tm_mozo = new tabmanager();
-        tm_mozo.add(panel1);
-        tm_mozo.add(panel2);
+        tm_mozo.add(_panelEdicionMozo);
+        tm_mozo.add(_panelListaEdicionMozo);
         tm_mozo.get_tab();
         
 
