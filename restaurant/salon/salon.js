@@ -117,8 +117,13 @@
         esc : "salir_mozo();"
     };
 
-    var _panelMesaIconos = {
+    var _panelUnirMesas = {
         tab : ".capa_mesas_iconos",
+        left : "left_mesa_unir();",
+        right : "right_mesa_unir();",
+        up : "up_mesa_unir();",
+        down : "down_mesa_unir();",
+        intro : '$(".lista_mesa_reubicar .over").click();',        
         esc : "busqueda_escape();"
     };
     
@@ -662,6 +667,7 @@
 
     //mesas desunidas    
     function desocupar_mesa(mesa_id){
+    
         $.ajax({url:"Restaurant_salon.php", 
                data: {DESOCUPAR_MESAS: 1, nromesa: _numero_mesa, mesa :mesa_id},
                     type: "POST",
@@ -733,8 +739,9 @@
         tm.add(_panelBusqueda);
         tm.add(_panelParciales);
         tm.add(_panelSeleccionMozo);
-        tm.add(_panelMesaIconos);
+        tm.add(_panelUnirMesas);
         tm.add(_panelSalonMesas);
+
         tm.not_tab();
         tm.get_tab();
         
@@ -1314,11 +1321,20 @@
                     $(".capa_mesas_iconos").show();  
                     $("#LetTexx").parent().removeClass("active");
                     $("#LetTexx").attr("disabled","true");
-                    tm.set_tab(_panelMesaIconos);
+                   
+                    $(".mesa_pos").mouseover(function(){
+                        $(".over").removeClass("over");
+                        $(this).addClass("over");
+                    })           
+                    $("#foc").focus();
+                    
+                    //alert(_panelUnirMesas.tab);
+                    tm.set_tab(_panelUnirMesas);
                 }
             })  
     }             
              
+
      function salir(){
          
          if ($("#LetTexx").val().length == 0){

@@ -75,3 +75,72 @@ function mesa_enter(){
 function salir_mesa(){
     
 }
+
+
+
+
+function left_mesa_unir(){
+
+    if ($(".lista_mesa_reubicar .mesa_pos").length == 0 ) return;
+
+    if ($(".lista_mesa_reubicar .over").length == 0){
+        $(".lista_mesa_reubicar .mesa_pos").eq(0).addClass("over");
+    }
+
+    if ($(".lista_mesa_reubicar .over").prev().length > 0){
+        var $prev = $(".lista_mesa_reubicar .over").prev();
+        $(".over").removeClass("over");
+        $prev.addClass("over");
+    }      
+}
+
+function right_mesa_unir(){
+
+    if ($(".lista_mesa_reubicar .mesa_pos").length == 0 ) return;
+
+    if ($(".lista_mesa_reubicar .over").length == 0){
+        $(".lista_mesa_reubicar .mesa_pos").eq(0).addClass("over");
+    }
+
+    if ($(".lista_mesa_reubicar .over").next().length > 0){
+        var $next = $(".lista_mesa_reubicar .over").next();
+        $(".over").removeClass("over");
+        $next.addClass("over");
+    }      
+}
+
+function up_mesa_unir(){
+    var pos = $(".lista_mesa_reubicar .over").index();
+        
+    if ($(".lista_mesa_reubicar .mesa_pos").length == 0 ) return;
+
+    if ($(".lista_mesa_reubicar .over").length == 0){
+        $(".lista_mesa_reubicar .mesa_pos").eq(0).addClass("over");
+    }
+    
+    
+    if ($(".lista_mesa_reubicar .mesa_pos").eq(pos - 6).length > 0){
+        var $prev = $(".lista_mesa_reubicar .mesa_pos").eq(pos - 6);
+        $(".over").removeClass("over");
+        $prev.addClass("over");
+        
+    }       
+}
+
+function down_mesa_unir(){
+    var pos = $(".lista_mesa_reubicar .over").index();
+        
+    if ($(".lista_mesa_reubicar .mesa_pos").length == 0 ) return;
+
+    if ($(".lista_mesa_reubicar .over").length == 0){
+        $(".lista_mesa_reubicar .mesa_pos").eq(0).addClass("over");
+    }
+    
+    
+    if ($(".lista_mesa_reubicar .mesa_pos").eq(pos + 6).length > 0){
+        var $next = $(".lista_mesa_reubicar .mesa_pos").eq(pos + 6);
+        $(".over").removeClass("over");
+        $next.addClass("over");
+        
+    }  
+}
