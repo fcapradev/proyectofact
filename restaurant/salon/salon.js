@@ -33,44 +33,43 @@
     
     var _selected_element = {};
     
-
+    
     shortcut.add("Ctrl+E",function() {
         if ($(".lista_mesa").attr("display")!='none'){
             $("#btnEditarMesa").click();
-        }       
-    });
-    shortcut.add("Ctrl+M",function() {
-        if ($(".lista_mesa").attr("display")!='none'){
-            $("#btnEditarMozo").click();
-        }       
-    });
-    
-    
-    shortcut.add("Shift+F",function() {
-        if ($(".boton_parcial_facturar").attr("display")!='none'){
-            facturaParcialMesa();
-        }       
-    });
-    shortcut.add("Shift+E",function() {
+        } else
         if ($(".boton_parcial_seleccionar_mesa").attr("display")!='none'){
             seleccionarMesa();
         }       
     });
-    shortcut.add("Shift+U",function() {
+    shortcut.add("Ctrl+M",function() {
+        if (".lista_mesa"==tm.get_active_tab()){
+            $("#btnEditarMozo").click();
+        }/* else
+        if (".lista_productos" == tm.get_active_tab()){
+            seleccionar_mozo_init();
+        } */       
+    });
+    
+    
+    shortcut.add("Ctrl+F",function() {
+        alert(tm.get_active_tab());return;
+        if (tm.get_active_tab()==".parciales"){
+            facturaParcialMesa();
+        }       
+    });
+
+    shortcut.add("Ctrl+U",function() {
         if ($(".boton_unir_mesa").attr("display")!='none'){
             unir_mesa_init();
         }       
     });
-    shortcut.add("Shift+P",function() {
+    shortcut.add("Ctrl+P",function() {
         if ($("#btnListaParcial").attr("display")!='none'){
             mostrar_parciales();
         }        
     });
-    shortcut.add("Shift+M",function() {
-        if ($(".boton_seleccionar_mozo").attr("display")!='none'){
-            seleccionar_mozo_init();
-        }
-    });                                     
+                            
 
     
     var panel0 = {};
@@ -83,10 +82,11 @@
         down : "abajo_lista();",
         insert : "modificarItemMesa();",
         del : "eliminarItemMesa();",
-        ctrol : "marcaItemTeclado();",
+        shift : "marcaItemTeclado();",
         intro : "mostrarProductoSeleccionado();",
         esc : "salir();",
-        end : "enviarAFacTemporal();"
+        end : "enviarAFacTemporal();",
+        shortcut : {"Ctrl+M" : "seleccionar_mozo_init();"}
     };
 
 
@@ -748,6 +748,7 @@
         tm.get_tab();
         
         tm.set_tab(_panelSalonMesas);
+       
         
         $(".mesa_pos").mouseover(function(){
             $(".over").removeClass("over");
@@ -979,7 +980,8 @@
                                     numero_comprobante : _numero_comprobante},
                             url : "Restaurant_salon.php",
                             type : "post", 
-                            success: function(){
+                            success: function(datax){
+                                alert(datax);
                                 for (var i = 0 ; i < data.length; i++){
 //                                    alert( data[i].cod_seccion_lista+" - "+data[i].cod_articulo_lista+" - "+data[i].precio_lista+" - "+data[i].descripcion_lista+" - "+data[i].newcant);
                                     NUU( data[i].cod_seccion_lista ,data[i].cod_articulo_lista, data[i].precio_lista, data[i].descripcion_lista, data[i].newcant);
@@ -1156,8 +1158,8 @@
     }
     
     function busqueda_escape(){
-        if (_numero_mozo>-1){
-            tm.set_tab("default");
+        if (_numero_mozo > -1){
+            
             $("#LetTexx").removeAttr("disabled");               
 
             $(".capa_ficha_producto").html("");
@@ -1189,7 +1191,8 @@
             _bmostrar = false;
             _bediting = false;
 
-            set_next("LetTexx",30,0,2);            
+            set_next("LetTexx",30,0,2);    
+            tm.set_tab(_panelListaProducto);
         }
 
     }
@@ -1215,7 +1218,7 @@
 
     
     function mostrarProductoSeleccionado(){
-        if (!_bediting){
+        if (!_bediting && $("#LetTexx").val().length  == 0){
             _bmostrar = true;
             $(".capa_ficha_producto").load("modulo.php?modulo=ficha&codigo="+_selected_element.cod+"&seccion="+_selected_element.sec, function(){
                 $(".capa_lista_productos").html("");

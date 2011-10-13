@@ -127,7 +127,6 @@ function VolEmpresa(){
 }
 
 function Cuotas(){
-
 	var t = document.getElementById('EDat17').value;
 	if (/^([0-9])*$/.test(t)){	
 		if(t != 0){

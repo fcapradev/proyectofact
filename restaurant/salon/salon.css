@@ -209,7 +209,8 @@
     }
 
     
-    div.lista_productos{
+
+   div.lista_productos{
         position: absolute;
         width:665px;
         height:200px;
@@ -218,6 +219,7 @@
         top:100px;
         background: transparent;
     }
+
     
     
     td.marca{

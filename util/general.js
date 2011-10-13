@@ -4,7 +4,6 @@
 
 function set_next(nombre_componente, max_length, tipo, forma){
     
-    var rtn = true;
     
     $("#DondeE").val(nombre_componente);
     $("#CantiE").val(max_length);

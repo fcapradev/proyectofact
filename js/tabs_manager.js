@@ -2,6 +2,7 @@ function tabmanager(){
     var panel = [];
     var _panel;
     var _no_tab = false;
+    var _shortcut = [];
     
     var panel_default = {};
     
@@ -121,7 +122,7 @@ function tabmanager(){
              
             for (atributo in panel_tmp) {
                 
-                if (atributo!="tab"){
+                if (atributo!="tab" && atributo!="shortcut"){
                     var code = 0;
                     switch(atributo){
                         case "tab":code = 0;break;
@@ -135,12 +136,20 @@ function tabmanager(){
                         case "insert":code = 45;break;
                         case "ctrl":code = 17;break;
                         case "esc":code = 27;break;
+                        case "shift":code = 16;break;
                         default:break;
                     }                  
                     if(ev.keyCode==code){
                         eval(panel[_panel][atributo]);
-                    }                
-                   
+                    }                   
+                } else if ( atributo == "shortcut"){
+                    
+                    for (sc in panel[_panel][atributo]){ //carga shurcut   
+
+                        shortcut.add(sc,function() {
+                            eval(panel[_panel][atributo][sc]);
+                        });
+                    }
                 }
             }    
     }
@@ -151,6 +160,10 @@ function tabmanager(){
     
     this.reset = function(){
         $(document).unbind("keyup");
+    }
+    
+    this.get_active_tab = function(){
+        return panel[_panel]['tab'];
     }
 }
 

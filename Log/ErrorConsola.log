@@ -1060,3 +1060,8 @@
 2011-10-13 14:53:27 | error | E_WARNING | Division by zero | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20904 
 2011-10-13 14:53:27 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20906 
 2011-10-13 14:53:27 | error | E_WARNING | array_fill(): Number of elements must be positive | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20906 
+2011-10-13 17:47:05 | debug | debug | debug message |  
+2011-10-13 17:47:05 | debug | db | SELECT * FROM users |  
+2011-10-13 17:47:05 | error | E_WARNING | file_get_contents(oops.txt): failed to open stream: No such file or directory | \example.php:19 
+2011-10-13 17:47:05 | error | Exception | Exception with call backtrace | \example.php:20 
+2011-10-13 17:50:17 | debug | debug | holaa |  
