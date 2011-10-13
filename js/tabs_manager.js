@@ -133,6 +133,7 @@ function tabmanager(){
                         case "space":code = 32;break;
                         case "del":code = 46;break;
                         case "insert":code = 45;break;
+                        case "ctrl":code = 17;break;
                         case "esc":code = 27;break;
                         default:break;
                     }                  

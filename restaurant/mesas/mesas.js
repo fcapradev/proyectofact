@@ -82,6 +82,8 @@
          if ($("#btnMover").attr("display")!="none"){
             var numero_mesa = $("#selected_mesa").val().substr(5, ($("#selected_mesa").val().length-5));
             $("#mover").val(numero_mesa);
+            $("#btnMover").hide();
+            $("#btnEliminar").hide();
         }
     }
     
@@ -158,9 +160,7 @@
        
 
         $(".mesa_pos").click(function(){
-            $("#selected_mesa").val($(this).attr("id"));
-            
-                       
+            $("#selected_mesa").val($(this).attr("id"));            
             
             if ($(this).hasClass("mesa_edicion")){
                 $("#btnMover").show();
@@ -171,7 +171,7 @@
                 $(this).addClass("selected_mesa"); 
             }
             else{
-                
+                //si se esta moviendo
                 if ($("#mover").val()!=0){
 
                        $("#btnMover").hide();
@@ -190,6 +190,9 @@
                        
                        
                        insertarNuevo();
+                       $("#btnMover").hide();
+                       $("#btnEliminar").hide();
+                       
                 }
                 else{
                     $("#mover").val($("#mover").val());
