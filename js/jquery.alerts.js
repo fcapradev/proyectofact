@@ -111,7 +111,7 @@
 			
 			switch( type ) {
 				case 'alert':
-					$("#popup_message").after('<div id="popup_panel"><img id="popup_ok" class="jbutton" src="js/images/ace-over.png" /></div>');
+					$("#popup_message").after('<div id="popup_panel"><button  class="jbutton" id="popup_ok"><img  src="js/images/ace-over.png" /></button></div>');
 					$("#popup_ok").click( function() {
 						$.alerts._hide();
 						callback(true);

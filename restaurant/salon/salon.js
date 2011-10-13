@@ -77,39 +77,47 @@
     panel0.tab = "#Teclado_completo";
     panel0.esc = "salir();";
     
-    var panel1 = {};
-    panel1.tab = ".lista_productos";
-    panel1.up = "arriba_lista();";
-    panel1.down = "abajo_lista();";
-    panel1.insert = "modificarItemMesa();";
-    panel1.del = "eliminarItemMesa();";
-    panel1.ctrol = "marcaItemTeclado();";
-    panel1.intro = "mostrarProductoSeleccionado();";
-    panel1.esc = "salir();";
-    panel1.end = "enviarAFacTemporal();";
+    var _panelListaProducto = {
+        tab : ".lista_productos",
+        up : "arriba_lista();",
+        down : "abajo_lista();",
+        insert : "modificarItemMesa();",
+        del : "eliminarItemMesa();",
+        ctrol : "marcaItemTeclado();",
+        intro : "mostrarProductoSeleccionado();",
+        esc : "salir();",
+        end : "enviarAFacTemporal();"
+    };
 
-    var panel2 = {};
-    panel2.tab = "#tblBusqueda";
-    panel2.up = "busqueda_up();";
-    panel2.down = "busqueda_down();";
-    panel2.intro = "busqueda_enter();";
-    panel2.esc = "busqueda_escape();";
 
-    var panel3 = {};
-    panel3.tab = ".parciales";
-    panel3.up = "arriba_parciales();";
-    panel3.down = "abajo_parciales();";
-    panel3.intro = "busqueda_enter();";
-    panel3.esc = "busqueda_escape();";
+    var _panelBusqueda = {
+        tab : "#tblBusqueda",
+        up : "busqueda_up();",
+        down : "busqueda_down();",
+        intro : "busqueda_enter();",
+        esc : "busqueda_escape();"        
+    };
+    
 
-    var panel4 = {};
-    panel4.tab = ".capa_lista_mozos";
-    panel4.left = "left_mozo();";
-    panel4.right = "right_mozo();";
-    panel4.up = "up_mozo();";
-    panel4.down = "down_mozo();";
-    panel4.intro = "mozo_enter();";
-    panel4.esc = "salir_mozo();";
+    var _panelParciales = {
+        tab : ".parciales",
+        up : "arriba_parciales();",
+        down : "abajo_parciales();",
+        intro : "busqueda_enter();",
+        esc : "busqueda_escape();"        
+    }
+    
+    var _panelSeleccionMozo = {
+        tab : ".capa_lista_mozos",
+        left : "left_mozo();",
+        right : "right_mozo();",
+        up : "up_mozo();",
+        down : "down_mozo();",
+        intro : "mozo_enter();",
+        esc : "salir_mozo();"
+    }
+
+
     
     var panel5 = {};
     panel5.tab = ".capa_mesas_iconos";
@@ -173,17 +181,7 @@
         }
     }
 
-    function _jscrollshow(selector){
-        var pane = $(selector);
-        $(selector).jScrollPane({showArrows: true , arrowScrollOnHover: true, stickToBottom: true});
 
-        $(selector+' .jspArrowUp, '+selector+' .jspArrowDown').bind('mouseenter mouseleave', function() {
-          $(this).toggleClass('over');
-        });
-        
-        $_actual_scroll = pane.data('jsp');
-        return $_actual_scroll;    
-    }
     /*
      lista_productos
      **/
@@ -495,7 +493,8 @@
                         agregarItemHtml(data, _item.sector, _item.codigo, _item.detalle, _item.precio, _item.cantidad, res, 0);
                         $_scrollDetalle = _jscrollshow(".lista_productos");
                         _seleccionarProducto($("#lista_prod tr").last());
-                        $_scrollDetalle.scrollToElement($("#lista_prod tr").last());  
+                        if ($("#lista_prod tr").length > 0)
+                            $_scrollDetalle.scrollToElement($("#lista_prod tr").last());  
                         asignar_eventos_opciones_productos();
                         busqueda_escape();
                     }
@@ -573,7 +572,8 @@
                         $_scrollDetalle = _jscrollshow(".lista_productos");
                         
                         _seleccionarProducto($("#lista_prod tr").last());
-                        $_scrollDetalle.scrollToElement($("#lista_prod tr").last());     
+                        if ($("#lista_prod tr").length > 0)
+                            $_scrollDetalle.scrollToElement($("#lista_prod tr").last());     
                       
                         
                         asignar_eventos_opciones_productos();
@@ -726,10 +726,10 @@
 /*tabmanager*/        
         tm = new tabmanager();
         tm.add(panel0);
-        tm.add(panel1);
-        tm.add(panel2);
-        tm.add(panel3);
-        tm.add(panel4);
+        tm.add(_panelListaProducto);
+        tm.add(_panelBusqueda);
+        tm.add(_panelParciales);
+        tm.add(_panelSeleccionMozo);
         tm.add(panel5);
         tm.add(panel6);
         tm.not_tab();
@@ -802,7 +802,7 @@
                 
                 else if (ev.keyCode == 27 && _bmostrar) busqueda_escape();
                 else if ((ev.keyCode == 38 || ev.keyCode == 40)  && $("#tblBusqueda").length == 0 ) {
-                    tm.set_tab(".lista_productos");
+                    tm.set_tab(_panelListaProducto);
                 }
             });
                 
@@ -1087,7 +1087,7 @@
                 if ($("#cantidad_encontrado").val() > 1){
                      $(".capa_lista_productos").show(function(){
                          $_scrollBusqueda = _jscrollshow("#tblBusquedaScroll");
-                         tm.set_tab("#tblBusqueda");
+                         tm.set_tab(_panelBusqueda);
                          $(".capa_lista_productos").focus();
                        
                      });
@@ -1161,11 +1161,8 @@
         $(".lista_mesas").hide(); 
         
         
-        $(".capa_lista_mozos").hide(); 
-        
         $(".parciales").hide(); 
         $(".lista_mozos").hide();
-        $(".parciales").hide();
         
         $(".datos_mesa").show();
         $(".in_parcial").hide();
@@ -1237,7 +1234,7 @@
         
         $(".parciales").hide(); 
         $(".lista_mozos").hide();
-        $(".parciales").hide();        
+  
         
         $(".boton_seleccionar_mozo, .boton_unir_mesa").hide();
         $(".datos_mesa").hide();
@@ -1245,7 +1242,7 @@
         _bmostrar = true;
         $(".parciales").show(function(){
             $(".newcant").eq(0).focus();
-            tm.set_tab(".parciales");
+            tm.set_tab(_panelParciales);
         });
         $("#btnListaParcial").hide();
         $("#btnCerrarListaParcial").show();

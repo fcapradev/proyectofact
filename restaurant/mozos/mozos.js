@@ -5,7 +5,7 @@
     panel1.up = "arriba_edicion();";
     panel1.down = "abajo_edicion();";
     panel1.intro = "abajo_edicion();";
-    panel1.esc = "cancelar();";
+  //  panel1.esc = "salir();";
 
     var panel2 = {};
     panel2.insert = "#lista_mozo";
@@ -13,6 +13,7 @@
     panel2.up = "lista_edicion_mozo_up();";
     panel2.down = "lista_edicion_mozo_down();";
     panel2.intro = "sel_editar_mozo();";
+   // panel2.esc = "salir();";
     
  
     var tm_mozo;

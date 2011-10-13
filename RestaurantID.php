@@ -83,6 +83,7 @@ if (isset($_POST['formlogin'])){
             });
     }
    $(document).ready(function(){
+       tm.reset();
        $("#Teclado_Completo, #tec_num").show();
        
        //id del input, max_length, tipo

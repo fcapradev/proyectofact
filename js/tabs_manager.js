@@ -45,10 +45,18 @@ function tabmanager(){
         }
         else{
             for(var i = 0 ; i < panel.length ; i++){
-                if (str == panel[i]["tab"]){
-                    _panel = i;
+                if (typeof(str)== "object"){
+                    if (str.tab == panel[i]["tab"]){
+                        _panel = i;
+                    }
                 }
+                else{
+                    if (str == panel[i]["tab"]){
+                        _panel = i;
+                    }
+                }  
             }
+            
         }
         this.get_tab();   
 
@@ -70,10 +78,18 @@ function tabmanager(){
     
     this.set_active = function(str, go){
         for(var i = 0 ; i < this.panel.length ; i++){
-            if (str == this.panel[i]["tab"]){
-                this.panel[i]["active"] = true;
-                _panel = i;
+  
+            if (typeof(str)== "object"){
+                if (str.tab == panel[i]["tab"]){
+                    _panel = i;
+                }
             }
+            else{
+                if (str == panel[i]["tab"]){
+                    _panel = i;
+                }
+            }            
+            
         }
         
         if (typeof go == 'undefined' || go == false){

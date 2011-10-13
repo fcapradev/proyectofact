@@ -35,6 +35,7 @@ if(isset($_SESSION['ParFON'])){
 <!-- Agregado Federico 27/3: convierte arrays y objects js en JSON -->
 <script type="text/javascript" language="javascript" src="js/jquery.json-2.3.min.js"></script>
 <script type="text/javascript" language="javascript" src="js/tabs_manager.js"></script>
+<script type="text/javascript" language="javascript" src="js/busqueda.js"></script>
 
 <!-- Agregado Federico 27/3: scrollers -->
 <script type="text/javascript" language="javascript" src="js/jslider/jquery.jscrollpane.min.js"></script>
@@ -357,7 +358,7 @@ switch($i){
 	  $r = "CE";
 	  break;   
 	case 30:
-	  $r = "Ñ";
+	  $r = "ï¿½";
 	  break;   
 	  
 }  

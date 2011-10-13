@@ -13,7 +13,7 @@
              $_scrollMozo = _jscrollshow(".mozo_scroll");
              _bmostrar = true;
              $(".boton_seleccionar_mozo, .boton_unir_mesa, #btnListaParcial").hide();
-             tm.set_tab(".capa_lista_mozos");
+             tm.set_tab(_panelSeleccionMozo);
             $("#LetTexx").parent().removeClass("active");
             $("#LetTexx").attr("disabled","true");             
             
