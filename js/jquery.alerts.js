@@ -111,53 +111,33 @@
 			
 			switch( type ) {
 				case 'alert':
-
 					$("#popup_message").after('<div id="popup_panel"><img id="popup_ok" class="jbutton" src="js/images/ace-over.png" /></div>');
 					$("#popup_ok").click( function() {
 						$.alerts._hide();
 						callback(true);
 						clearTimeout(timer);
 					});
-					
 					$("#popup_ok").focus().keypress( function(e) {
-					
 						if( e.keyCode == 13 || e.keyCode == 27 ) $("#popup_ok").trigger('click');
-
 					});
-					
-					var k = window.event.keyCode;
-					if(k == 13){
-						
-							$.alerts._hide();
-					}
 				break;
 				case 'confirm':
-					$("#popup_message").after('<div id="popup_panel"><img id="popup_ok" class="jbutton" src="js/images/ace-over.png" /><img id="popup_cancel" class="jbutton" src="js/images/can-over.png" /></div>');
+					$("#popup_message").after('<div id="popup_panel"><button  class="jbutton" id="popup_ok"><img  src="js/images/ace-over.png" /></button><button  id="popup_cancel" class="jbutton"><img  src="js/images/can-over.png" /></button></div>');
 					$("#popup_ok").click( function() {
 						$.alerts._hide();
 						if( callback ) callback(true);
 						clearTimeout(timer);
 					});
-
 					$("#popup_cancel").click( function() {
 						$.alerts._hide();
 						if( callback ) callback(false);
 						clearTimeout(timer);
 					});
-
-					$(document).unbind("keypress");
-					$(document).bind("keypress", function(e){
+					$("#popup_ok").focus();
+					$("#popup_ok, #popup_cancel").keyup( function(e) {
 						if( e.keyCode == 13 ) $("#popup_ok").trigger('click');
 						if( e.keyCode == 27 ) $("#popup_cancel").trigger('click');
-						
-						});		
-						$(document).unbind("keypress");			
-					$("#popup_ok").focus();
-					
-				/*	$("#popup_ok, #popup_cancel").keypress( function(e) {
-						
-					});*/
-					
+					});
 				break;
 				case 'prompt':
 					$("#popup_message").append('<br /><input type="text" size="30" id="popup_prompt" />').after('<div id="popup_panel"><img id="popup_ok" class="jbutton" src="js/images/ace-over.png" /><img id="popup_cancel" class="jbutton" src="js/images/can-over.png" /></div>');
@@ -226,11 +206,8 @@
 		},
 		
 		_reposition: function() {
-			//var top = (($(window).height() / 2) - ($("#popup_container").outerHeight() / 2)) + $.alerts.verticalOffset;
-			//var left = (($(window).width() / 2) - ($("#popup_container").outerWidth() / 2)) + $.alerts.horizontalOffset;
-			var top = ((600 / 2) - ($("#popup_container").outerHeight() / 2)) + $.alerts.verticalOffset;
-			var left = ((800 / 2) - ($("#popup_container").outerWidth() / 2)) + $.alerts.horizontalOffset;
-
+			var top = (($(window).height() / 2) - ($("#popup_container").outerHeight() / 2)) + $.alerts.verticalOffset;
+			var left = (($(window).width() / 2) - ($("#popup_container").outerWidth() / 2)) + $.alerts.horizontalOffset;
 			if( top < 0 ) top = 0;
 			if( left < 0 ) left = 0;
 			

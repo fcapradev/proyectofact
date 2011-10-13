@@ -111,9 +111,12 @@ function tabmanager(){
                         case "tab":code = 0;break;
                         case "up":code = 38;break;
                         case "down":code = 40;break;
+                        case "left":code = 37;break;
+                        case "right":code = 39;break;
                         case "intro":code = 13;break;
                         case "space":code = 32;break;
                         case "del":code = 46;break;
+                        case "insert":code = 45;break;
                         case "esc":code = 27;break;
                         default:break;
                     }                  

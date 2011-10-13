@@ -1,7 +1,5 @@
     
-    var panel0 = {};
-    panel0.tab = "#Teclado_completo";
-    
+
     var panel1 = {};
     panel1.tab = ".panel_edicion";
     panel1.up = "arriba_edicion();";
@@ -10,6 +8,7 @@
     panel1.esc = "cancelar();";
 
     var panel2 = {};
+    panel2.insert = "#lista_mozo";
     panel2.tab = "#lista_mozo";
     panel2.up = "lista_edicion_mozo_up();";
     panel2.down = "lista_edicion_mozo_down();";
@@ -45,6 +44,7 @@
 
     var inputs_val = [];
     
+    var _scroll_lista_mozo_edicion = 0;
     var _selected_input = 0;
 
 
@@ -62,7 +62,7 @@
              
                 $("#lista_mozo tr").removeClass("selected_item_mozo");
                 $($prev).addClass("selected_item_mozo");
-       
+                _scroll_lista_mozo_edicion.scrollToElement($prev);
             }  
     }
     
@@ -80,6 +80,7 @@
              
                 $("#lista_mozo tr").removeClass("selected_item_mozo");
                 $($next).addClass("selected_item_mozo");
+                _scroll_lista_mozo_edicion.scrollToElement($next);
        
             }  
     }    
@@ -158,7 +159,7 @@
                        type: "POST",
                        success: function(data){
                            $("#lista_mozo").html(data, function(){
-                               _jscrollshow("#lista_mozo");
+                               _scroll_lista_mozo_edicion = _jscrollshow("#lista_mozo");
                            });
                            
                            insertarNuevo();
@@ -227,7 +228,6 @@
 
    $(document).ready(function(){
         tm_mozo = new tabmanager();
-        tm_mozo.add(panel0);
         tm_mozo.add(panel1);
         tm_mozo.add(panel2);
         tm_mozo.get_tab();
@@ -255,7 +255,7 @@
         $("#login_admin").hide("");
         $("#login_admin").html("");
  
-       _jscrollshow("#lista_mozo");
+       _scroll_lista_mozo_edicion = _jscrollshow("#lista_mozo");
        
        
        replace_button("NumVol","irASalon();", "botones/vol-up.png", "botones/vol-over.png")

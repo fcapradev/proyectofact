@@ -114,7 +114,7 @@
         border: 1px solid transparent;
         background: url("../images/bot-seleccion-mozo-up.png") no-repeat;
         width: 190px;
-        height: 25px;
+        height: 35px;
         margin-bottom: 15px;
         cursor: pointer;
     }
@@ -123,8 +123,7 @@
         background: url("../images/boton-edicion.png") no-repeat;
     }
     .item_mozo.over{
-        border: 1px solid red;
-        background: url("../images/bot-seleccion-mozo-over.png") #f1ecd8 no-repeat;
+        background: url("../images/bot-seleccion-mozo-over.png")  no-repeat;
     }
     
     
@@ -336,7 +335,7 @@
     .lblMesa{
         position: absolute;
         top: 5px;
-        left: 72px;
+        left: 80px;
         font-size: 34px;
         width:48px;
         text-align: center;
