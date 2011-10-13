@@ -46,7 +46,11 @@ if(isset($_REQUEST['dato'])){
 			$_SESSION['ParSQL'] = "SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE CODSEC = ".$SEC." AND CODART = ".$ART." AND NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND DEPSN = 1 ORDER BY DETART ASC";
 			break;
 
-		case '3':	//	BUSCA TODOS LOS ARTICULOS CON DEPOSITOS
+		case '3':	//	BUSCA TODOS LOS ARTICULOS CON DEPOSITOS Y EXIVTA > 0
+			$_SESSION['ParSQL'] = "SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE CODSEC = ".$SEC." AND CODART = ".$ART." AND NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND EXIVTA > 0 ORDER BY DETART ASC";
+			break;
+
+		case '4':	//	BUSCA TODOS LOS ARTICULOS CON DEPOSITOS Y EXIDEP > 0
 			$_SESSION['ParSQL'] = "SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE CODSEC = ".$SEC." AND CODART = ".$ART." AND NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND EXIVTA > 0 ORDER BY DETART ASC";
 			break;
 			
@@ -132,6 +136,13 @@ if(isset($_REQUEST['dato'])){
 
 
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="js/quicksearch.js"></script> 
+<title>Busca Artículos de Origen</title>
+
 <style>
 .ItemLis33{
 	background-image: url(Compras/Bus_Item.png);
@@ -154,6 +165,7 @@ if(isset($_REQUEST['dato'])){
 }
 </style>
 <script>
+Ir_a("LetTex",1,3);
 function mov_ant_fac33(p){
 
 	np = p - 1;	
@@ -171,7 +183,19 @@ function mov_sig_fac33(p){
 	
 	return false;
 }
+
+
+
+
+$(function(){
+	//$('input#LetTex').quicksearch('table#table_example tbody');
+	$('input#LetTex').quicksearch('div#Lista2 div#Lista ');
+});
 </script>
+</head>
+
+<body>
+<div id="Lista2">
 	<?
 
 	$c = 0;
@@ -201,14 +225,13 @@ function mov_sig_fac33(p){
 		}else{
 			$e = "none";
 		}
-	
 		echo "<div id=\"CapFacComB".$s."\" style=\"display:".$e."\">";
 		
 		if($s <> 1){
 			?>
 		
 			<div style="position:absolute; top:0px; left:460px;">
-				<button class="StyBoton" onclick="mov_ant_fac33(<?php echo $s; ?>)" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('AntNaNbLis','','otros/scr_arri-over.png',0)"><img src="otros/scr_arri-up.png" border="0" id="AntNaNbLis"/></button>
+				<button class="StyBoton" onClick="mov_ant_fac33(<?php echo $s; ?>)" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('AntNaNbLis','','otros/scr_arri-over.png',0)"><img src="otros/scr_arri-up.png" border="0" id="AntNaNbLis"/></button>
 			</div>
 	
 			<?
@@ -218,15 +241,17 @@ function mov_sig_fac33(p){
 	}
 	
 	?>
-	<div class="ItemLis33" onClick="enviaarticuloIzq(<? echo $PMOV_R['CODSEC']; ?>,<? echo $PMOV_R['CODART']; ?>, '<? echo $DETART; ?>', <? echo $EXIVTA; ?>, <? echo $EXIDEP; ?>, <? echo $COSTO; ?>, <? echo $CODRUB; ?>);">
-		<table width="458" border="0" cellpadding="0" cellspacing="0">
-		<tr>
-			<td width="35"><div align="center"><? echo format($PMOV_R['CODSEC'],2,'0',STR_PAD_LEFT); ?></div></td>
-            <td width="50"><div align="center"><? echo format($PMOV_R['CODART'],4,'0',STR_PAD_LEFT); ?></div></td>
-			<td width="260"><div align="left"  ><? echo $DETART; ?></div></td>
-			<td width="85"><div align="center"><? echo $COSTO; ?></div></td>
-		</tr>
-	  </table>
+	<div id="Lista" class="ItemLis33" onClick="enviaarticuloIzq(<? echo $PMOV_R['CODSEC']; ?>,<? echo $PMOV_R['CODART']; ?>, '<? echo $DETART; ?>', <? echo $EXIVTA; ?>, <? echo $EXIDEP; ?>, <? echo $COSTO; ?>, <? echo $CODRUB; ?>);">
+		<table id="table_example" width="458" border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+	            <tr>
+                    <th width="35"><div align="center"><? echo format($PMOV_R['CODSEC'],2,'0',STR_PAD_LEFT); ?></div></th>
+                    <td width="50"><div align="center"><? echo format($PMOV_R['CODART'],4,'0',STR_PAD_LEFT); ?></div></td>
+                    <td width="260"><div align="left"  ><? echo $DETART; ?></div></td>
+                    <td width="85"><div align="center"><? echo $COSTO; ?></div></td>
+                    </tr>
+			</tbody>
+		</table>
 	</div>
 	<?php
     $t = $c;
@@ -235,7 +260,7 @@ function mov_sig_fac33(p){
 		?>
 	
 		<div id="SigFacComCBid<?php echo $s; ?>" style="position:absolute; top:133px; left:460px;">
-			<button class="StyBoton" onclick="mov_sig_fac33(<?php echo $s; ?>)" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('SigNaNbLis','','otros/scr_aba-over.png',0)"><img src="otros/scr_aba-up.png" border="0" id="SigNaNbLis"/></button>
+			<button class="StyBoton" onClick="mov_sig_fac33(<?php echo $s; ?>)" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('SigNaNbLis','','otros/scr_aba-over.png',0)"><img src="otros/scr_aba-up.png" border="0" id="SigNaNbLis"/></button>
 		</div>
 		
 		</div>
@@ -261,9 +286,14 @@ if($t == 6){
 }
 
 ?>
+</div>
 <script>
 	$('#Bloquear').fadeOut(500);
 </script>
+
+</body>
+</html>
+
 <?
 
 mssql_query("commit transaction") or die("Error SQL commit");

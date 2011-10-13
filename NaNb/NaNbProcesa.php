@@ -341,7 +341,7 @@ if(isset($_REQUEST['ter'])){
 		*/
         break;
 
-    case "2":
+    case "3":
 
 ////////GUARDO SESIONES PARA PDF////////////////
 		$producto['sec'][1] = $CodOri[0]; 
@@ -352,13 +352,12 @@ if(isset($_REQUEST['ter'])){
 		$_SESSION['Producto'] = $producto; 			
 /////////////////////////////////////////////////
 	
-	////	INSERTO EN AMOVSTOC	(C)
+	////	INSERTO EN AMOVSTOC	()
 		$_SESSION['ParSQL'] = "
 		INSERT INTO AMOVSTOC (SEC,ART,FEC,CYV,TIP,TCO,PVE,NCO,ORD,CAN,PUN,COD,DTO,IMI,PLA,LUG,ANU,TIM,OPE,IMI2)
-		VALUES(".$CodOri[0].",".$CodOri[1].",getdate(),'C','B','".$tipo."',".$_SESSION['ParEMP'].",".$nco.",".$ord.",".$canDes.",".$cosDes.",".$ope.",0,0,".$PLA.",".$_SESSION['ParLUG'].",'','AV',".$ope.", 0 )";
+		VALUES(".$CodOri[0].",".$CodOri[1].",getdate(),'V','B','".$tipo."',".$_SESSION['ParEMP'].",".$nco.",".$ord.",".$canDes.",".$cosDes.",".$ope.",0,0,".$PLA.",".$_SESSION['ParLUG'].",'','VX',".$ope.", 0 )";
 		$AMOV2 = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
 		rollback($AMOV2);	
-	
 		
 			$_SESSION['ParSQL'] = "SELECT EXIVTA FROM ARTICULOS WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
 			$ARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
@@ -367,7 +366,7 @@ if(isset($_REQUEST['ter'])){
 				$exivta = $RART['EXIVTA'];
 			}
 			
-			$stock2_ori = $exivta + $canDes;
+			$stock2_ori = $exivta - $canDes;
 			
 			$_SESSION['ParSQL'] = "UPDATE ARTICULOS SET EXIVTA = ".$stock2_ori." WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
 			$UARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");

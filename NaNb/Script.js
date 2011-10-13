@@ -1281,6 +1281,47 @@ function BuscaOrigen(a){
 			
 			break 
 
+		// RETIRO A DEPOSITOS (NB)  //
+		case '4':
+			if(Sector.length == 0){
+			
+				SoloBlock("ListaSectorDiv");
+				SoloNone("Cuerpo, Pie");	
+				$('#Bloquear').fadeIn(500);				
+
+				$('#divlista').load("NaNbListaIzq.php?busca=3");
+				
+			}else{
+
+				if(a == 1){
+					
+					$("#ProductoDiv").css("border-color", "#F90");
+					$("#SectorDiv").css("border-color", "transparent");
+					
+					Ir_a("Producto",4,1);
+					
+					EnvAyuda("Ingrese el Articulo de Origen o Enter para listar.");
+				
+					document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaOrigen(2);" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv3\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv3"/></button>';
+				
+					document.getElementById('NumVol').innerHTML = '<button onclick="Vol_Sector();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';
+					
+				}else{
+					if(Articulo.length == 0){
+						SoloBlock("ListaSectorDiv");
+						SoloNone("Cuerpo, Pie");	
+						$('#Bloquear').fadeIn(500);				
+			
+						$('#divlista').load("NaNbListaIzq.php?busca=3&sec="+Sector);
+					}else{
+
+						$('#divlista').load("NaNbListaIzq.php?busca=3&dato=1&sec="+Sector+"&art="+Articulo);
+					}
+				}
+			}
+			
+			break 
+
 	}
 
 

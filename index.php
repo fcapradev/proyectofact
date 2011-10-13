@@ -359,7 +359,7 @@ switch($i){
 	  $r = "CE";
 	  break;   
 	case 30:
-	  $r = "�";
+	  $r = "Ne";
 	  break;   
 	  
 }  
