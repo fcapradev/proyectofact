@@ -51,7 +51,7 @@ if(isset($_REQUEST['dato'])){
 			break;
 
 		case '4':	//	BUSCA TODOS LOS ARTICULOS CON DEPOSITOS Y EXIDEP > 0
-			$_SESSION['ParSQL'] = "SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE CODSEC = ".$SEC." AND CODART = ".$ART." AND NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND DEPSN = 1 AND EXIVTA > 0 ORDER BY DETART ASC";
+			$_SESSION['ParSQL'] = "SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE CODSEC = ".$SEC." AND CODART = ".$ART." AND NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND DEPSN = 1 AND EXIDEP > 0 ORDER BY DETART ASC";
 			break;
 			
 	}
@@ -61,7 +61,7 @@ if(isset($_REQUEST['dato'])){
 	if(mssql_num_rows($R1TB) == 0){
 		?>
 		<script>
-			jAlert('El Artículo ingresado no existe.', 'Debo Retail - Global Business Solution');
+			jAlert('No es posible seleccionar el art&iacute;culo.', 'Debo Retail - Global Business Solution');
 		
 			document.getElementById('Producto').value = "";
 			
@@ -148,7 +148,7 @@ if(isset($_REQUEST['dato'])){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<script type="text/javascript" src="js/quicksearch.js"></script> 
+
 <title>Busca Art&iacute;culos de Origen</title>
 
 <style>
@@ -156,7 +156,8 @@ if(isset($_REQUEST['dato'])){
 	background-image: url(Compras/Bus_Item.png);
 	background-repeat:repeat-x;
 	cursor:pointer;
-	height:27px; 
+	height:27px;
+	width:485;
 	z-index:4; 
 	color:#FFF; 
 	font-family: "TPro"; 
@@ -178,6 +179,11 @@ document.getElementById("LetTex").value = "";
 
 Ir_a("LetTex",0,15);
 
+EnvAyuda("Escriba una descripción del Artículo");
+SoloNone("LetEnt");
+
+document.getElementById('NumVol').innerHTML = '<button onclick="Vol_Sector();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';
+
 function mov_ant_fac33(p){
 
 	np = p - 1;	
@@ -196,9 +202,6 @@ function mov_sig_fac33(p){
 	return false;
 }
 
-
-
-
 $(function(){
 	$('input#LetTex').quicksearch('div#Lista');
 });
@@ -206,7 +209,7 @@ $(function(){
 </head>
 
 <body>
-<div id="Lista2" style="height:161px; width:494px;">
+<div id="Lista2" style="height:161px; width:500px;">
 	<?
 
 	$c = 0;

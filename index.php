@@ -38,6 +38,8 @@ if(isset($_SESSION['ParFON'])){
 <script type="text/javascript" language="javascript" src="js/tabs_manager.js"></script>
 <script type="text/javascript" language="javascript" src="js/busqueda.js"></script>
 
+<script type="text/javascript" src="js/quicksearch.js"></script> 
+
 <!-- Agregado Federico 27/3: scrollers -->
 <script type="text/javascript" language="javascript" src="js/jslider/jquery.jscrollpane.min.js"></script>
 

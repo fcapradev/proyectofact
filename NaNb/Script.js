@@ -13,6 +13,7 @@ $(document).ready(function(){
     });
 })
 
+$("#Bot1").focus();
 
 function MsjSeleccion(a){
 	
@@ -696,13 +697,12 @@ function SelTipOper(){
 					document.getElementById("MovTip").value = 8;
 				break;
 				case 'S':
-					SoloBlock("OriDes");
-					SoloNone("Comprobante");
+					SoloBlock("LocalOrigenNB");
+					SoloNone("OriDes");
 					document.getElementById("TipoOperacion").value = document.getElementById("Op9").innerHTML;	
-					document.getElementById("TituloA").innerHTML = "Origen: Ventas";
-					document.getElementById("TituloB").innerHTML = "Destino: Otros";
-					document.getElementById("tipo").value = 3;
-					
+					document.getElementById("TituloCNB").innerHTML = "LOCAL ORIGEN";
+					document.getElementById("tipo").value = 5;
+
 					document.getElementById("MovTip").value = 9;
 				break;
 				case 'T':
@@ -920,13 +920,12 @@ function Operacion(a){
 				document.getElementById("MovTip").value = 8;
 			break;
 			case 9:
-				SoloBlock("OriDes");
-				SoloNone("Comprobante");
+				SoloBlock("LocalOrigenNB");
+				SoloNone("OriDes");
 				document.getElementById("TipoOperacion").value = document.getElementById("Op9").innerHTML;	
-				document.getElementById("TituloA").innerHTML = "Origen: Ventas";
-				document.getElementById("TituloB").innerHTML = "Destino: Otros";
-				document.getElementById("tipo").value = 3;
-				
+				document.getElementById("TituloCNB").innerHTML = "LOCAL ORIGEN";
+				document.getElementById("tipo").value = 5;
+
 				document.getElementById("MovTip").value = 9;
 			break;
 			case 10:
@@ -1181,6 +1180,23 @@ function muestrasiguiente(){
 		document.getElementById('NumVol').innerHTML = '<button onclick="VolOperacion();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';	
 	
 	}
+
+	if(n == 5){			//NB - > LOCAL
+
+		EnvAyuda("Ingrese el Local de Origen o Enter para listar.");
+		
+		$("#LocalNBDiv").css("border-color", "#F90");
+
+		SoloBlock("Cuerpo, Pie");
+		
+		Ir_a("LocalNB",4,1);
+
+		document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaLocalNB();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv3\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv3"/></button>';
+	
+		document.getElementById('NumVol').innerHTML = '<button onclick="VolOperacionNB();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';	
+	
+	}
+
 }
 
 function BuscaOrigen(a){
@@ -1323,16 +1339,180 @@ function BuscaOrigen(a){
 			
 			break 
 
+		// ROTURA VENTAS (NB)  //
+		case '5':
+
+			if(Sector.length == 0){
+			
+				SoloBlock("ListaSectorDiv");
+				SoloNone("Cuerpo, Pie");	
+				$('#Bloquear').fadeIn(500);				
+
+				$('#divlista').load("NaNbListaIzq.php?busca=3");
+				
+			}else{
+
+				if(a == 1){
+					
+					$("#ProductoDiv").css("border-color", "#F90");
+					$("#SectorDiv").css("border-color", "transparent");
+					
+					Ir_a("Producto",4,1);
+					
+					EnvAyuda("Ingrese el Articulo de Origen o Enter para listar.");
+				
+					document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaOrigen(2);" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv3\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv3"/></button>';
+				
+					document.getElementById('NumVol').innerHTML = '<button onclick="Vol_Sector();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';
+					
+				}else{
+					if(Articulo.length == 0){
+						SoloBlock("ListaSectorDiv");
+						SoloNone("Cuerpo, Pie");	
+						$('#Bloquear').fadeIn(500);				
+			
+						$('#divlista').load("NaNbListaIzq.php?busca=3&sec="+Sector);
+					}else{
+
+						$('#divlista').load("NaNbListaIzq.php?busca=3&dato=1&sec="+Sector+"&art="+Articulo);
+					}
+				}
+			}
+			
+			break 
+
+		// ROTURA DEPOSITOS (NB)  //
+		case '6':
+
+			if(Sector.length == 0){
+			
+				SoloBlock("ListaSectorDiv");
+				SoloNone("Cuerpo, Pie");	
+				$('#Bloquear').fadeIn(500);				
+
+				$('#divlista').load("NaNbListaIzq.php?busca=4");
+				
+			}else{
+
+				if(a == 1){
+					
+					$("#ProductoDiv").css("border-color", "#F90");
+					$("#SectorDiv").css("border-color", "transparent");
+					
+					Ir_a("Producto",4,1);
+					
+					EnvAyuda("Ingrese el Articulo de Origen o Enter para listar.");
+				
+					document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaOrigen(2);" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv3\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv3"/></button>';
+				
+					document.getElementById('NumVol').innerHTML = '<button onclick="Vol_Sector();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';
+					
+				}else{
+					if(Articulo.length == 0){
+						SoloBlock("ListaSectorDiv");
+						SoloNone("Cuerpo, Pie");	
+						$('#Bloquear').fadeIn(500);				
+			
+						$('#divlista').load("NaNbListaIzq.php?busca=4&sec="+Sector);
+					}else{
+
+						$('#divlista').load("NaNbListaIzq.php?busca=4&dato=1&sec="+Sector+"&art="+Articulo);
+					}
+				}
+			}
+			
+			break 
+
+		// VENCIMIENTO VENTAS (NB)  //
+		case '7':
+
+			if(Sector.length == 0){
+			
+				SoloBlock("ListaSectorDiv");
+				SoloNone("Cuerpo, Pie");	
+				$('#Bloquear').fadeIn(500);				
+
+				$('#divlista').load("NaNbListaIzq.php?busca=3");
+				
+			}else{
+
+				if(a == 1){
+					
+					$("#ProductoDiv").css("border-color", "#F90");
+					$("#SectorDiv").css("border-color", "transparent");
+					
+					Ir_a("Producto",4,1);
+					
+					EnvAyuda("Ingrese el Articulo de Origen o Enter para listar.");
+				
+					document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaOrigen(2);" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv3\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv3"/></button>';
+				
+					document.getElementById('NumVol').innerHTML = '<button onclick="Vol_Sector();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';
+					
+				}else{
+					if(Articulo.length == 0){
+						SoloBlock("ListaSectorDiv");
+						SoloNone("Cuerpo, Pie");	
+						$('#Bloquear').fadeIn(500);				
+			
+						$('#divlista').load("NaNbListaIzq.php?busca=3&sec="+Sector);
+					}else{
+
+						$('#divlista').load("NaNbListaIzq.php?busca=3&dato=1&sec="+Sector+"&art="+Articulo);
+					}
+				}
+			}
+			
+			break 
+
+		// ROTURA DEPOSITOS (NB)  //
+		case '8':
+
+			if(Sector.length == 0){
+			
+				SoloBlock("ListaSectorDiv");
+				SoloNone("Cuerpo, Pie");	
+				$('#Bloquear').fadeIn(500);				
+
+				$('#divlista').load("NaNbListaIzq.php?busca=4");
+				
+			}else{
+
+				if(a == 1){
+					
+					$("#ProductoDiv").css("border-color", "#F90");
+					$("#SectorDiv").css("border-color", "transparent");
+					
+					Ir_a("Producto",4,1);
+					
+					EnvAyuda("Ingrese el Articulo de Origen o Enter para listar.");
+				
+					document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaOrigen(2);" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv3\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv3"/></button>';
+				
+					document.getElementById('NumVol').innerHTML = '<button onclick="Vol_Sector();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';
+					
+				}else{
+					if(Articulo.length == 0){
+						SoloBlock("ListaSectorDiv");
+						SoloNone("Cuerpo, Pie");	
+						$('#Bloquear').fadeIn(500);				
+			
+						$('#divlista').load("NaNbListaIzq.php?busca=4&sec="+Sector);
+					}else{
+
+						$('#divlista').load("NaNbListaIzq.php?busca=4&dato=1&sec="+Sector+"&art="+Articulo);
+					}
+				}
+			}
+			
+			break 
+
 	}
 
 
 
 }
 
-function Listar(){
-	alert("funcion para buscar por teclado");
-	
-}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1346,7 +1526,7 @@ function BuscaLocal(){
 		SoloBlock("ListaLocalDiv");
 		SoloNone("Cuerpo, Pie");
 	
-		$('#divlistalocal').load("NaNbListaLocal.php");
+		$('#divlistalocal').load("NaNbListaLocal.php?ban=1");
 
 		document.getElementById("LetTex").value = "";
 		
@@ -1359,7 +1539,7 @@ function BuscaLocal(){
 		
 	}else{
 		
-		$('#divlistalocal').load("NaNbListaLocal.php?loc="+local);
+		$('#divlistalocal').load("NaNbListaLocal.php??ban=1&loc="+local);
 		
 	}
 	
@@ -1434,6 +1614,98 @@ function Sig_NumNota(){
 }
 
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function BuscaLocalNB(){
+	
+	var local = document.getElementById("LocalNB").value;
+	
+	if(local.length == 0){
+		
+		SoloBlock("ListaLocalDiv");
+		SoloNone("Cuerpo, Pie");
+	
+		$('#divlistalocal').load("NaNbListaLocal.php?ban=2");
+
+		document.getElementById("LetTex").value = "";
+		
+		Ir_a("LetTex",25,0);
+
+		EnvAyuda("Escriba el Local que desea encontrar y presione Enter");
+	
+		document.getElementById('LetEnt').innerHTML = '<button onclick="ListarLocal();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv"/></button>';
+
+		
+	}else{
+		
+		$('#divlistalocal').load("NaNbListaLocal.php??ban=2&loc="+local);
+		
+	}
+	
+}
+
+function envialocalNB(num,nom,dir){
+
+	SoloBlock("Cuerpo, Pie");
+	SoloNone("ListaLocalDiv");
+	
+	document.getElementById('LocalNB').value = num;
+	document.getElementById('RazonNB').value = nom;
+	document.getElementById('DireccionNB').value = dir;
+	
+	$("#LocalNBDiv").css("border-color", "transparent");
+	
+	EnvAyuda("Presione Enter para confirmar el Local.");
+
+	$("#EnterNota").focus();
+
+	document.getElementById('LetEnt').innerHTML = '<button id="EnterNota" onclick="ConfirmaLocal();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv3\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv3"/></button>';
+
+	document.getElementById('NumVol').innerHTML = '<button onclick="Vol_LocalNB();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv3\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv3"/></button>';
+
+}
+
+
+function ConfirmaLocal(){
+///////////////////////////////////////////////////////////
+	$("#SectorDiv").css("border-color", "#F90");	
+
+	SoloNone("LocalOrigenNB");
+	SoloBlock("Cuerpo, Pie, OriDes");
+	
+	document.getElementById("TituloA").innerHTML = "Origen: Otros";
+	document.getElementById("TituloB").innerHTML = "Destino: Dep&oacute;sito";		
+	
+	EnvAyuda("Ingrese el Sector de Origen o Enter para listar.");
+
+	Ir_a("Sector",2,1);
+	
+	document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaOrigen();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv3\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv3"/></button>';
+
+	document.getElementById('NumVol').innerHTML = '<button onclick="Vol_Local();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv3\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv3"/></button>';
+	
+}
+
+function Vol_Local(){
+	
+
+	$("#LocalNBDiv").css("border-color", "#F90");	
+	
+	EnvAyuda("Ingrese el Local de Origen o Enter para listar.");
+	
+	Ir_a("LocalNB",4,1);
+
+	document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaLocalNB(1);" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv3\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv3"/></button>';
+
+	document.getElementById('NumVol').innerHTML = '<button onclick="VolOperacion();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';	
+
+}
+
+
+
+
 function enviaarticuloIzq(sec, art, det, vta, dep, cost,codrub){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1446,7 +1718,7 @@ function enviaarticuloIzq(sec, art, det, vta, dep, cost,codrub){
 	var movtip = document.getElementById("MovTip").value;
 
 	SoloNone("ListaSectorDiv");
-	SoloBlock("Cuerpo, Pie");	
+	SoloBlock("Cuerpo, Pie, LetEnt");	
 
 	switch (movtip){
 
@@ -1545,7 +1817,133 @@ function enviaarticuloIzq(sec, art, det, vta, dep, cost,codrub){
 			document.getElementById('NumVol').innerHTML = '<button onclick="Vol_Sector();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv3\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv3"/></button>';
 			
 			break			 			
-		
+
+//	ROTURA VENTAS (NB)  //		
+		case '5':
+			document.getElementById("Sector").value = sec;
+			document.getElementById("Producto").value = art;
+			document.getElementById("Detalle").value = det;
+			document.getElementById("Stock").value = vta;
+			document.getElementById("StockAct").value = vta;
+
+			document.getElementById("SectorD").value = sec;
+			document.getElementById("ProductoD").value = art;
+			document.getElementById("DetalleD").value = det;
+			document.getElementById("StockD").value = vta;
+			document.getElementById("StockActD").value = vta;
+
+			ColorStock();
+						
+			document.getElementById("CostoD").value = dec(cost);
+			
+			$("#SectorDiv").css("border-color", "transparent");
+			$("#ProductoDiv").css("border-color", "transparent");
+			$("#SectorDivD").css("border-color", "#F90");
+			
+			Ir_a("SectorD",3,1);
+					
+			EnvAyuda("Ingrese el sector Destino.");
+	
+			document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaDestino(1);" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv6\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv6"/></button>';
+	
+			document.getElementById('NumVol').innerHTML = '<button onclick="Vol_Sector();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv3\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv3"/></button>';
+			
+			break
+
+//	ROTURA VENTAS (NB)  //		
+		case '6':
+			document.getElementById("Sector").value = sec;
+			document.getElementById("Producto").value = art;
+			document.getElementById("Detalle").value = det;
+			document.getElementById("Stock").value = dep;
+			document.getElementById("StockAct").value = dep;
+
+			document.getElementById("SectorD").value = sec;
+			document.getElementById("ProductoD").value = art;
+			document.getElementById("DetalleD").value = det;
+			document.getElementById("StockD").value = dep;
+			document.getElementById("StockActD").value = dep;
+
+			ColorStock();
+						
+			document.getElementById("CostoD").value = dec(cost);
+			
+			$("#SectorDiv").css("border-color", "transparent");
+			$("#ProductoDiv").css("border-color", "transparent");
+			$("#SectorDivD").css("border-color", "#F90");
+			
+			Ir_a("SectorD",3,1);
+					
+			EnvAyuda("Ingrese el sector Destino.");
+	
+			document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaDestino(1);" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv6\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv6"/></button>';
+	
+			document.getElementById('NumVol').innerHTML = '<button onclick="Vol_Sector();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv3\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv3"/></button>';
+			
+			break					
+
+//	ROTURA VENTAS (NB)  //		
+		case '7':
+			document.getElementById("Sector").value = sec;
+			document.getElementById("Producto").value = art;
+			document.getElementById("Detalle").value = det;
+			document.getElementById("Stock").value = vta;
+			document.getElementById("StockAct").value = vta;
+
+			document.getElementById("SectorD").value = sec;
+			document.getElementById("ProductoD").value = art;
+			document.getElementById("DetalleD").value = det;
+			document.getElementById("StockD").value = vta;
+			document.getElementById("StockActD").value = vta;
+
+			ColorStock();
+						
+			document.getElementById("CostoD").value = dec(cost);
+			
+			$("#SectorDiv").css("border-color", "transparent");
+			$("#ProductoDiv").css("border-color", "transparent");
+			$("#SectorDivD").css("border-color", "#F90");
+			
+			Ir_a("SectorD",3,1);
+					
+			EnvAyuda("Ingrese el sector Destino.");
+	
+			document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaDestino(1);" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv6\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv6"/></button>';
+	
+			document.getElementById('NumVol').innerHTML = '<button onclick="Vol_Sector();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv3\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv3"/></button>';
+			
+			break
+
+		case '8':
+			document.getElementById("Sector").value = sec;
+			document.getElementById("Producto").value = art;
+			document.getElementById("Detalle").value = det;
+			document.getElementById("Stock").value = dep;
+			document.getElementById("StockAct").value = dep;
+
+			document.getElementById("SectorD").value = sec;
+			document.getElementById("ProductoD").value = art;
+			document.getElementById("DetalleD").value = det;
+			document.getElementById("StockD").value = dep;
+			document.getElementById("StockActD").value = dep;
+
+			ColorStock();
+						
+			document.getElementById("CostoD").value = dec(cost);
+			
+			$("#SectorDiv").css("border-color", "transparent");
+			$("#ProductoDiv").css("border-color", "transparent");
+			$("#SectorDivD").css("border-color", "#F90");
+			
+			Ir_a("SectorD",3,1);
+					
+			EnvAyuda("Ingrese el sector Destino.");
+	
+			document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaDestino(1);" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv6\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv6"/></button>';
+	
+			document.getElementById('NumVol').innerHTML = '<button onclick="Vol_Sector();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv3\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv3"/></button>';
+			
+			break					
 		
 		case '13': 	//TRASFERIR A VENTAS
 		
@@ -1792,7 +2190,7 @@ function enviaarticuloDer(sec, art, det, vta, dep, cost,codrub){
 	var movtip = document.getElementById("MovTip").value;
 
 	SoloNone("ListaSectorDiv");
-	SoloBlock("Cuerpo, Pie");	
+	SoloBlock("Cuerpo, Pie, LetEnt");	
 
 	switch (movtip){
 
@@ -1851,7 +2249,111 @@ function enviaarticuloDer(sec, art, det, vta, dep, cost,codrub){
 			break 
 
 //	RETIRO A DEPOSITOS (NB)  //		
-		case '3':
+		case '4':
+
+			document.getElementById("SectorD").value = sec;
+			document.getElementById("ProductoD").value = art;
+			document.getElementById("DetalleD").value = det;
+			document.getElementById("StockD").value = dep;
+			document.getElementById("StockActD").value = dep;
+
+			ColorStock();
+						
+			document.getElementById("CostoD").value = dec(cost);
+			
+			$("#SectorDivD").css("border-color", "transparent");
+			$("#ProductoDivD").css("border-color", "transparent");
+			$("#CantidadDivD").css("border-color", "#F90");
+			
+			Ir_a("CantidadD",4,1);
+
+			EnvAyuda("Ingrese la cantidad a Mover.");
+		
+			document.getElementById('LetEnt').innerHTML = '<button onclick="Sig_Cantidad();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv6\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv6"/></button>';
+		
+			document.getElementById('NumVol').innerHTML = '<button onclick="Vol_SectorD();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv3\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv3"/></button>';			
+			
+			break
+
+		case '5':
+
+			document.getElementById("SectorD").value = sec;
+			document.getElementById("ProductoD").value = art;
+			document.getElementById("DetalleD").value = det;
+			document.getElementById("StockD").value = vta;
+			document.getElementById("StockActD").value = vta;
+
+			ColorStock();
+						
+			document.getElementById("CostoD").value = dec(cost);
+			
+			$("#SectorDivD").css("border-color", "transparent");
+			$("#ProductoDivD").css("border-color", "transparent");
+			$("#CantidadDivD").css("border-color", "#F90");
+			
+			Ir_a("CantidadD",4,1);
+
+			EnvAyuda("Ingrese la cantidad a Mover.");
+		
+			document.getElementById('LetEnt').innerHTML = '<button onclick="Sig_Cantidad();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv6\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv6"/></button>';
+		
+			document.getElementById('NumVol').innerHTML = '<button onclick="Vol_SectorD();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv3\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv3"/></button>';			
+			
+			break
+
+		case '6':
+
+			document.getElementById("SectorD").value = sec;
+			document.getElementById("ProductoD").value = art;
+			document.getElementById("DetalleD").value = det;
+			document.getElementById("StockD").value = dep;
+			document.getElementById("StockActD").value = dep;
+
+			ColorStock();
+						
+			document.getElementById("CostoD").value = dec(cost);
+			
+			$("#SectorDivD").css("border-color", "transparent");
+			$("#ProductoDivD").css("border-color", "transparent");
+			$("#CantidadDivD").css("border-color", "#F90");
+			
+			Ir_a("CantidadD",4,1);
+
+			EnvAyuda("Ingrese la cantidad a Mover.");
+		
+			document.getElementById('LetEnt').innerHTML = '<button onclick="Sig_Cantidad();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv6\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv6"/></button>';
+		
+			document.getElementById('NumVol').innerHTML = '<button onclick="Vol_SectorD();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv3\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv3"/></button>';			
+			
+			break
+
+		case '7':
+
+			document.getElementById("SectorD").value = sec;
+			document.getElementById("ProductoD").value = art;
+			document.getElementById("DetalleD").value = det;
+			document.getElementById("StockD").value = vta;
+			document.getElementById("StockActD").value = vta;
+
+			ColorStock();
+						
+			document.getElementById("CostoD").value = dec(cost);
+			
+			$("#SectorDivD").css("border-color", "transparent");
+			$("#ProductoDivD").css("border-color", "transparent");
+			$("#CantidadDivD").css("border-color", "#F90");
+			
+			Ir_a("CantidadD",4,1);
+
+			EnvAyuda("Ingrese la cantidad a Mover.");
+		
+			document.getElementById('LetEnt').innerHTML = '<button onclick="Sig_Cantidad();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv6\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv6"/></button>';
+		
+			document.getElementById('NumVol').innerHTML = '<button onclick="Vol_SectorD();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv3\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv3"/></button>';			
+			
+			break
+
+		case '8':
 
 			document.getElementById("SectorD").value = sec;
 			document.getElementById("ProductoD").value = art;
@@ -2140,7 +2642,7 @@ function Vol_Sector(){
 	pasa2 = 0;
 	
 	SoloNone("ListaSectorDiv");
-	SoloBlock("Cuerpo, Pie");
+	SoloBlock("Cuerpo, Pie, LetEnt");
 	
 	$("#SectorDivD").css("border-color", "transparent");
 	$("#ProductoDiv").css("border-color", "transparent");
@@ -2547,6 +3049,162 @@ function BuscaDestino(a){
 	
 			break 			
 
+		case '5':
+			if(Sector.length == 0){
+			
+				SoloBlock("ListaSectorDiv");
+				SoloNone("Cuerpo, Pie");	
+				$('#Bloquear').fadeIn(500);				
+
+				$('#divlista').load("NaNbListaDer.php?busca=1");
+				
+			}else{
+
+				if(a == 1){
+					
+					$("#ProductoDivD").css("border-color", "#F90");
+					$("#SectorDivD").css("border-color", "transparent");
+					
+					Ir_a("ProductoD",4,1);
+					
+					EnvAyuda("Ingrese el Articulo de Destino o Enter para listar.");
+				
+					document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaDestino(2);" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv3\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv3"/></button>';
+				
+					document.getElementById('NumVol').innerHTML = '<button onclick="Vol_SectorD();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';
+					
+				}else{
+					if(Articulo.length == 0){
+						SoloBlock("ListaSectorDiv");
+						SoloNone("Cuerpo, Pie");	
+						$('#Bloquear').fadeIn(500);				
+			
+						$('#divlista').load("NaNbListaDer.php?busca=1&sec="+Sector);
+					}else{
+						$('#divlista').load("NaNbListaDer.php?busca=1&dato=1&sec="+Sector+"&art="+Articulo);
+					}
+				}
+			}				
+	
+			break 			
+
+		case '6':
+			if(Sector.length == 0){
+			
+				SoloBlock("ListaSectorDiv");
+				SoloNone("Cuerpo, Pie");	
+				$('#Bloquear').fadeIn(500);				
+
+				$('#divlista').load("NaNbListaDer.php?busca=1");
+				
+			}else{
+
+				if(a == 1){
+					
+					$("#ProductoDivD").css("border-color", "#F90");
+					$("#SectorDivD").css("border-color", "transparent");
+					
+					Ir_a("ProductoD",4,1);
+					
+					EnvAyuda("Ingrese el Articulo de Destino o Enter para listar.");
+				
+					document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaDestino(2);" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv3\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv3"/></button>';
+				
+					document.getElementById('NumVol').innerHTML = '<button onclick="Vol_SectorD();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';
+					
+				}else{
+					if(Articulo.length == 0){
+						SoloBlock("ListaSectorDiv");
+						SoloNone("Cuerpo, Pie");	
+						$('#Bloquear').fadeIn(500);				
+			
+						$('#divlista').load("NaNbListaDer.php?busca=1&sec="+Sector);
+					}else{
+						$('#divlista').load("NaNbListaDer.php?busca=1&dato=1&sec="+Sector+"&art="+Articulo);
+					}
+				}
+			}				
+	
+			break 			
+
+		case '7':
+			if(Sector.length == 0){
+			
+				SoloBlock("ListaSectorDiv");
+				SoloNone("Cuerpo, Pie");	
+				$('#Bloquear').fadeIn(500);				
+
+				$('#divlista').load("NaNbListaDer.php?busca=1");
+				
+			}else{
+
+				if(a == 1){
+					
+					$("#ProductoDivD").css("border-color", "#F90");
+					$("#SectorDivD").css("border-color", "transparent");
+					
+					Ir_a("ProductoD",4,1);
+					
+					EnvAyuda("Ingrese el Articulo de Destino o Enter para listar.");
+				
+					document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaDestino(2);" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv3\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv3"/></button>';
+				
+					document.getElementById('NumVol').innerHTML = '<button onclick="Vol_SectorD();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';
+					
+				}else{
+					if(Articulo.length == 0){
+						SoloBlock("ListaSectorDiv");
+						SoloNone("Cuerpo, Pie");	
+						$('#Bloquear').fadeIn(500);				
+			
+						$('#divlista').load("NaNbListaDer.php?busca=1&sec="+Sector);
+					}else{
+						$('#divlista').load("NaNbListaDer.php?busca=1&dato=1&sec="+Sector+"&art="+Articulo);
+					}
+				}
+			}				
+	
+			break 			
+
+		case '8':
+			if(Sector.length == 0){
+			
+				SoloBlock("ListaSectorDiv");
+				SoloNone("Cuerpo, Pie");	
+				$('#Bloquear').fadeIn(500);				
+
+				$('#divlista').load("NaNbListaDer.php?busca=1");
+				
+			}else{
+
+				if(a == 1){
+					
+					$("#ProductoDivD").css("border-color", "#F90");
+					$("#SectorDivD").css("border-color", "transparent");
+					
+					Ir_a("ProductoD",4,1);
+					
+					EnvAyuda("Ingrese el Articulo de Destino o Enter para listar.");
+				
+					document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaDestino(2);" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv3\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv3"/></button>';
+				
+					document.getElementById('NumVol').innerHTML = '<button onclick="Vol_SectorD();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';
+					
+				}else{
+					if(Articulo.length == 0){
+						SoloBlock("ListaSectorDiv");
+						SoloNone("Cuerpo, Pie");	
+						$('#Bloquear').fadeIn(500);				
+			
+						$('#divlista').load("NaNbListaDer.php?busca=1&sec="+Sector);
+					}else{
+						$('#divlista').load("NaNbListaDer.php?busca=1&dato=1&sec="+Sector+"&art="+Articulo);
+					}
+				}
+			}				
+	
+			break 			
+
 		case '14': 	//DEPOSITO -> VENTAS
 			if (art == '') {
 				SoloBlock("ListaSectorDiv");
@@ -2601,6 +3259,7 @@ function BuscaDestino(a){
 function Vol_SectorD(){
 	
 	SoloNone("ListaSectorDiv");
+	SoloBlock("Cuerpo, Pie, LetEnt");
 		
 	$("#ProductoDivD").css("border-color", "transparent");
 	$("#CantidadDivD").css("border-color", "transparent");
@@ -2652,6 +3311,38 @@ function Sig_Cantidad(){
 				break 
 				
 			case '4':
+				
+				var total = parseFloat(stockD) - parseInt(cant);
+				document.getElementById("StockD").value = total;
+				ColorStock();
+				
+				break
+
+			case '5':
+				
+				var total = parseFloat(stockD) - parseInt(cant);
+				document.getElementById("StockD").value = total;
+				ColorStock();
+				
+				break
+				
+			case '6':
+				
+				var total = parseFloat(stockD) - parseInt(cant);
+				document.getElementById("StockD").value = total;
+				ColorStock();
+				
+				break
+
+			case '7':
+				
+				var total = parseFloat(stockD) - parseInt(cant);
+				document.getElementById("StockD").value = total;
+				ColorStock();
+				
+				break
+
+			case '8':
 				
 				var total = parseFloat(stockD) - parseInt(cant);
 				document.getElementById("StockD").value = total;
@@ -2914,7 +3605,7 @@ function TerminarNota(){
 	var Destino;
 	
 	switch (movtip){
-		case '2': 	
+		case '2':
 			Origen = "Ventas";
 			Destino = "Depósitos";
 			break 
@@ -2924,6 +3615,31 @@ function TerminarNota(){
 			Destino = "Retiro Vtas.";
 			break 			
 
+		case '4': 	
+			Origen = "Depósitos";
+			Destino = "Retiro Dep.";
+			break 			
+
+		case '5': 	
+			Origen = "Ventas";
+			Destino = "Rotura";
+			break 			
+
+		case '6': 	
+			Origen = "Depósitos";
+			Destino = "Rotura";
+			break
+
+		case '7': 	
+			Origen = "Ventas";
+			Destino = "Vencimientos";
+			break 			
+
+		case '8': 	
+			Origen = "Depósitos";
+			Destino = "Vencimientos";
+			break
+			
 		case '13': 	
 			Origen = "Ajuste";
 			Destino = "Ventas/Depósitos";
@@ -2972,13 +3688,33 @@ function TerminarNota(){
 				var TotD = document.getElementById("TotalDestino"+i).innerHTML;
 
 				switch (movtip){
-					case '2': 	
+					case '2': 
 						$("#archivos").load("NaNb/NaNbProcesa.php?ter=1&movtip="+movtip+"&tn="+tn+"&i="+i+"&ope="+Ope+"&co="+CodOri+"&candes="+CanD+"&cosdes="+CosD+"&cd="+CodDes);
 						break 
 						
 					case '3': 	
 						$("#archivos").load("NaNb/NaNbProcesa.php?ter=1&movtip="+movtip+"&tn="+tn+"&i="+i+"&ope="+Ope+"&co="+CodOri+"&candes="+CanD+"&cosdes="+CosD+"&cd="+CodDes);
-						break 						
+						break
+												
+					case '4':
+						$("#archivos").load("NaNb/NaNbProcesa.php?ter=1&movtip="+movtip+"&tn="+tn+"&i="+i+"&ope="+Ope+"&co="+CodOri+"&candes="+CanD+"&cosdes="+CosD+"&cd="+CodDes);
+						break
+
+					case '5':
+						$("#archivos").load("NaNb/NaNbProcesa.php?ter=1&movtip="+movtip+"&tn="+tn+"&i="+i+"&ope="+Ope+"&co="+CodOri+"&candes="+CanD+"&cosdes="+CosD+"&cd="+CodDes);
+						break
+
+					case '6':
+						$("#archivos").load("NaNb/NaNbProcesa.php?ter=1&movtip="+movtip+"&tn="+tn+"&i="+i+"&ope="+Ope+"&co="+CodOri+"&candes="+CanD+"&cosdes="+CosD+"&cd="+CodDes);
+						break
+
+					case '7':
+						$("#archivos").load("NaNb/NaNbProcesa.php?ter=1&movtip="+movtip+"&tn="+tn+"&i="+i+"&ope="+Ope+"&co="+CodOri+"&candes="+CanD+"&cosdes="+CosD+"&cd="+CodDes);
+						break
+
+					case '8':
+						$("#archivos").load("NaNb/NaNbProcesa.php?ter=1&movtip="+movtip+"&tn="+tn+"&i="+i+"&ope="+Ope+"&co="+CodOri+"&candes="+CanD+"&cosdes="+CosD+"&cd="+CodDes);
+						break
 						
 					case '13': 	
 						$("#archivos").load("NaNb/NaNbProcesa.php?ter=1&movtip="+movtip+"&tn="+tn+"&i="+i+"&ope="+Ope+"&co="+CodOri+"&candes="+CanD+"&cosdes="+CosD+"&cd="+CodDes);

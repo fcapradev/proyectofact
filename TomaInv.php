@@ -414,17 +414,17 @@ if(mssql_num_rows($TMAEFACT) <> 0){
                 <tr>
                     <td width="100">
                     <div id="Colector" style="top:20px; left:0px; display:block; z-index:3;">
-                        <button  class="StyBoton" onclick="seleccion(1);" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('BotColInv','','botones/col-over.png',0)"><img src="botones/col-up.png" name="Colector" title="Colector" border="0" id="BotColInv" /></button>
+                        <button id="Bot01" class="StyBoton" onclick="seleccion(1);" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('BotColInv','','botones/col-over.png',0)"><img src="botones/col-up.png" name="Colector" title="Colector" border="0" id="BotColInv" /></button>
                     </div>
                     </td>
                     <td width="100">
                     <div id="Manual" style=" top:20px; left:100px; display:block; z-index:3;">
-                        <button  class="StyBoton" onclick="seleccion(2);" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('BotManInv','','botones/man-over.png',0)"><img src="botones/man-up.png" name="Manual" title="Manual" border="0" id="BotManInv" /></button>
+                        <button id="Bot02" class="StyBoton" onclick="seleccion(2);" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('BotManInv','','botones/man-over.png',0)"><img src="botones/man-up.png" name="Manual" title="Manual" border="0" id="BotManInv" /></button>
                     </div>
                     </td>
                     <td width="100">
                     <div id="Salir" style=" top:20px; left:200px; display:block; z-index:3;">
-                        <button  class="StyBoton" onclick="salir_tom();" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('BotSalInv','','botones/sal-over.png',0)"><img src="botones/sal-up.png" name="Salir" title="Salir" border="0" id="BotSalInv" /></button>
+                        <button id="Bot03" class="StyBoton" onclick="salir_tom();" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('BotSalInv','','botones/sal-over.png',0)"><img src="botones/sal-up.png" name="Salir" title="Salir" border="0" id="BotSalInv" /></button>
                     </div>
                     </td>
                 </tr>

@@ -53,9 +53,9 @@ if(isset($_REQUEST['dato'])){
 	if(mssql_num_rows($R1TB) == 0){
 		?>
 		<script>
-			jAlert('El ArtÃ­culo ingresado no existe.', 'Debo Retail - Global Business Solution');
+			jAlert('No es posible seleccionar el art&iacute;culo.', 'Debo Retail - Global Business Solution');
 		
-			document.getElementById('Producto').value = "";
+			document.getElementById('ProductoD').value = "";
 			
 			Ir_a("ProductoD",4,1);
 			
@@ -122,12 +122,19 @@ if(isset($_REQUEST['dato'])){
 
 
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>Busca Art&iacute;culos de Origen</title>
 <style>
 .ItemLis33{
 	background-image: url(Compras/Bus_Item.png);
 	background-repeat:repeat-x;
 	cursor:pointer;
 	height:27px; 
+	width:461px;
 	z-index:4; 
 	color:#FFF; 
 	font-family: "TPro"; 
@@ -149,6 +156,11 @@ document.getElementById("LetTex").value = "";
 
 Ir_a("LetTex",0,15);
 
+EnvAyuda("Escriba una descripción del Artículo");
+SoloNone("LetEnt");
+
+document.getElementById('NumVol').innerHTML = '<button onclick="Vol_SectorD();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';
+
 function mov_ant_fac33(p){
 
 	np = p - 1;	
@@ -166,7 +178,16 @@ function mov_sig_fac33(p){
 	
 	return false;
 }
+
+$(function(){
+	$('input#LetTex').quicksearch('div#Lista');
+});
+
 </script>
+</head>
+<body>
+
+<div id="Lista2" style="height:161px; width:494px;">
 	<?
 
 	$c = 0;
@@ -185,32 +206,6 @@ function mov_sig_fac33(p){
 		$EXIVTA = $PMOV_R['EXIVTA'];
 		$EXIDEP = $PMOV_R['EXIDEP'];
 		$CODRUB = $PMOV_R['CODRUB'];
-		
-	++$c;
-
-
-	if ($c == 1){
-	
-		if($s == 1){
-			$e = "block";
-		}else{
-			$e = "none";
-		}
-	
-		echo "<div id=\"CapFacComB".$s."\" style=\"display:".$e."\">";
-		
-		if($s <> 1){
-			?>
-		
-			<div style="position:absolute; top:0px; left:460px;">
-				<button class="StyBoton" onclick="mov_ant_fac33(<?php echo $s; ?>)" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('AntNaNbLis','','otros/scr_arri-over.png',0)"><img src="otros/scr_arri-up.png" border="0" id="AntNaNbLis"/></button>
-			</div>
-	
-			<?
-	
-		}
-	
-	}
 	
 	?>
 	<div class="ItemLis33" onClick="enviaarticuloDer(<? echo $PMOV_R['CODSEC']; ?>,<? echo $PMOV_R['CODART']; ?>, '<? echo $DETART; ?>', <? echo $EXIVTA; ?>, <? echo $EXIDEP; ?>, <? echo $COSTO; ?>, <? echo $CODRUB; ?>);">
@@ -224,41 +219,22 @@ function mov_sig_fac33(p){
 	  </table>
 	</div>
 	<?php
-    $t = $c;
-	if ($c == 6){
-	
-		?>
-	
-		<div id="SigFacComCBid<?php echo $s; ?>" style="position:absolute; top:133px; left:460px;">
-			<button class="StyBoton" onclick="mov_sig_fac33(<?php echo $s; ?>)" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('SigNaNbLis','','otros/scr_aba-over.png',0)"><img src="otros/scr_aba-up.png" border="0" id="SigNaNbLis"/></button>
-		</div>
-		
-		</div>
-		
-		<?php
-		
-		$c = 0;
-		$s = $s + 1;
-
-	}
 			
 }
 mssql_free_result($PMOVFACT);
 
-if($t == 6){
-	?>
-    <script>
-		SoloNone('SigFacComCBid<?php echo $s - 1; ?>');
-	</script>
-    <?
-}
-
 }
 
 ?>
+</div>
+
 <script>
 	$('#Bloquear').fadeOut(500);
+	_jscrollshow("#Lista2");
 </script>
+
+</body>
+</html>
 <?
 
 mssql_query("commit transaction") or die("Error SQL commit");

@@ -213,12 +213,12 @@ mssql_query("begin transaction",$conexion) or die("Error SQL begin trans");
                 <tr align="center">
                     <td width="100">
                     <div id="TomaInventario" style="top:20px; left:0px; display:block; z-index:3;">
-                        <button  class="StyBoton" onclick="MsjSeleccion(1);" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('BotTomInv','','PanPrin/tom-inv-over.png',0)"><img src="PanPrin/tom-inv-up.png" name="Toma de Inventario" title="Toma de Inventario" border="0" id="BotTomInv" /></button>
+                        <button id="Bot1" class="StyBoton" onclick="MsjSeleccion(1);" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('BotTomInv','','PanPrin/tom-inv-over.png',0)"><img src="PanPrin/tom-inv-up.png" name="Toma de Inventario" title="Toma de Inventario" border="0" id="BotTomInv" /></button>
                     </div>
                     </td>
                     <td width="100">
                     <div id="NotaAltaBaja" style=" top:20px; left:100px; display:block; z-index:3;">
-                        <button  class="StyBoton" onclick="MsjSeleccion(2);" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('BotNaNb','','PanPrin/nanb-over.png',0)"><img src="PanPrin/nanb-up.png" name="NaNb" title="Nota Alta y Baja" border="0" id="BotNaNb" /></button>
+                        <button id="Bot2" class="StyBoton" onclick="MsjSeleccion(2);" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('BotNaNb','','PanPrin/nanb-over.png',0)"><img src="PanPrin/nanb-up.png" name="NaNb" title="Nota Alta y Baja" border="0" id="BotNaNb" /></button>
                     </div>
                     </td>
                 </tr>
@@ -414,6 +414,26 @@ mssql_query("begin transaction",$conexion) or die("Error SQL begin trans");
             </div>    
       
 
+		</div>
+
+		<div id="LocalOrigenNB" style="display:none;">
+	        <div id="TituloCNB" style="position:absolute; top:4px; left:10px; font-size:24px; font-family: 'TPro'; display:block; width:640px; text-align:center; z-index:3;"></div>
+
+            <div style="position:absolute; top:0px; left:10px;">
+                <img src="NaNb/Local Origen NB.png" />
+            </div>
+            
+            <div id="LocalNBDiv" class="div-redondo" style="position:absolute; top:51px; left:20px; width:66px; height:14px; display:block; " align="center">
+                <input class="FuenteNaNb" type="text" name="LocalNB" id="LocalNB" readonly="readonly" autocomplete="off" style="height:15px; border:0px; background-color:transparent; width:65px; text-align:center" onkeypress="return ControlLocalNB();" onkeydown="return ControlLocalNBVol();" maxlength="4" />
+            </div>
+    
+            <div id="RazonNBDiv" class="div-redondo" style="position:absolute; top:50px; left:93px; width:250px; height:14px; display:block; " align="center">
+                <input class="FuenteNaNb" type="text" name="RazonNB" id="RazonNB" readonly="readonly" autocomplete="off" style="height:15px; border:0px; background-color:transparent; width:250px; text-align:left" />
+            </div>
+        
+            <div id="DireccionNBDiv" class="div-redondo" style="position:absolute; top:50px; left:353px; width:275px; height:14px; display:block; " align="center">
+                <input class="FuenteNaNb" type="text" name="DireccionNB" id="DireccionNB" readonly="readonly" autocomplete="off" style="height:15px; border:0px; background-color:transparent; width:273px; text-align:left;" />
+            </div>
 		</div>
 
 		<div id="Comprobante" style="display:none;">

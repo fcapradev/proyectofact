@@ -8,6 +8,9 @@ try {///////////////////////////////////////////////////////////////////////////
 
 mssql_query("begin transaction",$conexion) or die("Error SQL begin trans");
 
+$BAN = $_REQUEST['ban'];
+
+
 if(isset($_REQUEST['loc'])){
 
 	$loc = $_REQUEST['loc'];
@@ -37,14 +40,24 @@ if(isset($_REQUEST['loc'])){
 		$EMP = $PMOV_R['EMP'];
 		$DIR = $PMOV_R['DIR'];
 	}
-	?>
-	<script>
 	
-		envialocal(<? echo $EMP; ?>,'<? echo trim($NOM); ?>','<? echo trim($DIR); ?>');
-
-	</script>
-	<?
-
+	if($BAN == 1){
+		?>
+		<script>
+		
+			envialocal(<? echo $EMP; ?>,'<? echo trim($NOM); ?>','<? echo trim($DIR); ?>');
+	
+		</script>
+		<?
+	}else{
+		?>
+		<script>
+		
+			envialocalNB(<? echo $EMP; ?>,'<? echo trim($NOM); ?>','<? echo trim($DIR); ?>');
+	
+		</script>
+		<?		
+	}
 }else{
 
 ?>
@@ -130,9 +143,16 @@ function mov_sig_fac33(p){
 		}
 	
 	}
-	
+	if($BAN == 1){
 	?>
-	<div class="ItemLis33" onClick="envialocal(<? echo $EMP; ?>,'<? echo trim($NOM); ?>','<? echo trim($DIR); ?>');">
+		<div class="ItemLis33" onClick="envialocal(<? echo $EMP; ?>,'<? echo trim($NOM); ?>','<? echo trim($DIR); ?>');">
+    <?
+	}else{
+	?>
+    	<div class="ItemLis33" onClick="envialocalNB(<? echo $EMP; ?>,'<? echo trim($NOM); ?>','<? echo trim($DIR); ?>');">
+    <?
+	}
+	?>
 		<table width="600" border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<td width="51"><div align="center"><? echo format($EMP,4,'0',STR_PAD_LEFT); ?></div></td>

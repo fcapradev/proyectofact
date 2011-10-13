@@ -344,10 +344,10 @@ if(isset($_REQUEST['ter'])){
     case "3":
 
 ////////GUARDO SESIONES PARA PDF////////////////
-		$producto['sec'][1] = $CodOri[0]; 
-		$producto['art'][1] = $CodOri[1]; 
-		$producto['sec'][2] = $CodDes[0]; 
-		$producto['art'][2] = $CodDes[1]; 
+		$producto['sec'][1] = $CodOri[0];	//SEC
+		$producto['art'][1] = $CodOri[1]; 	//ART
+		$producto['sec'][2] = $CodDes[0]; 	//SEC
+		$producto['art'][2] = $CodDes[1]; 	//ART
 		
 		$_SESSION['Producto'] = $producto; 			
 /////////////////////////////////////////////////
@@ -374,6 +374,170 @@ if(isset($_REQUEST['ter'])){
 
         break;		
 
+    case "4":
+////////GUARDO SESIONES PARA PDF////////////////
+		$producto['sec'][1] = $CodOri[0]; 
+		$producto['art'][1] = $CodOri[1]; 
+		$producto['sec'][2] = $CodDes[0]; 
+		$producto['art'][2] = $CodDes[1]; 
+		
+		$_SESSION['Producto'] = $producto; 			
+/////////////////////////////////////////////////
+	
+	////	INSERTO EN AMOVSTOC	()
+		$_SESSION['ParSQL'] = "
+		INSERT INTO AMOVSTOC (SEC,ART,FEC,CYV,TIP,TCO,PVE,NCO,ORD,CAN,PUN,COD,DTO,IMI,PLA,LUG,ANU,TIM,OPE,IMI2)
+		VALUES(".$CodOri[0].",".$CodOri[1].",getdate(),'V','B','".$tipo."',".$_SESSION['ParEMP'].",".$nco.",".$ord.",".$canDes.",".$cosDes.",".$ope.",1,0,".$PLA.",".$_SESSION['ParLUG'].",'','DX',".$ope.", 0 )";
+		$AMOV2 = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+		rollback($AMOV2);	
+		
+			$_SESSION['ParSQL'] = "SELECT EXIDEP FROM ARTICULOS WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$ARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($ARTICULOS);		
+			while ($RART=mssql_fetch_array($ARTICULOS)){
+				$exidep = $RART['EXIDEP'];
+			}
+			
+			$stock2_ori = $exidep - $canDes;
+			
+			$_SESSION['ParSQL'] = "UPDATE ARTICULOS SET EXIDEP = ".$stock2_ori." WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$UARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($UARTICULOS);
+
+        break;		
+
+    case "5":
+
+////////GUARDO SESIONES PARA PDF////////////////
+		$producto['sec'][1] = $CodOri[0]; 
+		$producto['art'][1] = $CodOri[1]; 
+		$producto['sec'][2] = $CodDes[0]; 
+		$producto['art'][2] = $CodDes[1]; 
+		
+		$_SESSION['Producto'] = $producto; 			
+/////////////////////////////////////////////////
+	
+	////	INSERTO EN AMOVSTOC	()
+		$_SESSION['ParSQL'] = "
+		INSERT INTO AMOVSTOC (SEC,ART,FEC,CYV,TIP,TCO,PVE,NCO,ORD,CAN,PUN,COD,DTO,IMI,PLA,LUG,ANU,TIM,OPE,IMI2)
+		VALUES(".$CodOri[0].",".$CodOri[1].",getdate(),'V','B','".$tipo."',".$_SESSION['ParEMP'].",".$nco.",".$ord.",".$canDes.",".$cosDes.",".$ope.",0,0,".$PLA.",".$_SESSION['ParLUG'].",'','VR',".$ope.", 0 )";
+		$AMOV2 = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+		rollback($AMOV2);	
+		
+			$_SESSION['ParSQL'] = "SELECT EXIVTA FROM ARTICULOS WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$ARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($ARTICULOS);		
+			while ($RART=mssql_fetch_array($ARTICULOS)){
+				$exivta = $RART['EXIVTA'];
+			}
+			
+			$stock2_ori = $exivta - $canDes;
+			
+			$_SESSION['ParSQL'] = "UPDATE ARTICULOS SET EXIVTA = ".$stock2_ori." WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$UARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($UARTICULOS);
+
+        break;		
+
+    case "6":
+
+////////GUARDO SESIONES PARA PDF////////////////
+		$producto['sec'][1] = $CodOri[0]; 
+		$producto['art'][1] = $CodOri[1]; 
+		$producto['sec'][2] = $CodDes[0]; 
+		$producto['art'][2] = $CodDes[1]; 
+		
+		$_SESSION['Producto'] = $producto; 			
+/////////////////////////////////////////////////
+	
+	////	INSERTO EN AMOVSTOC	()
+		$_SESSION['ParSQL'] = "
+		INSERT INTO AMOVSTOC (SEC,ART,FEC,CYV,TIP,TCO,PVE,NCO,ORD,CAN,PUN,COD,DTO,IMI,PLA,LUG,ANU,TIM,OPE,IMI2)
+		VALUES(".$CodOri[0].",".$CodOri[1].",getdate(),'V','B','".$tipo."',".$_SESSION['ParEMP'].",".$nco.",".$ord.",".$canDes.",".$cosDes.",".$ope.",1,0,".$PLA.",".$_SESSION['ParLUG'].",'','DR',".$ope.", 0 )";
+		$AMOV2 = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+		rollback($AMOV2);	
+		
+			$_SESSION['ParSQL'] = "SELECT EXIDEP FROM ARTICULOS WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$ARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($ARTICULOS);		
+			while ($RART=mssql_fetch_array($ARTICULOS)){
+				$exidep = $RART['EXIDEP'];
+			}
+			
+			$stock2_ori = $exidep - $canDes;
+			
+			$_SESSION['ParSQL'] = "UPDATE ARTICULOS SET EXIDEP = ".$stock2_ori." WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$UARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($UARTICULOS);
+
+        break;		
+
+    case "7":
+
+////////GUARDO SESIONES PARA PDF////////////////
+		$producto['sec'][1] = $CodOri[0]; 
+		$producto['art'][1] = $CodOri[1]; 
+		$producto['sec'][2] = $CodDes[0]; 
+		$producto['art'][2] = $CodDes[1]; 
+		
+		$_SESSION['Producto'] = $producto; 			
+/////////////////////////////////////////////////
+	
+	////	INSERTO EN AMOVSTOC	()
+		$_SESSION['ParSQL'] = "
+		INSERT INTO AMOVSTOC (SEC,ART,FEC,CYV,TIP,TCO,PVE,NCO,ORD,CAN,PUN,COD,DTO,IMI,PLA,LUG,ANU,TIM,OPE,IMI2)
+		VALUES(".$CodOri[0].",".$CodOri[1].",getdate(),'V','B','".$tipo."',".$_SESSION['ParEMP'].",".$nco.",".$ord.",".$canDes.",".$cosDes.",".$ope.",0,0,".$PLA.",".$_SESSION['ParLUG'].",'','VQ',".$ope.", 0 )";
+		$AMOV2 = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+		rollback($AMOV2);	
+		
+			$_SESSION['ParSQL'] = "SELECT EXIVTA FROM ARTICULOS WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$ARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($ARTICULOS);		
+			while ($RART=mssql_fetch_array($ARTICULOS)){
+				$exivta = $RART['EXIVTA'];
+			}
+			
+			$stock2_ori = $exivta - $canDes;
+			
+			$_SESSION['ParSQL'] = "UPDATE ARTICULOS SET EXIVTA = ".$stock2_ori." WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$UARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($UARTICULOS);
+
+        break;
+
+    case "8":
+
+////////GUARDO SESIONES PARA PDF////////////////
+		$producto['sec'][1] = $CodOri[0]; 
+		$producto['art'][1] = $CodOri[1]; 
+		$producto['sec'][2] = $CodDes[0]; 
+		$producto['art'][2] = $CodDes[1]; 
+		
+		$_SESSION['Producto'] = $producto; 			
+/////////////////////////////////////////////////
+	
+	////	INSERTO EN AMOVSTOC	()
+		$_SESSION['ParSQL'] = "
+		INSERT INTO AMOVSTOC (SEC,ART,FEC,CYV,TIP,TCO,PVE,NCO,ORD,CAN,PUN,COD,DTO,IMI,PLA,LUG,ANU,TIM,OPE,IMI2)
+		VALUES(".$CodOri[0].",".$CodOri[1].",getdate(),'V','B','".$tipo."',".$_SESSION['ParEMP'].",".$nco.",".$ord.",".$canDes.",".$cosDes.",".$ope.",1,0,".$PLA.",".$_SESSION['ParLUG'].",'','DQ',".$ope.", 0 )";
+		$AMOV2 = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+		rollback($AMOV2);	
+		
+			$_SESSION['ParSQL'] = "SELECT EXIDEP FROM ARTICULOS WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$ARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($ARTICULOS);		
+			while ($RART=mssql_fetch_array($ARTICULOS)){
+				$exidep = $RART['EXIDEP'];
+			}
+			
+			$stock2_ori = $exidep - $canDes;
+			
+			$_SESSION['ParSQL'] = "UPDATE ARTICULOS SET EXIDEP = ".$stock2_ori." WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$UARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($UARTICULOS);
+
+        break;
+		
     case "13":
 	
 ////////GUARDO SESIONES PARA PDF////////////////

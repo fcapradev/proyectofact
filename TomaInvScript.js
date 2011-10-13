@@ -13,6 +13,8 @@ $(document).ready(function(){
     });
 })
 
+$("#Bot01").focus();
+
 function seleccion(a){
 
 	var comp = document.getElementById("comp").value;

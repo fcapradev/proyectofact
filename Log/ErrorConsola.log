@@ -982,3 +982,81 @@
 2011-10-13 11:29:34 | debug | debug | SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND EXIVTA > 0 ORDER BY DETART ASC |  
 2011-10-13 11:29:59 | debug | debug | SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND EXIVTA > 0 ORDER BY DETART ASC |  
 2011-10-13 11:31:18 | debug | debug | SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND EXIVTA > 0 ORDER BY DETART ASC |  
+2011-10-13 12:50:19 | error | E_NOTICE | Undefined variable: MSJ | D:\xampp\htdocs\aukon\ultimo\NaNbPDF.php:142 
+2011-10-13 12:50:19 | debug | debug | 
+		SELECT *
+		FROM AMOVSTOC  
+		WHERE TIP = 'B' AND TCO = 'NB' AND PVE = 149 AND NCO = 30  AND CYV = 'C' 
+		ORDER BY FEC DESC |  
+2011-10-13 12:50:19 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20902 
+2011-10-13 12:50:20 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20904 
+2011-10-13 12:50:20 | error | E_WARNING | Division by zero | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20904 
+2011-10-13 12:50:20 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20906 
+2011-10-13 12:50:20 | error | E_WARNING | array_fill(): Number of elements must be positive | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20906 
+2011-10-13 12:57:31 | error | E_NOTICE | Undefined variable: MSJ | D:\xampp\htdocs\aukon\ultimo\NaNbPDF.php:142 
+2011-10-13 12:57:31 | debug | debug | 
+		SELECT *
+		FROM AMOVSTOC  
+		WHERE TIP = 'B' AND TCO = 'NB' AND PVE = 149 AND NCO = 31  AND CYV = 'C' 
+		ORDER BY FEC DESC |  
+2011-10-13 12:57:31 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20902 
+2011-10-13 12:57:31 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20904 
+2011-10-13 12:57:31 | error | E_WARNING | Division by zero | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20904 
+2011-10-13 12:57:31 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20906 
+2011-10-13 12:57:31 | error | E_WARNING | array_fill(): Number of elements must be positive | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20906 
+2011-10-13 12:58:50 | debug | debug | entra |  
+2011-10-13 12:58:51 | error | E_NOTICE | Undefined variable: MSJ | D:\xampp\htdocs\aukon\ultimo\NaNbPDF.php:142 
+2011-10-13 12:58:51 | debug | debug | 
+		SELECT *
+		FROM AMOVSTOC  
+		WHERE TIP = 'B' AND TCO = 'NB' AND PVE = 149 AND NCO = 31  AND CYV = 'C' 
+		ORDER BY FEC DESC |  
+2011-10-13 12:58:51 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20902 
+2011-10-13 12:58:51 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20904 
+2011-10-13 12:58:51 | error | E_WARNING | Division by zero | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20904 
+2011-10-13 12:58:51 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20906 
+2011-10-13 12:58:51 | error | E_WARNING | array_fill(): Number of elements must be positive | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20906 
+2011-10-13 13:22:18 | error | E_NOTICE | Undefined variable: MSJ | D:\xampp\htdocs\aukon\ultimo\NaNbPDF.php:142 
+2011-10-13 13:22:18 | debug | debug | 
+		SELECT *
+		FROM AMOVSTOC  
+		WHERE TIP = 'B' AND TCO = 'NB' AND PVE = 149 AND NCO = 33  AND CYV = 'C' 
+		ORDER BY FEC DESC |  
+2011-10-13 13:22:18 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20902 
+2011-10-13 13:22:18 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20904 
+2011-10-13 13:22:18 | error | E_WARNING | Division by zero | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20904 
+2011-10-13 13:22:18 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20906 
+2011-10-13 13:22:18 | error | E_WARNING | array_fill(): Number of elements must be positive | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20906 
+2011-10-13 14:11:29 | error | E_NOTICE | Undefined variable: MSJ | D:\xampp\htdocs\aukon\ultimo\NaNbPDF.php:142 
+2011-10-13 14:11:29 | debug | debug | 
+		SELECT *
+		FROM AMOVSTOC  
+		WHERE TIP = 'B' AND TCO = 'NB' AND PVE = 149 AND NCO = 35  AND CYV = 'C' 
+		ORDER BY FEC DESC |  
+2011-10-13 14:11:29 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20902 
+2011-10-13 14:11:29 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20904 
+2011-10-13 14:11:29 | error | E_WARNING | Division by zero | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20904 
+2011-10-13 14:11:29 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20906 
+2011-10-13 14:11:29 | error | E_WARNING | array_fill(): Number of elements must be positive | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20906 
+2011-10-13 14:31:25 | error | E_NOTICE | Undefined variable: MSJ | D:\xampp\htdocs\aukon\ultimo\NaNbPDF.php:142 
+2011-10-13 14:31:25 | debug | debug | 
+		SELECT *
+		FROM AMOVSTOC  
+		WHERE TIP = 'B' AND TCO = 'NB' AND PVE = 149 AND NCO = 37  AND CYV = 'C' 
+		ORDER BY FEC DESC |  
+2011-10-13 14:31:25 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20902 
+2011-10-13 14:31:25 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20904 
+2011-10-13 14:31:25 | error | E_WARNING | Division by zero | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20904 
+2011-10-13 14:31:25 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20906 
+2011-10-13 14:31:25 | error | E_WARNING | array_fill(): Number of elements must be positive | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20906 
+2011-10-13 14:53:27 | error | E_NOTICE | Undefined variable: MSJ | D:\xampp\htdocs\aukon\ultimo\NaNbPDF.php:142 
+2011-10-13 14:53:27 | debug | debug | 
+		SELECT *
+		FROM AMOVSTOC  
+		WHERE TIP = 'B' AND TCO = 'NB' AND PVE = 149 AND NCO = 39  AND CYV = 'C' 
+		ORDER BY FEC DESC |  
+2011-10-13 14:53:27 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20902 
+2011-10-13 14:53:27 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20904 
+2011-10-13 14:53:27 | error | E_WARNING | Division by zero | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20904 
+2011-10-13 14:53:27 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20906 
+2011-10-13 14:53:27 | error | E_WARNING | array_fill(): Number of elements must be positive | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20906 
