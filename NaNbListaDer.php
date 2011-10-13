@@ -144,6 +144,11 @@ if(isset($_REQUEST['dato'])){
 }
 </style>
 <script>
+
+document.getElementById("LetTex").value = "";
+
+Ir_a("LetTex",0,15);
+
 function mov_ant_fac33(p){
 
 	np = p - 1;	

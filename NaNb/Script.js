@@ -1283,13 +1283,14 @@ function BuscaOrigen(a){
 
 		// RETIRO A DEPOSITOS (NB)  //
 		case '4':
+
 			if(Sector.length == 0){
 			
 				SoloBlock("ListaSectorDiv");
 				SoloNone("Cuerpo, Pie");	
 				$('#Bloquear').fadeIn(500);				
 
-				$('#divlista').load("NaNbListaIzq.php?busca=3");
+				$('#divlista').load("NaNbListaIzq.php?busca=4");
 				
 			}else{
 
@@ -1312,10 +1313,10 @@ function BuscaOrigen(a){
 						SoloNone("Cuerpo, Pie");	
 						$('#Bloquear').fadeIn(500);				
 			
-						$('#divlista').load("NaNbListaIzq.php?busca=3&sec="+Sector);
+						$('#divlista').load("NaNbListaIzq.php?busca=4&sec="+Sector);
 					}else{
 
-						$('#divlista').load("NaNbListaIzq.php?busca=3&dato=1&sec="+Sector+"&art="+Articulo);
+						$('#divlista').load("NaNbListaIzq.php?busca=4&dato=1&sec="+Sector+"&art="+Articulo);
 					}
 				}
 			}
@@ -1440,6 +1441,8 @@ function enviaarticuloIzq(sec, art, det, vta, dep, cost,codrub){
 ////////$("#archivos").load("NaNb/NaNbProcesa.php?act=1&sec="+sec+"&art="+art+"&codrub="+codrub);/////
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
+	document.getElementById("LetTex").value = "";
+	
 	var movtip = document.getElementById("MovTip").value;
 
 	SoloNone("ListaSectorDiv");
@@ -1479,7 +1482,7 @@ function enviaarticuloIzq(sec, art, det, vta, dep, cost,codrub){
 			
 			break 
 
-//	RETIRO A DEPOSITOS (NB)  //		
+//	RETIRO A VENTAS (NB)  //		
 		case '3':
 			document.getElementById("Sector").value = sec;
 			document.getElementById("Producto").value = art;
@@ -1509,7 +1512,39 @@ function enviaarticuloIzq(sec, art, det, vta, dep, cost,codrub){
 	
 			document.getElementById('NumVol').innerHTML = '<button onclick="Vol_Sector();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv3\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv3"/></button>';
 			
-			break 			
+			break
+
+//	RETIRO A DEPOSITOS (NB)  //		
+		case '4':
+			document.getElementById("Sector").value = sec;
+			document.getElementById("Producto").value = art;
+			document.getElementById("Detalle").value = det;
+			document.getElementById("Stock").value = dep;
+			document.getElementById("StockAct").value = dep;
+
+			document.getElementById("SectorD").value = sec;
+			document.getElementById("ProductoD").value = art;
+			document.getElementById("DetalleD").value = det;
+			document.getElementById("StockD").value = dep;
+			document.getElementById("StockActD").value = dep;
+
+			ColorStock();
+						
+			document.getElementById("CostoD").value = dec(cost);
+			
+			$("#SectorDiv").css("border-color", "transparent");
+			$("#ProductoDiv").css("border-color", "transparent");
+			$("#SectorDivD").css("border-color", "#F90");
+			
+			Ir_a("SectorD",3,1);
+					
+			EnvAyuda("Ingrese el sector Destino.");
+	
+			document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaDestino(1);" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv6\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv6"/></button>';
+	
+			document.getElementById('NumVol').innerHTML = '<button onclick="Vol_Sector();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv3\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv3"/></button>';
+			
+			break			 			
 		
 		
 		case '13': 	//TRASFERIR A VENTAS
@@ -1752,6 +1787,8 @@ function enviaarticuloDer(sec, art, det, vta, dep, cost,codrub){
 ////////$("#archivos").load("NaNb/NaNbProcesa.php?act=1&sec="+sec+"&art="+art+"&codrub="+codrub);/////
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 	
+	document.getElementById("LetTex").value = "";
+	
 	var movtip = document.getElementById("MovTip").value;
 
 	SoloNone("ListaSectorDiv");
@@ -1786,7 +1823,7 @@ function enviaarticuloDer(sec, art, det, vta, dep, cost,codrub){
 			
 			break 
 
-//	RETIRO A DEPOSITOS (NB)  //		
+//	RETIRO A VENTAS (NB)  //		
 		case '3':
 
 			document.getElementById("SectorD").value = sec;
@@ -1813,6 +1850,33 @@ function enviaarticuloDer(sec, art, det, vta, dep, cost,codrub){
 			
 			break 
 
+//	RETIRO A DEPOSITOS (NB)  //		
+		case '3':
+
+			document.getElementById("SectorD").value = sec;
+			document.getElementById("ProductoD").value = art;
+			document.getElementById("DetalleD").value = det;
+			document.getElementById("StockD").value = dep;
+			document.getElementById("StockActD").value = dep;
+
+			ColorStock();
+						
+			document.getElementById("CostoD").value = dec(cost);
+			
+			$("#SectorDivD").css("border-color", "transparent");
+			$("#ProductoDivD").css("border-color", "transparent");
+			$("#CantidadDivD").css("border-color", "#F90");
+			
+			Ir_a("CantidadD",4,1);
+
+			EnvAyuda("Ingrese la cantidad a Mover.");
+		
+			document.getElementById('LetEnt').innerHTML = '<button onclick="Sig_Cantidad();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv6\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv6"/></button>';
+		
+			document.getElementById('NumVol').innerHTML = '<button onclick="Vol_SectorD();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv3\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv3"/></button>';			
+			
+			break
+			
 		case '13': 	//TRANSFERIR A VENTAS
 			if(document.getElementById("SectorD").value.length == 0){	//BUSCA POR SECTOR
 				
@@ -2444,6 +2508,45 @@ function BuscaDestino(a){
 	
 			break 
 
+		case '4':
+			if(Sector.length == 0){
+			
+				SoloBlock("ListaSectorDiv");
+				SoloNone("Cuerpo, Pie");	
+				$('#Bloquear').fadeIn(500);				
+
+				$('#divlista').load("NaNbListaDer.php?busca=1");
+				
+			}else{
+
+				if(a == 1){
+					
+					$("#ProductoDivD").css("border-color", "#F90");
+					$("#SectorDivD").css("border-color", "transparent");
+					
+					Ir_a("ProductoD",4,1);
+					
+					EnvAyuda("Ingrese el Articulo de Destino o Enter para listar.");
+				
+					document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaDestino(2);" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv3\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv3"/></button>';
+				
+					document.getElementById('NumVol').innerHTML = '<button onclick="Vol_SectorD();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';
+					
+				}else{
+					if(Articulo.length == 0){
+						SoloBlock("ListaSectorDiv");
+						SoloNone("Cuerpo, Pie");	
+						$('#Bloquear').fadeIn(500);				
+			
+						$('#divlista').load("NaNbListaDer.php?busca=1&sec="+Sector);
+					}else{
+						$('#divlista').load("NaNbListaDer.php?busca=1&dato=1&sec="+Sector+"&art="+Articulo);
+					}
+				}
+			}				
+	
+			break 			
+
 		case '14': 	//DEPOSITO -> VENTAS
 			if (art == '') {
 				SoloBlock("ListaSectorDiv");
@@ -2536,7 +2639,6 @@ function Sig_Cantidad(){
 				document.getElementById("Stock").value = parseFloat(stock) - parseInt(cant);
 				var total = parseFloat(stockD) + parseInt(cant);
 				document.getElementById("StockD").value = total;
-				
 				ColorStock();
 				
 				break 
@@ -2545,10 +2647,17 @@ function Sig_Cantidad(){
 				
 				var total = parseFloat(stockD) - parseInt(cant);
 				document.getElementById("StockD").value = total;
-				
 				ColorStock();
 				
 				break 
+				
+			case '4':
+				
+				var total = parseFloat(stockD) - parseInt(cant);
+				document.getElementById("StockD").value = total;
+				ColorStock();
+				
+				break
 
 			case '13': 	//TRANSFERENCIA A VENTAS
 				

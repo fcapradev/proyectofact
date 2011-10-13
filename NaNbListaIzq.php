@@ -46,12 +46,12 @@ if(isset($_REQUEST['dato'])){
 			$_SESSION['ParSQL'] = "SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE CODSEC = ".$SEC." AND CODART = ".$ART." AND NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND DEPSN = 1 ORDER BY DETART ASC";
 			break;
 
-		case '3':	//	BUSCA TODOS LOS ARTICULOS CON DEPOSITOS Y EXIVTA > 0
+		case '3':	//	BUSCA TODOS LOS ARTICULOS Y EXIVTA > 0
 			$_SESSION['ParSQL'] = "SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE CODSEC = ".$SEC." AND CODART = ".$ART." AND NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND EXIVTA > 0 ORDER BY DETART ASC";
 			break;
 
 		case '4':	//	BUSCA TODOS LOS ARTICULOS CON DEPOSITOS Y EXIDEP > 0
-			$_SESSION['ParSQL'] = "SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE CODSEC = ".$SEC." AND CODART = ".$ART." AND NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND EXIVTA > 0 ORDER BY DETART ASC";
+			$_SESSION['ParSQL'] = "SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE CODSEC = ".$SEC." AND CODART = ".$ART." AND NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND DEPSN = 1 AND EXIVTA > 0 ORDER BY DETART ASC";
 			break;
 			
 	}
@@ -61,7 +61,7 @@ if(isset($_REQUEST['dato'])){
 	if(mssql_num_rows($R1TB) == 0){
 		?>
 		<script>
-			jAlert('El Artículo ingresado no existe.', 'Debo Retail - Global Business Solution');
+			jAlert('El Art�culo ingresado no existe.', 'Debo Retail - Global Business Solution');
 		
 			document.getElementById('Producto').value = "";
 			
@@ -128,20 +128,28 @@ if(isset($_REQUEST['dato'])){
 				$_SESSION['ParSQL'] = "SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE CODSEC = ".$_REQUEST['sec']." AND NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND EXIVTA > 0 ORDER BY DETART ASC";
 			}else{
 				$_SESSION['ParSQL'] = "SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND EXIVTA > 0 ORDER BY DETART ASC";
+
+			}
+			break;
+
+	//	BUSCA LOS ARTICULOS CON DEPOSITO Y EXIDEP > 0  //	
+		case '4':
+			if(isset($_REQUEST['sec'])){
+				$_SESSION['ParSQL'] = "SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE CODSEC = ".$_REQUEST['sec']." AND NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND DEPSN = 1 AND EXIDEP > 0 ORDER BY DETART ASC";
+			}else{
+				$_SESSION['ParSQL'] = "SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND DEPSN = 1 AND EXIDEP > 0 ORDER BY DETART ASC";
 			}
 			break;
 		
 	}
 
-
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <script type="text/javascript" src="js/quicksearch.js"></script> 
-<title>Busca Artículos de Origen</title>
+<title>Busca Art&iacute;culos de Origen</title>
 
 <style>
 .ItemLis33{
@@ -165,7 +173,11 @@ if(isset($_REQUEST['dato'])){
 }
 </style>
 <script>
-Ir_a("LetTex",1,3);
+
+document.getElementById("LetTex").value = "";
+
+Ir_a("LetTex",0,15);
+
 function mov_ant_fac33(p){
 
 	np = p - 1;	
@@ -188,14 +200,13 @@ function mov_sig_fac33(p){
 
 
 $(function(){
-	//$('input#LetTex').quicksearch('table#table_example tbody');
-	$('input#LetTex').quicksearch('div#Lista2 div#Lista ');
+	$('input#LetTex').quicksearch('div#Lista');
 });
 </script>
 </head>
 
 <body>
-<div id="Lista2">
+<div id="Lista2" style="height:161px; width:494px;">
 	<?
 
 	$c = 0;
@@ -218,27 +229,7 @@ $(function(){
 	++$c;
 
 
-	if ($c == 1){
 	
-		if($s == 1){
-			$e = "block";
-		}else{
-			$e = "none";
-		}
-		echo "<div id=\"CapFacComB".$s."\" style=\"display:".$e."\">";
-		
-		if($s <> 1){
-			?>
-		
-			<div style="position:absolute; top:0px; left:460px;">
-				<button class="StyBoton" onClick="mov_ant_fac33(<?php echo $s; ?>)" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('AntNaNbLis','','otros/scr_arri-over.png',0)"><img src="otros/scr_arri-up.png" border="0" id="AntNaNbLis"/></button>
-			</div>
-	
-			<?
-	
-		}
-	
-	}
 	
 	?>
 	<div id="Lista" class="ItemLis33" onClick="enviaarticuloIzq(<? echo $PMOV_R['CODSEC']; ?>,<? echo $PMOV_R['CODART']; ?>, '<? echo $DETART; ?>', <? echo $EXIVTA; ?>, <? echo $EXIDEP; ?>, <? echo $COSTO; ?>, <? echo $CODRUB; ?>);">
@@ -254,39 +245,22 @@ $(function(){
 		</table>
 	</div>
 	<?php
-    $t = $c;
-	if ($c == 6){
-	
-		?>
-	
-		<div id="SigFacComCBid<?php echo $s; ?>" style="position:absolute; top:133px; left:460px;">
-			<button class="StyBoton" onClick="mov_sig_fac33(<?php echo $s; ?>)" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('SigNaNbLis','','otros/scr_aba-over.png',0)"><img src="otros/scr_aba-up.png" border="0" id="SigNaNbLis"/></button>
-		</div>
-		
-		</div>
-		
-		<?php
-		
-		$c = 0;
-		$s = $s + 1;
 
-	}
+	
 			
 }
 mssql_free_result($PMOVFACT);
 
-if($t == 6){
-	?>
-    <script>
-		SoloNone('SigFacComCBid<?php echo $s - 1; ?>');
-	</script>
-    <?
 }
-
-}
-
 ?>
+
+
 </div>
+
+
+
+
+
 <script>
 	$('#Bloquear').fadeOut(500);
 </script>
@@ -294,8 +268,11 @@ if($t == 6){
 </body>
 </html>
 
-<?
+<script>
+	_jscrollshow("#Lista2");
+</script>
 
+<?
 mssql_query("commit transaction") or die("Error SQL commit");
 
 }catch(Exception $e){////////////////////////////////////////////////////////////////////////////////////////////////// FIN DE TRY //
@@ -309,5 +286,4 @@ mssql_query("commit transaction") or die("Error SQL commit");
 exit;
 
 }
-
 ?>
