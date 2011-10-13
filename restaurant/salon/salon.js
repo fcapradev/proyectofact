@@ -105,7 +105,7 @@
         down : "abajo_parciales();",
         intro : "busqueda_enter();",
         esc : "busqueda_escape();"        
-    }
+    };
     
     var _panelSeleccionMozo = {
         tab : ".capa_lista_mozos",
@@ -115,22 +115,25 @@
         down : "down_mozo();",
         intro : "mozo_enter();",
         esc : "salir_mozo();"
-    }
+    };
 
-
+    var _panelMesaIconos = {
+        tab : ".capa_mesas_iconos",
+        esc : "busqueda_escape();"
+    };
     
-    var panel5 = {};
-    panel5.tab = ".capa_mesas_iconos";
-    panel5.esc = "busqueda_escape();";    
+  
 
-    var panel6 = {};
-    panel6.tab = ".lista_mesa";
-    panel6.left = "left_mesa();";
-    panel6.right = "right_mesa();";
-    panel6.up = "up_mesa();";
-    panel6.down = "down_mesa();";
-    panel6.intro = "mesa_enter();";
-    panel6.esc = "SalirSalon();";    
+    var _panelSalonMesas = {
+        tab : ".lista_mesa",
+        left : "left_mesa();",
+        right : "right_mesa();",
+        up : "up_mesa();",
+        down : "down_mesa();",
+        intro : "mesa_enter();",
+        esc : "SalirSalon();"
+    };
+ 
 
     
     
@@ -730,12 +733,12 @@
         tm.add(_panelBusqueda);
         tm.add(_panelParciales);
         tm.add(_panelSeleccionMozo);
-        tm.add(panel5);
-        tm.add(panel6);
+        tm.add(_panelMesaIconos);
+        tm.add(_panelSalonMesas);
         tm.not_tab();
         tm.get_tab();
         
-        tm.set_tab(".lista_mesa");
+        tm.set_tab(_panelSalonMesas);
         
         $(".mesa_pos").mouseover(function(){
             $(".over").removeClass("over");
@@ -1293,15 +1296,6 @@
             set_next("LetTexx", 20, 0,1);        
         }
     }
-
-
-
-    
-
-    
-
-    
-
     
     function unir_mesa_init(){
         $(".boton_unir_mesa").hide();
@@ -1320,12 +1314,10 @@
                     $(".capa_mesas_iconos").show();  
                     $("#LetTexx").parent().removeClass("active");
                     $("#LetTexx").attr("disabled","true");
-                    tm.set_tab(".capa_mesas_iconos");
+                    tm.set_tab(_panelMesaIconos);
                 }
             })  
-    }
-    
-             
+    }             
              
      function salir(){
          
