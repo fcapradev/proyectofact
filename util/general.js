@@ -4,6 +4,8 @@
 
 function set_next(nombre_componente, max_length, tipo, forma){
     
+    var rtn = true;
+    
     $("#DondeE").val(nombre_componente);
     $("#CantiE").val(max_length);
     $("#QuePoE").val(tipo);
@@ -26,38 +28,32 @@ function set_next(nombre_componente, max_length, tipo, forma){
     $("#"+nombre_componente).attr("maxlength",max_length)
     $("#"+nombre_componente).focus();
     $("#"+nombre_componente).keydown(function(event){
+        
         var k = event.keyCode;
         
         switch(tipo){
-            case 0:
-                if(!((k == 32) || (k == 13) || ((k >= 65) && (k <= 90)) || ((k >= 48) && (k <= 57)) || ((k >= 96) && (k <= 122)) || special_char(k))){	//ALFANUMERICO                
-                    return false;
+            case 0://ALFANUMERICO   
+                if(!((k == 32) || (k == 13) || ((k >= 65) && (k <= 90)) || ((k >= 48) && (k <= 57)) || ((k >= 96) && (k <= 122)) || special_char(k))){	             
+                    return false
                 }
                 break;
-            case 2:
-                if(!((k == 32) || (k == 13) || ((k >= 65) && (k <= 90)) || ((k >= 96) && (k <= 122))  ||  special_char(k))){	//ALFABETICO                
-                    return false;
+            case 2://ALFABETICO     
+                if(!((k == 32) || (k == 13) || ((k >= 65) && (k <= 90)) || ((k >= 96) && (k <= 122))  ||  special_char(k))){	           
+                    return false
                 }
                 
                 break;
-            case 1:
+            case 1://NUMERICO   
                 if(!((k == 13) || ((k >= 48) && (k <= 57) || ((k >= 96) && (k <= 122))) || special_char(k))){		
-                    return false;
+                    return false
                 }
                 break;
-                
         }
-        //event.stopPropagation();
+        
+        return true;
         
     });
-    //  backspace: 8,  delete: 46,  flechas : 37 39 , 
-    function special_char(k){
-        var rtn = false;
-        if (k == 8 || k == 46|| k == 37|| k == 39)
-            rtn = true;
-        
-        return rtn;
-    }
+
     
     
     
@@ -66,6 +62,14 @@ function set_next(nombre_componente, max_length, tipo, forma){
     
 }
 
+//  backspace: 8,  delete: 46,  flechas : 37 39, escape: 27
+function special_char(k){
+    var rtn = false;
+    if (k == 8 || k == 46|| k == 37|| k == 39 || k == 27)
+        rtn = true;
+
+    return rtn;
+}
 function replace_button(id_div, str_func, img1, img2){
     $("#"+id_div+" button").removeAttr("onclick");
     $("#"+id_div+" button").unbind("click");

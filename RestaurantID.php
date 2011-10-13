@@ -1,6 +1,4 @@
 <?php
-
-
 require("config/cnx.php");
 require("util/utiles.php");
 
@@ -53,7 +51,8 @@ if (isset($_POST['formlogin'])){
     $("#restaurant_base").slideUp(200);
     function select_password(){
         set_next("psw_f", 15,0,2);
-        replace_func("LetEnt",'validar();');  
+        replace_func("LetEnt",'validar();'); 
+        replace_func("NumVol",'validar();');  
     }   
 
     function validar(){
@@ -69,7 +68,8 @@ if (isset($_POST['formlogin'])){
                         jAlert(data, 'Debo Retail - Global Business Solution', function(r){
                             if (r){
                                 set_next("usua", 15,1,2);
-                                replace_func("LetEnt",'select_password();');     
+                                replace_func("LetEnt",'select_password();');   
+                                replace_func("NumVol",'select_password();');  
                             }
                         });
                         
@@ -84,6 +84,15 @@ if (isset($_POST['formlogin'])){
     }
    $(document).ready(function(){
        tm.reset();
+       tm = new tabmanager()
+       _panel_id = {
+           tab : "#identificacion",
+           esc : "irASalon();"
+       }
+       tm.add(_panel_id);
+       tm.set_tab(_panel_id);
+       tm.get_tab(_panel_id);
+
        $("#Teclado_Completo, #tec_num").show();
        
        //id del input, max_length, tipo
@@ -91,21 +100,25 @@ if (isset($_POST['formlogin'])){
        
        //remplaza onclick del boton dentro del div (primer parametro) con funcion del segundo parametro
        replace_func("LetEnt",'select_password();');     
+       replace_func("NumVol",'select_password();');     
        
        $("#usua").keypress(function(e){
-           if (e.keyCode==13 || e.keyCode==40 || e.keyCode==38){
-               select_password();
+           if (e.keyCode==13 || e.keyCode==40 || e.keyCode==38 ){
+              select_password();
            }
+          
+          
        });
        $("#psw_f").keypress(function(e){
            if (e.keyCode==13 || e.keyCode==40 || e.keyCode==38){
                validar();
            }
        });
+       
 
    });
    
-   
+
 </script>
 
 
@@ -119,7 +132,7 @@ if (isset($_POST['formlogin'])){
 <table width="239" height="108" align="center" background="tarjetas/fonind.png" style="background-color:transparent; background-repeat:no-repeat; ">
 <tr>
 <td valign="bottom">
-    <table width="224" align="center">
+    <table width="224" align="center" id="identificacion">
    
     <tr>
     <td background="tarjetas/usua.png" style="background-repeat:no-repeat;" width="218" height="21">

@@ -587,6 +587,7 @@
                         asignar_eventos_opciones_productos();
                         
                         LetTerChange();
+                        busqueda_escape();
                     }
             });                    
     }
@@ -679,13 +680,13 @@
                             $(".lblUnidas").text(data);
                         }
                         
-                        
+                        $(".capa_mesas_iconos").html("");
+                        $(".capa_mesas_iconos").hide();              
+                        $(".lista_mesas").hide();              
+                        $(".capa_lista_mesas").hide();   
+                        busqueda_escape();
                     }
                 })     
-        $(".capa_mesas_iconos").html("");
-        $(".capa_mesas_iconos").hide();              
-        $(".lista_mesas").hide();              
-        $(".capa_lista_mesas").hide();              
     }
     
     //mesas unidas
@@ -695,12 +696,13 @@
                 type: "POST",
                 success: function(data){
                     $(".lblUnidas").text(data);                        
+                    $(".capa_mesas_iconos").html("");
+                    $(".capa_mesas_iconos").hide();    
+                    $(".lista_mesas").hide();    
+                    $(".capa_lista_mesas").hide();    
+                    busqueda_escape();
                 }
             })
-        $(".capa_mesas_iconos").html("");
-        $(".capa_mesas_iconos").hide();    
-        $(".lista_mesas").hide();    
-        $(".capa_lista_mesas").hide();    
     }    
     
     //mesa ocupada
@@ -708,19 +710,19 @@
         jConfirm('Todos los productos de esta mesa pasaran a la mesa actual', 'Debo Retail - Global Business Solution', function(r) {
             if(r){
                 $.ajax({data : {LINK_MESA : 1, 
-                        mesa_actual : _numero_mesa,
-                        mesa_source : mesa_id,
-                        numero_comprobante : _numero_comprobante},
-                url : "Restaurant_salon.php",
-                type : "post", 
-                success: function(data){
-                    $(".capa_mesas_iconos").html("");
-                    $(".capa_mesas_iconos").hide();    
-                    $(".lista_mesas").hide();    
-                    $(".capa_lista_mesas").hide();   
-                    
-                    obtenerProductosMesa();
-                }})       
+                                mesa_actual : _numero_mesa,
+                                mesa_source : mesa_id,
+                                numero_comprobante : _numero_comprobante},
+                        url : "Restaurant_salon.php",
+                        type : "post", 
+                        success: function(data){
+                            $(".capa_mesas_iconos").html("");
+                            $(".capa_mesas_iconos").hide();    
+                            $(".lista_mesas").hide();    
+                            $(".capa_lista_mesas").hide();   
+
+                            obtenerProductosMesa();
+                        }})       
 
             }
         });
@@ -1154,40 +1156,42 @@
     }
     
     function busqueda_escape(){
-        
-        tm.set_tab("default");
-        $("#LetTexx").removeAttr("disabled");               
-        
-        $(".capa_ficha_producto").html("");
-        $(".capa_ficha_producto").hide(); 
-        
-        $(".capa_lista_productos").html("");
-        $(".capa_lista_productos").hide(); 
+        if (_numero_mozo>-1){
+            tm.set_tab("default");
+            $("#LetTexx").removeAttr("disabled");               
 
-        $(".capa_mesas_iconos").html("");
-        $(".capa_mesas_iconos").hide(); 
-        
-        $(".capa_lista_mesas").hide(); 
-        $(".lista_mesas").hide(); 
-        
-        
-        $(".parciales").hide(); 
-        $(".lista_mozos").hide();
-        
-        $(".datos_mesa").show();
-        $(".in_parcial").hide();
-        
-        $(".boton_seleccionar_mozo, .boton_unir_mesa").show();
-        
-        $("#btnCerrarListaParcial").hide();
-        if ($("#parciales tr").length > 0)
-            $("#btnListaParcial").show();
-        reset_item();
-        $("#NumTexx").val("");
-        _bmostrar = false;
-        _bediting = false;
-        
-        set_next("LetTexx",30,0,2);
+            $(".capa_ficha_producto").html("");
+            $(".capa_ficha_producto").hide(); 
+
+            $(".capa_lista_productos").html("");
+            $(".capa_lista_productos").hide(); 
+
+            $(".capa_mesas_iconos").html("");
+            $(".capa_mesas_iconos").hide(); 
+
+            $(".capa_lista_mesas").hide(); 
+            $(".lista_mesas").hide(); 
+
+
+            $(".parciales").hide(); 
+            $(".lista_mozos").hide();
+
+            $(".datos_mesa").show();
+            $(".in_parcial").hide();
+
+            $(".boton_seleccionar_mozo, .boton_unir_mesa").show();
+
+            $("#btnCerrarListaParcial").hide();
+            if ($("#parciales tr").length > 0)
+                $("#btnListaParcial").show();
+            reset_item();
+            $("#NumTexx").val("");
+            _bmostrar = false;
+            _bediting = false;
+
+            set_next("LetTexx",30,0,2);            
+        }
+
     }
     
 
