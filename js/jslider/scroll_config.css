@@ -1,0 +1,41 @@
+/* Configuracion scroll*/
+/*JSCROLL*/
+.jspContainer{
+    user-select: none;
+}
+
+.jspDrag{
+    display: none;
+}
+.jspArrowLeft, .jspArrowRight{
+    background: transparent;
+}
+
+.jspHorizontalBar{
+     background: transparent;
+     
+}
+.jspTrack{
+    background: transparent;
+}
+.jspVerticalBar{
+    background: transparent;
+    width: 30px;
+}
+
+.jspArrowUp{
+    height:30px !important;
+     background: url("../../otros/scr_arri-up.png") !important;
+}
+
+.jspArrowUp.over{
+    background: url("../../otros/scr_arri-over.png") !important;
+}
+.jspArrowDown{
+    height:30px !important;
+    background: url("../../otros/scr_aba-up.png") !important;
+}
+
+.jspArrowDown.over{
+    background: url("../../otros/scr_aba-over.png") !important;
+}

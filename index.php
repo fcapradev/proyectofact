@@ -18,6 +18,7 @@ if(isset($_SESSION['ParFON'])){
 
 <!-- Agregado Federico 27/3: scrollers -->
 <link href="js/jslider/jquery.jscrollpane.css" rel="stylesheet" type="text/css" />
+<link href="js/jslider/scroll_config.css" rel="stylesheet" type="text/css" />
 
 <!-- Agregado Federico 27/3: cambiador de estilo ajax -->
 <link id="ajax_css" href="tmp.css" rel="stylesheet" type="text/css" />
