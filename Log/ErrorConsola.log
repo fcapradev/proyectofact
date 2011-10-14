@@ -1,3 +1,28 @@
+<<<<<<< HEAD
+2011-10-14 13:12:55 | debug | debug | 
+		SELECT A.SEC AS SEC_I, A.ART AS ART_I, A.FEC AS FEC_I, A.CYV AS CYV_I, A.TIP AS TIP_I, A.TCO AS TCO_I, A.PVE AS PVE_I, A.NCO AS NCO_I, A.ORD ORD_I, A.CAN, A.PUN AS PUN_I, A.COD AS COD_I, A.DTO AS DTO_I, A.PLA AS PLA_I, A.TIM AS TIM_I, A.OPE AS OPE_I, A.E_HD2 AS E_HD2, B.SEC AS SEC_D, B.ART AS ART_D, B.FEC AS FEC_D, B.CYV AS CYV_D, B.TIP AS TIP_D, B.TCO AS TCO_D, B.PVE AS PVE_D, B.NCO AS NCO_D, B.ORD AS ORD_D, B.PUN AS PUN_D, B.COD AS COD_D, B.DTO AS DTO_D, B.PLA AS PLA_D, B.TIM AS TIM_D, B.OPE AS OPE_D 
+		FROM AMOVSTOC A 
+		INNER JOIN AMOVSTOC B ON A.TIP = B.TIP AND A.TCO = B.TCO AND A.PVE = B.PVE AND A.NCO = B.NCO AND B.CYV = 'C'  AND A.ORD = B.ORD
+		WHERE A.TIP = 'B' AND A.TCO = 'NA' AND A.PVE = 149 AND A.NCO = 116  AND A.CYV = 'V' 
+		ORDER BY A.FEC DESC |  
+2011-10-14 13:37:42 | debug | debug | 
+		SELECT A.SEC AS SEC_I, A.ART AS ART_I, A.FEC AS FEC_I, A.CYV AS CYV_I, A.TIP AS TIP_I, A.TCO AS TCO_I, A.PVE AS PVE_I, A.NCO AS NCO_I, A.ORD ORD_I, A.CAN, A.PUN AS PUN_I, A.COD AS COD_I, A.DTO AS DTO_I, A.PLA AS PLA_I, A.TIM AS TIM_I, A.OPE AS OPE_I, A.E_HD2 AS E_HD2, B.SEC AS SEC_D, B.ART AS ART_D, B.FEC AS FEC_D, B.CYV AS CYV_D, B.TIP AS TIP_D, B.TCO AS TCO_D, B.PVE AS PVE_D, B.NCO AS NCO_D, B.ORD AS ORD_D, B.PUN AS PUN_D, B.COD AS COD_D, B.DTO AS DTO_D, B.PLA AS PLA_D, B.TIM AS TIM_D, B.OPE AS OPE_D 
+		FROM AMOVSTOC A 
+		INNER JOIN AMOVSTOC B ON A.TIP = B.TIP AND A.TCO = B.TCO AND A.PVE = B.PVE AND A.NCO = B.NCO AND B.CYV = 'C'  AND A.ORD = B.ORD
+		WHERE A.TIP = 'B' AND A.TCO = 'NA' AND A.PVE = 149 AND A.NCO = 118  AND A.CYV = 'V' 
+		ORDER BY A.FEC DESC |  
+2011-10-14 13:50:49 | error | E_NOTICE | Undefined index: ban | D:\xampp\htdocs\aukon\ultimo\NaNbListaLocal.php:11 
+2011-10-14 13:51:40 | debug | debug | 
+		SELECT *
+		FROM AMOVSTOC  
+		WHERE TIP = 'B' AND TCO = 'NA' AND PVE = 149 AND NCO = 120  AND CYV = 'C' 
+		ORDER BY FEC DESC |  
+2011-10-14 13:51:40 | error | E_NOTICE | Undefined index: DOM | D:\xampp\htdocs\aukon\ultimo\NaNbPDF.php:404 
+2011-10-14 13:51:40 | error | E_NOTICE | Undefined index: COD | D:\xampp\htdocs\aukon\ultimo\NaNbPDF.php:405 
+2011-10-14 13:57:07 | error | E_NOTICE | Undefined index: ban | D:\xampp\htdocs\aukon\ultimo\NaNbListaLocal.php:11 
+2011-10-14 16:18:28 | debug | debug | hola |  
+2011-10-14 16:25:50 | debug | debug | promo |  
+=======
 2011-10-11 14:19:19 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20902 
 2011-10-11 14:19:19 | error | E_NOTICE | Undefined index: cols | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20904 
 2011-10-11 14:19:19 | error | E_WARNING | Division by zero | D:\xampp\htdocs\aukon\ultimo\ImpPDF\tcpdf\tcpdf.php:20904 
@@ -1245,3 +1270,4 @@
 2011-10-14 17:56:14 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:223 
 2011-10-14 17:56:14 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:251 
 2011-10-14 18:35:17 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:437 
+>>>>>>> bb06ddb8fc5ad2df5457eaf2e1b3f029cf1322b0

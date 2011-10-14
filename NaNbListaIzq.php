@@ -59,10 +59,42 @@ if(isset($_REQUEST['dato'])){
 	$R1TB = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
 	rollback($R1TB);
 	if(mssql_num_rows($R1TB) == 0){
+
+		switch($busca){
+			case '1':	//	BUSCA TODOS LOS ARTICULOS
+				?>
+				<script>
+					jAlert('No es posible seleccionar el art&iacute;culo.', 'Debo Retail - Global Business Solution');
+				</script>
+                <?				
+				break;
+	
+			case '2':	//	BUSCA TODOS LOS ARTICULOS CON DEPOSITOS
+				?>
+				<script>
+					jAlert('El art&iacute;culo ingresado no posee Dep&oacute;sitos.', 'Debo Retail - Global Business Solution');
+				</script>
+                <?				
+				break;
+	
+			case '3':	//	BUSCA TODOS LOS ARTICULOS Y EXIVTA > 0
+				?>
+				<script>
+					jAlert('El art&iacute;culo ingresado no posee Stock de Venta.', 'Debo Retail - Global Business Solution');
+				</script>
+                <?				
+				break;
+	
+			case '4':	//	BUSCA TODOS LOS ARTICULOS CON DEPOSITOS Y EXIDEP > 0
+				?>
+				<script>
+					jAlert('El art&iacute;culo ingresado no posee Dep&oacute;sitos o Stock.', 'Debo Retail - Global Business Solution');				</script>
+                <?				
+				break;
+				
+		}		
 		?>
 		<script>
-			jAlert('No es posible seleccionar el art&iacute;culo.', 'Debo Retail - Global Business Solution');
-		
 			document.getElementById('Producto').value = "";
 			
 			Ir_a("Producto",4,1);
@@ -157,7 +189,11 @@ if(isset($_REQUEST['dato'])){
 	background-repeat:repeat-x;
 	cursor:pointer;
 	height:27px;
+<<<<<<< HEAD
+	width:455px;
+=======
 	width:485px;
+>>>>>>> bb06ddb8fc5ad2df5457eaf2e1b3f029cf1322b0
 	z-index:4; 
 	color:#FFF; 
 	font-family: "TPro"; 
@@ -204,6 +240,15 @@ function mov_sig_fac33(p){
 
 $(function(){
 	$('input#LetTex').quicksearch('div#Lista');
+	
+	/*
+	$('input#LetTex').quicksearch('div#Lista',{
+		'show': function(){
+			_jscrollshow("#Lista2");
+		}
+	});
+	*/
+
 });
 </script>
 </head>

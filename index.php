@@ -634,8 +634,8 @@ require("config/login.php");
 
 	<input name="upfile" id="upfile" type="file" style="position:absolute; top:227px; left:350px;"/>
     
-    <button class="StyBoton" type="submit" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('BotImgFon','','otros/tec-over.png',0)" style="position:absolute; top:253px; left:335px;">
-        <img src="otros/tec-up.png" border="0" id="BotImgFon" width="88" height="26" /></button>
+    <button class="StyBoton" type="submit" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('BotImgFon','','botones/car-over.png',0)" style="position:absolute; top:252px; left:344px;">
+        <img src="botones/car-up.png" border="0" id="BotImgFon" width="88" height="26" /></button>
 </form>                         
                         
                         </td>

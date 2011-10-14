@@ -275,13 +275,13 @@ if(isset($_REQUEST['act'])){
 if(isset($_REQUEST['ter'])){
 
 	$tn = $_REQUEST['tn'];
-	$movtip = $_REQUEST['movtip'];
-	$ord = $_REQUEST['i'];
-	$ope = $_REQUEST['ope'];
-	$co = $_REQUEST['co'];
-	$cd = $_REQUEST['cd'];
-	$canDes = $_REQUEST['candes'];
-	$cosDes = $_REQUEST['cosdes'];
+	$movtip = $_REQUEST['movtip'];	//TIPO DE NOTA
+	$ord = $_REQUEST['i'];			//ORDEN DEL ITEM
+	$ope = $_REQUEST['ope'];		//OPERARIO O LOCAL
+	$co = $_REQUEST['co'];			//CODIGO ORIGEN
+	$cd = $_REQUEST['cd'];			//CODIGO DESTINO
+	$canDes = $_REQUEST['candes'];	//CANTIDAD
+	$cosDes = $_REQUEST['cosdes'];	//COSTO
 
 	$CodOri = explode("-", $co);
 	$CodDes = explode("-", $cd);
@@ -307,24 +307,23 @@ if(isset($_REQUEST['ter'])){
 
 	switch($movtip){
 
-    case "2":
-		/*
+    case "1":
+
 ////////GUARDO SESIONES PARA PDF////////////////
-		$producto['sec'][1] = $CodOri[0]; 
-		$producto['art'][1] = $CodOri[1]; 
-		$producto['sec'][2] = $CodDes[0]; 
-		$producto['art'][2] = $CodDes[1]; 
+		$producto['sec'][1] = $CodOri[0];	//SEC
+		$producto['art'][1] = $CodOri[1]; 	//ART
+		$producto['sec'][2] = $CodDes[0]; 	//SEC
+		$producto['art'][2] = $CodDes[1]; 	//ART
 		
 		$_SESSION['Producto'] = $producto; 			
 /////////////////////////////////////////////////
 	
-	////	INSERTO EN AMOVSTOC	(C)
+	////	INSERTO EN AMOVSTOC	()
 		$_SESSION['ParSQL'] = "
 		INSERT INTO AMOVSTOC (SEC,ART,FEC,CYV,TIP,TCO,PVE,NCO,ORD,CAN,PUN,COD,DTO,IMI,PLA,LUG,ANU,TIM,OPE,IMI2)
-		VALUES(".$CodOri[0].",".$CodOri[1].",getdate(),'C','B','".$tipo."',".$_SESSION['ParEMP'].",".$nco.",".$ord.",".$canDes.",".$cosDes.",".$ope.",0,0,".$PLA.",".$_SESSION['ParLUG'].",'','AV',".$ope.", 0 )";
+		VALUES(".$CodOri[0].",".$CodOri[1].",getdate(),'V','B','".$tipo."',".$_SESSION['ParEMP'].",".$nco.",".$ord.",".$canDes.",".$cosDes.",".$ope.",-1,0,".$PLA.",".$_SESSION['ParLUG'].",'','VA',".$ope.", 0 )";
 		$AMOV2 = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
 		rollback($AMOV2);	
-	
 		
 			$_SESSION['ParSQL'] = "SELECT EXIVTA FROM ARTICULOS WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
 			$ARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
@@ -333,12 +332,57 @@ if(isset($_REQUEST['ter'])){
 				$exivta = $RART['EXIVTA'];
 			}
 			
-			$stock2_ori = $exivta + $canDes;
+			$stock2_ori = $exivta - $canDes;
 			
 			$_SESSION['ParSQL'] = "UPDATE ARTICULOS SET EXIVTA = ".$stock2_ori." WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
 			$UARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
 			rollback($UARTICULOS);
-		*/
+
+        break;		
+
+    case "2":
+////	INSERTO EN AMOVSTOC	(LADO IZQUIERDO - > V)
+		$_SESSION['ParSQL'] = "
+		INSERT INTO AMOVSTOC (SEC,ART,FEC,CYV,TIP,TCO,PVE,NCO,ORD,CAN,PUN,COD,DTO,IMI,PLA,LUG,ANU,TIM,OPE,IMI2)
+		VALUES(".$CodOri[0].",".$CodOri[1].",getdate(),'V','B','".$tipo."',".$_SESSION['ParEMP'].",".$nco.",".$ord.",".$canDes.",".$cosDes.",".$ope.",0,0,".$PLA.",".$_SESSION['ParLUG'].",'','VD',".$ope.", 0 )";
+		$AMOV1 = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+		rollback($AMOV1);
+	
+	////	INSERTO EN AMOVSTOC	(LADO DERECHO - > C)
+		$_SESSION['ParSQL'] = "
+		INSERT INTO AMOVSTOC (SEC,ART,FEC,CYV,TIP,TCO,PVE,NCO,ORD,CAN,PUN,COD,DTO,IMI,PLA,LUG,ANU,TIM,OPE,IMI2)
+		VALUES(".$CodDes[0].",".$CodDes[1].",getdate(),'C','B','".$tipo."',".$_SESSION['ParEMP'].",".$nco.",".$ord.",".$canDes.",".$cosDes.",".$ope.",1,0,".$PLA.",".$_SESSION['ParLUG'].",'','VD',".$ope.", 0 )";
+		$AMOV2 = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+		rollback($AMOV2);	
+
+////	ACTUALIZO ORIGEN (IZQUIERDA)		
+		$_SESSION['ParSQL'] = "SELECT EXIDEP,EXIVTA FROM ARTICULOS WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+		$ARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+		rollback($ARTICULOS);		
+		while ($RART=mssql_fetch_array($ARTICULOS)){
+			$exivta = $RART['EXIVTA'];
+		}
+		$stock2_des = $exivta - $canDes;
+		
+		$_SESSION['ParSQL'] = "UPDATE ARTICULOS SET EXIVTA = ".$stock2_des." WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+		$UARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+		rollback($UARTICULOS);		
+		
+////	ACTUALIZO DESTINO (DERECHA)
+		$_SESSION['ParSQL'] = "SELECT EXIDEP,EXIVTA FROM ARTICULOS WHERE CODSEC = ".$CodDes[0]." AND CodArt = ".$CodDes[1]."";
+		$ARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+		rollback($ARTICULOS);		
+		while ($RART=mssql_fetch_array($ARTICULOS)){
+			$exidep = $RART['EXIDEP'];
+		}
+		
+		$stock1_ori = $exidep + $canDes;
+		
+		$_SESSION['ParSQL'] = "UPDATE ARTICULOS SET EXIDEP = ".$stock1_ori." WHERE CODSEC = ".$CodDes[0]." AND CodArt = ".$CodDes[1]."";
+		$UARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+		rollback($UARTICULOS);		
+
+
         break;
 
     case "3":
@@ -537,6 +581,109 @@ if(isset($_REQUEST['ter'])){
 			rollback($UARTICULOS);
 
         break;
+
+    case "9":
+
+	$loc = $_REQUEST['local'];
+	
+////////GUARDO SESIONES PARA PDF////////////////
+		$producto['sec'][1] = $CodOri[0]; 
+		$producto['art'][1] = $CodOri[1]; 
+		$producto['sec'][2] = $CodDes[0]; 
+		$producto['art'][2] = $CodDes[1]; 
+		
+		$_SESSION['Producto'] = $producto; 			
+/////////////////////////////////////////////////
+	
+	////	INSERTO EN AMOVSTOC	(LADO DERECHO - > C)
+		$_SESSION['ParSQL'] = "
+		INSERT INTO AMOVSTOC (SEC,ART,FEC,CYV,TIP,TCO,PVE,NCO,ORD,CAN,PUN,COD,DTO,IMI,PLA,LUG,ANU,TIM,OPE,IMI2,E_HD2)
+		VALUES(".$CodDes[0].",".$CodDes[1].",getdate(),'V','B','".$tipo."',".$_SESSION['ParEMP'].",".$nco.",".$ord.",".$canDes.",".$cosDes.",".$loc.",0,0,".$PLA.",".$_SESSION['ParLUG'].",'','VO',".$ope.",0,0)";
+		$AMOV2 = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+		rollback($AMOV2);	
+	
+			$_SESSION['ParSQL'] = "SELECT EXIVTA FROM ARTICULOS WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$ARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($ARTICULOS);		
+			while ($RART=mssql_fetch_array($ARTICULOS)){
+				$exivta = $RART['EXIVTA'];
+			}
+			
+			$stock2_ori = $exivta - $canDes;
+			
+			$_SESSION['ParSQL'] = "UPDATE ARTICULOS SET EXIVTA = ".$stock2_ori." WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$UARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($UARTICULOS);
+	
+        break;
+
+    case "10":
+
+	$loc = $_REQUEST['local'];
+	
+////////GUARDO SESIONES PARA PDF////////////////
+		$producto['sec'][1] = $CodOri[0]; 
+		$producto['art'][1] = $CodOri[1]; 
+		$producto['sec'][2] = $CodDes[0]; 
+		$producto['art'][2] = $CodDes[1]; 
+		
+		$_SESSION['Producto'] = $producto; 			
+/////////////////////////////////////////////////
+	
+	////	INSERTO EN AMOVSTOC	(LADO DERECHO - > C)
+		$_SESSION['ParSQL'] = "
+		INSERT INTO AMOVSTOC (SEC,ART,FEC,CYV,TIP,TCO,PVE,NCO,ORD,CAN,PUN,COD,DTO,IMI,PLA,LUG,ANU,TIM,OPE,IMI2,E_HD2)
+		VALUES(".$CodDes[0].",".$CodDes[1].",getdate(),'V','B','".$tipo."',".$_SESSION['ParEMP'].",".$nco.",".$ord.",".$canDes.",".$cosDes.",".$loc.",1,0,".$PLA.",".$_SESSION['ParLUG'].",'','DO',".$ope.",0,0)";
+		$AMOV2 = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+		rollback($AMOV2);	
+	
+			$_SESSION['ParSQL'] = "SELECT EXIDEP FROM ARTICULOS WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$ARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($ARTICULOS);		
+			while ($RART=mssql_fetch_array($ARTICULOS)){
+				$exidep = $RART['EXIDEP'];
+			}
+			
+			$stock2_ori = $exidep - $canDes;
+			
+			$_SESSION['ParSQL'] = "UPDATE ARTICULOS SET EXIDEP = ".$stock2_ori." WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$UARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($UARTICULOS);
+	
+        break;
+
+    case "12":
+
+////////GUARDO SESIONES PARA PDF////////////////
+		$producto['sec'][1] = $CodOri[0]; 
+		$producto['art'][1] = $CodOri[1]; 
+		$producto['sec'][2] = $CodDes[0]; 
+		$producto['art'][2] = $CodDes[1]; 
+		
+		$_SESSION['Producto'] = $producto; 			
+/////////////////////////////////////////////////
+	
+	////	INSERTO EN AMOVSTOC	()
+		$_SESSION['ParSQL'] = "
+		INSERT INTO AMOVSTOC (SEC,ART,FEC,CYV,TIP,TCO,PVE,NCO,ORD,CAN,PUN,COD,DTO,IMI,PLA,LUG,ANU,TIM,OPE,IMI2)
+		VALUES(".$CodOri[0].",".$CodOri[1].",getdate(),'V','B','".$tipo."',".$_SESSION['ParEMP'].",".$nco.",".$ord.",".$canDes.",".$cosDes.",".$ope.",0,0,".$PLA.",".$_SESSION['ParLUG'].",'','AC',".$ope.", 0 )";
+		$AMOV2 = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+		rollback($AMOV2);	
+		
+			$_SESSION['ParSQL'] = "SELECT EXIVTA FROM ARTICULOS WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$ARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($ARTICULOS);		
+			while ($RART=mssql_fetch_array($ARTICULOS)){
+				$exivta = $RART['EXIVTA'];
+			}
+			
+			$stock2_ori = $exivta - $canDes;
+			
+			$_SESSION['ParSQL'] = "UPDATE ARTICULOS SET EXIVTA = ".$stock2_ori." WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$UARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($UARTICULOS);
+
+        break;
 		
     case "13":
 	
@@ -552,7 +699,7 @@ if(isset($_REQUEST['ter'])){
 	////	INSERTO EN AMOVSTOC	(C)
 		$_SESSION['ParSQL'] = "
 		INSERT INTO AMOVSTOC (SEC,ART,FEC,CYV,TIP,TCO,PVE,NCO,ORD,CAN,PUN,COD,DTO,IMI,PLA,LUG,ANU,TIM,OPE,IMI2)
-		VALUES(".$CodOri[0].",".$CodOri[1].",getdate(),'C','B','".$tipo."',".$_SESSION['ParEMP'].",".$nco.",".$ord.",".$canDes.",".$cosDes.",".$ope.",0,0,".$PLA.",".$_SESSION['ParLUG'].",'','AV',".$ope.", 0 )";
+		VALUES(".$CodOri[0].",".$CodOri[1].",getdate(),'C','B','".$tipo."',".$_SESSION['ParEMP'].",".$nco.",".$ord.",".$canDes.",".$cosDes.",".$ope.",-1,0,".$PLA.",".$_SESSION['ParLUG'].",'','AV',".$ope.", 0 )";
 		$AMOV2 = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
 		rollback($AMOV2);	
 	
@@ -734,19 +881,55 @@ if(isset($_REQUEST['ter'])){
 		$AMOV2 = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
 		rollback($AMOV2);	
 	
-		$_SESSION['ParSQL'] = "SELECT EXIDEP,EXIVTA FROM ARTICULOS WHERE CODSEC = ".$CodDes[0]." AND CodArt = ".$CodDes[1]."";
-		$ARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
-		rollback($ARTICULOS);		
-		while ($RART=mssql_fetch_array($ARTICULOS)){
-			$exidep = $RART['EXIDEP'];
-			$exivta = $RART['EXIVTA'];
+		if($co == $cd){					////	SI EL ORIGEN Y DESTINO SON IGUALES	
+		////	ACTUALIZO ARTICULOS
+		
+			$_SESSION['ParSQL'] = "SELECT EXIDEP,EXIVTA FROM ARTICULOS WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$ARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($ARTICULOS);		
+			while ($RART=mssql_fetch_array($ARTICULOS)){
+				$exivta = $RART['EXIVTA'];
+			}
+			
+			$stock2_ori = $exivta + $canDes;
+			
+			$_SESSION['ParSQL'] = "UPDATE ARTICULOS SET EXIVTA = ".$stock2_ori." WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$UARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($UARTICULOS);
+	
+		
+		}else{						////	SI EL ORIGEN Y DESTINO SON DISTINTOS
+	
+	////	ACTUALIZO ORIGEN (IZQUIERDA)		
+			$_SESSION['ParSQL'] = "SELECT EXIDEP,EXIVTA FROM ARTICULOS WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$ARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($ARTICULOS);		
+			while ($RART=mssql_fetch_array($ARTICULOS)){
+				$exivta = $RART['EXIVTA'];
+			}
+			
+			$stock1_ori = $exivta + $canDes;
+			
+			$_SESSION['ParSQL'] = "UPDATE ARTICULOS SET EXIVTA = ".$stock1_ori." WHERE CODSEC = ".$CodOri[0]." AND CodArt = ".$CodOri[1]."";
+			$UARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($UARTICULOS);
+			
+	////	ACTUALIZO DESTINO (DERECHA)
+			$_SESSION['ParSQL'] = "SELECT EXIDEP,EXIVTA FROM ARTICULOS WHERE CODSEC = ".$CodDes[0]." AND CodArt = ".$CodDes[1]."";
+			$ARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($ARTICULOS);		
+			while ($RART=mssql_fetch_array($ARTICULOS)){
+				$exivta = $RART['EXIVTA'];
+			}
+			
+			$stock2_des = $exivta + $canDes;
+			
+			$_SESSION['ParSQL'] = "UPDATE ARTICULOS SET EXIVTA = ".$stock2_des." WHERE CODSEC = ".$CodDes[0]." AND CodArt = ".$CodDes[1]."";
+			$UARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
+			rollback($UARTICULOS);		
+			
 		}
-		
-		$stock2_des = $exivta + $canDes;
-		
-		$_SESSION['ParSQL'] = "UPDATE ARTICULOS SET EXIVTA = ".$stock2_des." WHERE CODSEC = ".$CodDes[0]." AND CodArt = ".$CodDes[1]."";
-		$UARTICULOS = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
-		rollback($UARTICULOS);
+
 	
         break;
 
@@ -821,18 +1004,17 @@ if(isset($_REQUEST['traven'])){
 			$objeto = $_SESSION['Articulos'][$i];
 		
 			if(($objeto['sec'][$i] == $sec) && ($objeto['art'][$i] == $art)){
+				
+				?>
+                <script>
+                	document.getElementById("CanArt").value = <? echo $objeto['can'][$i]; ?>;
+				</script>
+                <?
 				$ban = 1;
 			}
 		}
 		
-		if($ban == 1){
-			?>
-			<script>
-
-				
-			</script>
-			<?	
-		}else{
+		if($ban != 1){
 			?>
 			<script>
 				jAlert('El Artículo seleccionado no esta incluido en el comprobante de Compra.', 'Debo Retail - Global Business Solution');
@@ -854,67 +1036,16 @@ if(isset($_REQUEST['traven'])){
 				$("div").css("border-color", "transparent");
 				$("#SectorDiv").css("border-color", "#F90");
 				
-				document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaSector(1);" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv3\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv3"/></button>';
+				document.getElementById('LetEnt').innerHTML = '<button onclick="BuscaOrigen(1);" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv3\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv3"/></button>';
 
 				document.getElementById('NumVol').innerHTML = '<button onclick="VolOperacion();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';	
 
-				//return false;
+				
 			</script>
 			<?	
-
+			exit;
 		}
 		$ban = 0;
-	}else{
-		$sec = $_REQUEST['sec'];
-		$art = $_REQUEST['art'];
-		$codrub = $_REQUEST['codrub'];
-	
-		$ban = 0;
-		/* Aqui sacas la informacion de la session */
-		for($i = 1 ; $i <= $_SESSION['Articulos_Total'] ; $i++){
-			$objeto = $_SESSION['Articulos'][$i];
-		
-			if(($objeto['sec'][$i] == $sec) && ($objeto['art'][$i] == $art)){
-				$ban = 1;
-			}
-		}
-		
-		if($ban == 1){
-			?>
-			<script>
-
-				
-			</script>
-			<?	
-		}else{
-			?>
-			<script>
-				jAlert('El Artículo seleccionado no esta incluido en el comprobante de Compra.', 'Debo Retail - Global Business Solution');
-				document.getElementById("SectorD").value = "";
-				document.getElementById("ProductoD").value = "";
-				document.getElementById("DetalleD").value = "";
-				document.getElementById("CostoD").value = "";
-				document.getElementById("CantidadD").value = "";
-				document.getElementById("StockD").value = "";
-				
-				Ir_a("SectorD",3,1);
-
-				$("div").css("border-color", "transparent");
-				$("#SectorDivD").css("border-color", "#F90");
-				
-				EnvAyuda("Ingrese el Sector de Origen o Enter para listar.");
-			
-				document.getElementById('LetEnt').innerHTML = '<button onclick="Sig_CostoD();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntTomInv3\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntTomInv3"/></button>';
-			
-				document.getElementById('NumVol').innerHTML = '<button onclick="VolOperacion();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';
-
-			</script>
-			<?	
-
-		}
-		$ban = 0;		
-		
-		
 	}
 }
 

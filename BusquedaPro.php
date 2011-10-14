@@ -64,6 +64,7 @@ while ($ART_FPP_R=mssql_fetch_array($ARTICULOS_FPP)){
 	$det = $ART_FPP_R['DetArt'];
 	
 }
+
 mssql_free_result($ARTICULOS_FPP);
 
 
@@ -107,7 +108,7 @@ $SQL = "UPDATE ARTICULOS SET FPP = 0 WHERE CodSec = ".$cs." AND CodArt = ".$ca;
 mssql_query($SQL) or die("Error SQL");
 
 	?>
-    <script>
+        <script>
 		FX2(<? echo $cs; ?>, <? echo $ca; ?>);	
 	</script>
 	<?
@@ -119,7 +120,7 @@ while ($reg=mssql_fetch_array($AARTPRO)){
 
 	?>
     <script>
-		$("#micapa1").fadeOut(500);
+	$("#micapa1").fadeOut(500);
     </script>
 	<?
 
@@ -192,6 +193,7 @@ if ($cc == 6){
 ?>
 </div>
 <script>
-	EnvAyuda("Busqueda: <? echo htmlentities(substr(trim($det), 0, 30)); ?>");
+	//EnvAyuda("Busqueda: <? echo htmlentities(substr(trim($det), 0, 30)); ?>");
+        EnvAyuda("Ingrese cantidad del Producto o seleccione la Promoción");
 	document.getElementById("Loading").style.display="none";	
 </script>

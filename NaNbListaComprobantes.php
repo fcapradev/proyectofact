@@ -57,6 +57,13 @@ if($r_num == 0){ $r_num = ""; }
 
 
 	?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>Busca Comprobantes</title>
+    
     <style>
 		.ItemLis{
 			background-image: url(Compras/Bus_Item.png);
@@ -133,6 +140,8 @@ if($r_num == 0){ $r_num = ""; }
 			SoloBlock("Comprobante_Items, Lista_Items");
 			SoloNone("LetEnt");
 			
+			
+			
 			document.getElementById("Sucursal").value = suc;
 			document.getElementById("Tipo").value = tip;
 			document.getElementById("Tco").value = tco;
@@ -160,19 +169,22 @@ if($r_num == 0){ $r_num = ""; }
 			
 			SoloBlock("LetTer");
 			
-			document.getElementById('LetTer').innerHTML = '<button onclick="ConfirmaCompr();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntNaNbTer\',\'\',\'botones/ace-over.png\',0)"><img src="botones/ace-up.png" name="Aceptar" title="Aceptar" border="0" id="LetEntNaNbTer"/></button>';
+			document.getElementById('LetTer').innerHTML = '<button id="AceptaItem" onclick="ConfirmaCompr();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntNaNbTer\',\'\',\'botones/ace-over.png\',0)"><img src="botones/ace-up.png" name="Aceptar" title="Aceptar" border="0" id="LetEntNaNbTer"/></button>';
 			
 			document.getElementById('NumVol').innerHTML = '<button onclick="VolNumero();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';	
 			
 			$("div").css("border-color", "transparent");
 			Ir_a("ConfirmaC",0,1);
 			
+			$("#AceptaItem").focus();
+			
 			EnvAyuda("Presione Aceptar para confirmar el comprobante.");
 		}
 		
 		
 	</script>
-       
+</head>
+<body> 
 	<?
 
 
@@ -294,6 +306,10 @@ mssql_query("commit transaction") or die("Error SQL commit");
 	<script>
 		$('#Bloquear').fadeOut(500);
 	</script>
+    
+
+    </body>
+    </html>
 	<?
 
 }catch(Exception $e){////////////////////////////////////////////////////////////////////////////////////////////////// FIN DE TRY //

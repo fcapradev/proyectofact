@@ -20,18 +20,33 @@ if(isset($_REQUEST['loc'])){
 	rollback($PMOVFACT);
 
 	if(mssql_num_rows($PMOVFACT) == 0){	
-		?>
-		<script>
-		
-			jAlert('El Local ingresado no existe.', 'Debo Retail - Global Business Solution');
-
-			document.getElementById('Local').value = "";
-			
-			Ir_a("Local",4,1);
-							
-		</script>    
-		<?
+		if($BAN == 1){
+			?>
+			<script>
+            
+                jAlert('El Local ingresado no existe.', 'Debo Retail - Global Business Solution');
+    
+                document.getElementById('Local').value = "";
+                
+                Ir_a("Local",4,1);
+                                
+            </script>    
+            <?
 		exit;
+		}else{
+			?>
+			<script>
+            
+                jAlert('El Local ingresado no existe.', 'Debo Retail - Global Business Solution');
+    
+                document.getElementById('LocalNB').value = "";
+                
+                Ir_a("LocalNB",4,1);
+                                
+            </script>    
+            <?
+		exit;
+		}
 	}
 
 	while ($PMOV_R = mssql_fetch_array($PMOVFACT)){
@@ -61,12 +76,19 @@ if(isset($_REQUEST['loc'])){
 }else{
 
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>Busca Sucursal</title>
 <style>
 .ItemLis33{
 	background-image: url(Compras/Bus_Item.png);
 	background-repeat:repeat-x;
 	cursor:pointer;
-	height:27px; 
+	height:27px;
+	width:600px;
 	z-index:4; 
 	color:#FFF; 
 	font-family: "TPro"; 
@@ -100,7 +122,15 @@ function mov_sig_fac33(p){
 	
 	return false;
 }
+
+$(function(){
+	$('input#LetTex').quicksearch('div#listalocal1');
+});
 </script>
+</head>
+<body>
+
+<div id="ListaLocal2" style="height:218px; width:650px;" >
 	<?
 
 	$c = 0;
@@ -121,35 +151,14 @@ function mov_sig_fac33(p){
 	++$c;
 
 
-	if ($c == 1){
 	
-		if($s == 1){
-			$e = "block";
-		}else{
-			$e = "none";
-		}
-	
-		echo "<div id=\"CapFacComB".$s."\" style=\"display:".$e."\">";
-		
-		if($s <> 1){
-			?>
-		
-			<div style="position:absolute; top:0px; left:604px;">
-				<button class="StyBoton" onclick="mov_ant_fac33(<?php echo $s; ?>)" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('AntNaNbLis<?php echo $s; ?>','','otros/scr_arri-over.png',0)"><img src="otros/scr_arri-up.png" border="0" id="AntNaNbLis<?php echo $s; ?>"/></button>
-			</div>
-	
-			<?
-	
-		}
-	
-	}
 	if($BAN == 1){
 	?>
-		<div class="ItemLis33" onClick="envialocal(<? echo $EMP; ?>,'<? echo trim($NOM); ?>','<? echo trim($DIR); ?>');">
+		<div id="listalocal1" class="ItemLis33" onClick="envialocal(<? echo $EMP; ?>,'<? echo trim($NOM); ?>','<? echo trim($DIR); ?>');">
     <?
 	}else{
 	?>
-    	<div class="ItemLis33" onClick="envialocalNB(<? echo $EMP; ?>,'<? echo trim($NOM); ?>','<? echo trim($DIR); ?>');">
+    	<div id="listalocal1" class="ItemLis33" onClick="envialocalNB(<? echo $EMP; ?>,'<? echo trim($NOM); ?>','<? echo trim($DIR); ?>');">
     <?
 	}
 	?>
@@ -162,44 +171,23 @@ function mov_sig_fac33(p){
 	  </table>
 	</div>
 	<?php
-    $t = $c;
-	if ($c == 7){
-	
-		?>
-	
-		<div id="SigFacComCBid<?php echo $s; ?>" style="position:absolute; top:160px; left:604px;">
-			<button class="StyBoton" onclick="mov_sig_fac33(<?php echo $s; ?>)" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('SigNaNbLis<?php echo $s; ?>','','otros/scr_aba-over.png',0)"><img src="otros/scr_aba-up.png" border="0" id="SigNaNbLis<?php echo $s; ?>"/></button>
-		</div>
-		
-		</div>
-		
-		<?php
-		
-		$c = 0;
-		$s = $s + 1;
 
-	}
 			
 }
 mssql_free_result($PMOVFACT);
 
-if($t == 7){
-	?>
-    <script>
-		SoloNone('SigFacComCBid<?php echo $s - 1; ?>');
-	</script>
-    <?
-}
+?>
+</div>
+</body>
+</html>
+<script>
+	_jscrollshow("#ListaLocal2");
+	$('#Bloquear').fadeOut(500);
+</script>
+<?
 
+}
 mssql_query("commit transaction") or die("Error SQL commit");
-
-	?>
-	<script>
-		$('#Bloquear').fadeOut(500);
-	</script>
-	<?
-
-}
 
 }catch(Exception $e){////////////////////////////////////////////////////////////////////////////////////////////////// FIN DE TRY //
 	
