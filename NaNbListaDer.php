@@ -45,16 +45,46 @@ if(isset($_REQUEST['dato'])){
 		case '2':	//	BUSCA TODOS LOS ARTICULOS CON DEPOSITOS
 			$_SESSION['ParSQL'] = "SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE CODSEC = ".$SEC." AND CODART = ".$ART." AND NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND DEPSN = 1 ORDER BY DETART ASC";
 			break;
+			
+		case '3':	//	BUSCA TODOS LOS ARTICULOS Y EXIVTA > 0
+			$_SESSION['ParSQL'] = "SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE CODSEC = ".$SEC." AND CODART = ".$ART." AND NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND EXIVTA > 0 ORDER BY DETART ASC";
+			break;
+
 
 	}
 	
 	$R1TB = mssql_query($_SESSION['ParSQL']) or die("Error SQL");
 	rollback($R1TB);
 	if(mssql_num_rows($R1TB) == 0){
+		
+	switch($busca){
+		case '1':	//	BUSCA TODOS LOS ARTICULOS
+			?>
+			<script>
+				jAlert('No es posible seleccionar el art&iacute;culo.', 'Debo Retail - Global Business Solution');
+			</script>
+			<?				
+			break;
+
+		case '2':	//	BUSCA TODOS LOS ARTICULOS CON DEPOSITOS
+			?>
+			<script>
+				jAlert('El art&iacute;culo ingresado no posee Dep&oacute;sitos.', 'Debo Retail - Global Business Solution');
+			</script>
+			<?				
+			break;
+
+		case '3':	//	BUSCA TODOS LOS ARTICULOS Y EXIVTA > 0
+			?>
+			<script>
+				jAlert('El art&iacute;culo ingresado no posee Stock de Venta.', 'Debo Retail - Global Business Solution');
+			</script>
+			<?				
+			break;
+			
+	}
 		?>
 		<script>
-			jAlert('No es posible seleccionar el art&iacute;culo.', 'Debo Retail - Global Business Solution');
-		
 			document.getElementById('ProductoD').value = "";
 			
 			Ir_a("ProductoD",4,1);
@@ -115,8 +145,15 @@ if(isset($_REQUEST['dato'])){
 				$_SESSION['ParSQL'] = "SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND DEPSN = 1 ORDER BY DETART ASC";
 			}
 			break;
-	
-	
+		//	BUSCA TODOS LOS ARTICULOS CON EXIVTA > 0  //	
+		case '3':
+			if(isset($_REQUEST['sec'])){
+				$_SESSION['ParSQL'] = "SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE CODSEC = ".$_REQUEST['sec']." AND NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND EXIVTA > 0 ORDER BY DETART ASC";
+			}else{
+				$_SESSION['ParSQL'] = "SELECT CODSEC, CODART, DETART, COSTO, EXIVTA, EXIDEP, DEPSN, CODRUB FROM ARTICULOS WHERE NHA = 0 AND PRO = 0 AND CLA NOT IN (2,4,7) AND EXIVTA > 0 ORDER BY DETART ASC";
+
+			}
+			break;
 		
 	}
 

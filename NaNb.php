@@ -155,28 +155,29 @@ mssql_query("begin transaction",$conexion) or die("Error SQL begin trans");
 }
 
 #BotonesLis{
-	position:absolute; 
-	font-family: 'TPro'; 
-	text-align:center; 
-	font-size:16px; 
-	display:none;
-	color:#FFF;
-	top:455px; 
-	left:7px; 
-	width:777px;
-	z-index:3;
+    position:absolute; 
+    font-family: 'TPro'; 
+    text-align:center; 
+    font-size:16px; 
+    display:none;
+    color:#FFF;
+    top:455px; 
+    left:7px; 
+    width:777px;
+    z-index:3;
 }
-	#BotonesLisSal{
-		position:absolute;
-		top:0px;
-		left:5px;
-	}
-	#BotonesLisTar{
-		position:absolute; 
-		display:none;
-		top:0px;
-		left:285px;
-	}
+
+#BotonesLisSal{
+    position:absolute;
+    top:0px;
+    left:5px;
+}
+#BotonesLisTar{
+    position:absolute; 
+    display:none;
+    top:0px;
+    left:285px;
+}
 
 </style>
 <script>
@@ -272,7 +273,7 @@ mssql_query("begin transaction",$conexion) or die("Error SQL begin trans");
             </div>
             
             <div style="top:1px; left:4px; z-index:3; position:absolute; width:129px; height:40px;">
-                <div style="position:relative; cursor:pointer;"><img id="Img1" src="NaNb/fon-nota.png" /></div>
+                <div id="ImgNA" style="position:relative; cursor:pointer;"><img id="Img1" src="NaNb/fon-nota.png" /></div>
                 <div id="NAB1" class="FuenteNaNb" style="color:#FFF; position:absolute; top:2px; left:10px; width:129px; cursor:pointer;" onclick="SelNota(1)" > A - NOTA DE ALTA </div>
                 
                 <div style="position:relative; cursor:pointer;"><img id="Img2" src="NaNb/fon-nota.png"/></div>
@@ -334,7 +335,7 @@ mssql_query("begin transaction",$conexion) or die("Error SQL begin trans");
                 <img src="NaNb/fon-mov-B.png"/>
             </div>
 
-		<div style="top:40px; left:334px; z-index:3; position:absolute; width:230px; height:230px;">
+		<div style="top:43px; left:334px; z-index:3; position:absolute; width:230px; height:230px;">
 			<div style="position:relative; cursor:pointer;"><img src="NaNb/fon-tip-mov.png" id="Im1" /></div>
             <div id="Op1" class="FuenteNaNb" style="color:#FFF; position:absolute; top:3px; left:10px; width:229px; cursor:pointer;" onclick="Operacion(1);" > A - AJUSTE DE COMPRAS </div>
             
@@ -364,12 +365,12 @@ mssql_query("begin transaction",$conexion) or die("Error SQL begin trans");
             
             <div style="position:relative; cursor:pointer;"><img src="NaNb/fon-tip-mov.png" id="Im10" /></div>
             <div id="Op10" class="FuenteNaNb" style="color:#FFF; position:absolute; top:173px; left:10px; width:229px; cursor:pointer;" onclick="Operacion(10);"> T - DEP&Oacute;SITOS A OTROS LOCALES </div>
-
+<!--
             <div style="position:relative; cursor:pointer;"><img src="NaNb/fon-tip-mov.png" id="Im11" /></div>
             <div id="Op11" class="FuenteNaNb" style="color:#FFF; position:absolute; top:193px; left:10px; width:229px; cursor:pointer;" onclick="Operacion(11);"> X - DEP&Oacute;SITO A OTROS / C&Oacute;DIGO</div>
-            
+-->        
             <div style="position:relative; cursor:pointer;"><img src="NaNb/fon-tip-mov.png" id="Im12" /></div>
-            <div id="Op12" class="FuenteNaNb" style="color:#FFF; position:absolute; top:212px; left:10px; width:229px; cursor:pointer;" onclick="Operacion(12);"> Z - ATENCI&Oacute;N AL CLIENTE </div>
+            <div id="Op12" class="FuenteNaNb" style="color:#FFF; position:absolute; top:191px; left:10px; width:229px; cursor:pointer;" onclick="Operacion(12);"> Z - ATENCI&Oacute;N AL CLIENTE </div>
 		</div>
         
 		</div>
@@ -594,6 +595,9 @@ mssql_query("begin transaction",$conexion) or die("Error SQL begin trans");
 		</div>
 
 		<input type="text" id="TerminarCarga" name="TerminarCarga" onkeypress="return ControlTerminarCar();" onkeydown="return ControlTerminarCarVol();" style="position:absolute; left:473px; top:78px; width:1px;" />
+
+        <!-- GUARDO LA CANTIDAD DE ARTICULOS DEL ITEM DEL COMPROBANTE -->
+        <input type="hidden" id="CanArt" name="CanArt"  />
     
     </div>
 <!-- FIN PIE -->

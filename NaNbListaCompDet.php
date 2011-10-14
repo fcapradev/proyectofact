@@ -187,6 +187,7 @@ $r_cod = $_REQUEST['cod'];
 			/* GUARDO LA INFO EN UN ARRAY */ 
 			$objeto['sec'][$cc] = $PMOV_R['COD']; 
 			$objeto['art'][$cc] = $PMOV_R['ART']; 
+			$objeto['can'][$cc] = $PMOV_R['CAN']; 
 			
 			$_SESSION['Articulos'][$cc] = $objeto; 			
 
