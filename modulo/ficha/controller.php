@@ -13,6 +13,8 @@ $precio = $pr['PreVen'];
 $stock_dep = $pr['ExiDep'];
 $stock_vta = $pr['ExiVta'];
 
+$pid = $pr['PID'];
+
 /*IMAGEN*/
 $psec = format($seccion,2,'0',STR_PAD_LEFT);
 $part = format($codigo,4,'0',STR_PAD_LEFT);

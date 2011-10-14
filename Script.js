@@ -37,7 +37,7 @@ jQuery.preloadImages = function(){
 
 
 ////////////////////////////////////////////////////////////////
-///// Para utilizar el script y cargar tus imágenes: ///////////
+///// Para utilizar el script y cargar tus imï¿½genes: ///////////
 ////////////////////////////////////////////////////////////////
 function CargarImagenes(){
 	
@@ -296,7 +296,7 @@ function funfun(){
 	if(c == 0){
 		return false;
 	}else{
-		EnvError('<br /><b style="color:#FF0000">En unos segundos será redirigido al sistema. Gracias.</b>');
+		EnvError('<br /><b style="color:#FF0000">En unos segundos serï¿½ redirigido al sistema. Gracias.</b>');
 		timerID = setTimeout("fun()", 2000);
 		return true;
 	}
@@ -602,7 +602,7 @@ function ReeCodigo(){
 
 		cb = cb.toLowerCase();
 
-		if (/[a-z,ñ\s]/.test(cb)){
+		if (/[a-z,ï¿½\s]/.test(cb)){
 			var buscar = cb.indexOf("+");
 			if(buscar == -1){ 
 
@@ -823,10 +823,10 @@ if (!isNaN(cantidad))
 if (!bcantidad) {
     cc = document.getElementById('NumTex').value;
     valoro = document.getElementById('NumTex').value;
+    document.getElementById('NumTex').value = "";
+    $("#LetTex").focus();    
 }
-document.getElementById('NumTex').value = "";
 
-$("#LetTex").focus();
 
 
 N = N + 1;
@@ -863,13 +863,15 @@ c = c + 1;
 		if(valoro == ""){
 				
 				EnvAyuda("Ingrese c&oacute;digo de barras o realice una b&uacute;squeda.");
-				
-				document.getElementById('LetTex').value = "";
-				document.getElementById("DondeE").value = "LetTex";
-				document.getElementById("CantiE").value = "50";
-				document.getElementById("QuePoE").value = "0";
-		
-				$("#LetTex").focus();
+				if (!bcantidad){
+                                    document.getElementById('LetTex').value = "";
+                                    document.getElementById("DondeE").value = "LetTex";
+                                    document.getElementById("CantiE").value = "50";
+                                    document.getElementById("QuePoE").value = "0";
+
+                                    $("#LetTex").focus();
+                                }
+
 								
 				SoloNone("LetEnt, LetTer, NumVol");
 				SoloBlock("Tiquet");
@@ -930,13 +932,15 @@ $("#capasitems"+s).append("<div id=\"items_s"+N+"\"><table style=\"cursor:pointe
 				EnvAyuda("Ingrese c&oacute;digo de barras o realice una b&uacute;squeda.");
 				
 				var cl = document.getElementById('CLI').value;
-				
-				document.getElementById('LetTex').value = "";	
-				document.getElementById("DondeE").value = "LetTex";
-				document.getElementById("CantiE").value = "50";
-				document.getElementById("QuePoE").value = "0";
-				
-				$("#LetTex").focus();
+				if (!bcantidad){
+                                    document.getElementById('LetTex').value = "";	
+                                    document.getElementById("DondeE").value = "LetTex";
+                                    document.getElementById("CantiE").value = "50";
+                                    document.getElementById("QuePoE").value = "0";
+
+                                    $("#LetTex").focus();
+                                }
+
 								
 				SoloNone("LetEnt, LetTer, NumVol");
 				SoloBlock("Tiquet");
@@ -1260,7 +1264,7 @@ function cancvuel(){
 	
 	document.getElementById('TerminarTic').value = 1;
 	
-	EnvAyuda('Ingrese código de barras o realice una búsqueda.');
+	EnvAyuda('Ingrese cï¿½digo de barras o realice una bï¿½squeda.');
 			
 	document.getElementById('LetEnt').innerHTML = '<button class="StyBoton" onclick="ReeCodigo();" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetEntFac\',\'\',\'botones/ent-over.png\',0)"><img src="botones/ent-up.png" name="Enter" title="Enter" border="0" id="LetEntFac"/></button>';
 		
@@ -1326,7 +1330,7 @@ intentos = intentos + 1;
 	if(intentos > 2){
 
 		//alert("tres intentos bloquear");
-		EnvError('<br /><b style="color:#FF0000">Faltan archivos de configuración.<br />Contáctese con la mesa de ayuda.<br>Gracias.</b>');
+		EnvError('<br /><b style="color:#FF0000">Faltan archivos de configuraciï¿½n.<br />Contï¿½ctese con la mesa de ayuda.<br>Gracias.</b>');
 
 	}else{
 		
@@ -1404,7 +1408,7 @@ return false;
 
 function Cacelar_Pro(){
 	
-	EnvAyuda('Ingrese código de barras o realice una búsqueda.');
+	EnvAyuda('Ingrese cï¿½digo de barras o realice una bï¿½squeda.');
 				
 	document.getElementById("DondeE").value = "LetTex";
 	document.getElementById("CantiE").value = "50";

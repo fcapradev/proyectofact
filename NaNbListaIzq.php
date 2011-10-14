@@ -189,7 +189,11 @@ if(isset($_REQUEST['dato'])){
 	background-repeat:repeat-x;
 	cursor:pointer;
 	height:27px;
+<<<<<<< HEAD
 	width:455px;
+=======
+	width:485px;
+>>>>>>> bb06ddb8fc5ad2df5457eaf2e1b3f029cf1322b0
 	z-index:4; 
 	color:#FFF; 
 	font-family: "TPro"; 
@@ -211,7 +215,7 @@ document.getElementById("LetTex").value = "";
 
 Ir_a("LetTex",0,15);
 
-EnvAyuda("Escriba una descripción del Artículo");
+EnvAyuda("Escriba una descripciï¿½n del Artï¿½culo");
 SoloNone("LetEnt");
 
 document.getElementById('NumVol').innerHTML = '<button onclick="Vol_Sector();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage(\'LetVolTomInv0\',\'\',\'botones/vol-over.png\',0)"><img src="botones/vol-up.png" name="Volver" title="Volver" border="0" id="LetVolTomInv0"/></button>';
@@ -251,6 +255,7 @@ $(function(){
 
 <body>
 <div id="Lista2" style="height:161px; width:500px;">
+    <div style="width: 490px">
 	<?
 
 	$c = 0;
@@ -298,7 +303,7 @@ mssql_free_result($PMOVFACT);
 }
 ?>
 
-
+    </div>
 </div>
 
 

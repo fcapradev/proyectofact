@@ -94,10 +94,10 @@
             <button id="btnListaParcial" onclick="mostrar_parciales();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btnVerParciales','','botones/bot-lista-parcial-over.png',0)"><img src="botones/bot-lista-parcial-up.png" name="Enter" title="Enter" border="0" id="btnVerParciales"/></button>            
             <button id="btnCerrarListaParcial" onclick="busqueda_escape();" class="StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btnVerParciales','','botones/bot-ocultar-lista-over.png',0)"><img src="botones/bot-ocultar-lista-up.png" name="Enter" title="Enter" border="0" id="btnVerParciales"/></button>            
 
-            <button class="in_parcial boton_parcial_facturar StyBoton " onclick="facturaParcialMesa();" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btnFacParcial','','botones/boton-facturacion-parcial-over.png',0)"><img src="botones/boton-facturacion-parcial-up.png" name="Enter" title="Enter" border="0" id="btnSelMesa"/></button>
+            <button class="in_parcial boton_parcial_facturar StyBoton " onclick="facturaParcialMesa();" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btnFacParcial','','botones/boton-facturacion-parcial-over.png',0)"><img src="botones/boton-facturacion-parcial-up.png" name="Enter" title="Enter" border="0" id="btnFacParcial"/></button>
             <button class="in_parcial  boton_parcial_seleccionar_mesa StyBoton" onclick="seleccionarMesa();" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btnSelMesa','','botonesboton-a-mesa-over.png',0)"><img src="botones/boton-a-mesa-up.png" name="Enter" title="Enter" border="0" id="btnSelMesa"/></button>
 
-            <button class="boton_seleccionar_mozo StyBoton "  onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btnFacParcial','','botones/bot-cambiar-mozo-over.png',0)"><img src="botones/bot-cambiar-mozo-up.png" name="Enter" title="Enter" border="0" id="btnSelMesa"/></button>
+            <button class="boton_seleccionar_mozo StyBoton "  onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btnSelMozo','','botones/bot-cambiar-mozo-over.png',0)"><img src="botones/bot-cambiar-mozo-up.png" name="Enter" title="Enter" border="0" id="btnSelMozo"/></button>
             <button class="boton_unir_mesa StyBoton" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btnSelMesa','','bot-unir-over.png',0)"><img src="botones/bot-unir-up.png" name="Enter" title="Enter" border="0" id="btnSelMesa"/></button>
             
             
@@ -154,5 +154,6 @@
 
 <input type="hidden" value="" id="retorno_salon" />
 
-<input type="text" id="foc" style="position: absolute; left:850px; top: 0px"/>
+<input type="text" id="foc" style="position: absolute; left:0px; top: 0px; background: transparent; border: none; width: 0px;"/>
 
+<div class="none" id="none"></div>

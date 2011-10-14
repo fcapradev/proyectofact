@@ -16,18 +16,35 @@ if (isset($_POST['guardar'])){
     $mesa['MRT'] = $_POST['descripcion'];
     $mesa['POS'] = $_POST['numero_mesa'];
     $mesa['EST'] = 'D';
-    mssql_query("begin transaction",$conexion) or die("Error SQL begin trans");
-    $data->save("AMESAS", $mesa, 0);
-    mssql_query("commit transaction") or die("Error SQL commit");
+    
+    $mesa_existente = $data->get_tabla("AMESAS", "MRT = ".$mesa['MRT']);
+
+    if (count($mesa_existente)==0){
+        mssql_query("begin transaction",$conexion) or die("Error SQL begin trans");
+        $data->save("AMESAS", $mesa, 0);
+        mssql_query("commit transaction") or die("Error SQL commit");
+    }
+    else{
+        echo "existente";
+    }
             
     die();
 }
 
 if (isset($_POST['eliminar'])){
     $id = $_POST['numero_mesa'];    
-    mssql_query("begin transaction",$conexion) or die("Error SQL begin trans");
-    $data->delete("AMESAS", "POS = ". $id);
-    mssql_query("commit transaction") or die("Error SQL commit");    
+    $mesa_existente = $data->get_tabla("AMESAS", "POS = ".$id);;
+    $mov_mesa = $data->get_tabla("AMOVMESA", "MRT = ".$mesa_existente[0]['MRT']);
+
+    if (count($mov_mesa)==0){
+        mssql_query("begin transaction",$conexion) or die("Error SQL begin trans");
+        $data->delete("AMESAS", "POS = ". $id);
+        mssql_query("commit transaction") or die("Error SQL commit");    
+    }
+    else{
+        echo "existente";
+    }
+
     die();
     
 }

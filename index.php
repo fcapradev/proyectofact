@@ -527,6 +527,7 @@ switch($i){
 <?
 require("config/config.php");
 require("config/login.php");
+
 ?>
 
 <div id="SobreFoca" class="PosDiv"><img src="otros/int-over.png" width="32" height="32" /></div>
