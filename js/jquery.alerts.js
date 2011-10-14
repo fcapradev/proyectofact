@@ -118,7 +118,8 @@
 						callback(true);
 						clearTimeout(timer);
 					});
-					$("#popup_ok").focus().keypress( function(e) {
+					$("#popup_ok").focus();
+					$("#popup_ok").keyup( function(e) {
 						if( e.keyCode == 13 || e.keyCode == 27 ) $("#popup_ok").trigger('click');
 					});
 				break;
