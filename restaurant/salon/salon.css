@@ -369,8 +369,9 @@
         height: 30px;
         color: white;
         top: 311px;
-        left: 550px;
+        left: 580px;
         z-index: 11;
+        font-size: 21px;
     }
     
     input.newcant{
@@ -535,7 +536,7 @@
      font-size:14px; 
      width:107px; 
      height:17px; 
-     
+     z-index: 99;
      background-color:transparent; 
      outline-style: none;      
      border-style:none; 

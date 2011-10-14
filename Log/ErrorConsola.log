@@ -1065,3 +1065,183 @@
 2011-10-13 17:47:05 | error | E_WARNING | file_get_contents(oops.txt): failed to open stream: No such file or directory | \example.php:19 
 2011-10-13 17:47:05 | error | Exception | Exception with call backtrace | \example.php:20 
 2011-10-13 17:50:17 | debug | debug | holaa |  
+2011-10-14 10:17:43 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:145 
+2011-10-14 10:38:22 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:437 
+2011-10-14 10:40:11 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:145 
+2011-10-14 10:40:49 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:145 
+2011-10-14 12:26:24 | error | E_WARNING | mssql_query(): message: Sintaxis incorrecta cerca de '='. (severity 15) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:89 
+2011-10-14 12:26:24 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:89 
+2011-10-14 12:26:50 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:26:50 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:26:51 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:26:51 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:26:52 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:26:52 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:26:53 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:26:53 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:26:55 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:26:55 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:27:13 | error | E_WARNING | mssql_query(): message: Sintaxis incorrecta cerca de '='. (severity 15) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:89 
+2011-10-14 12:27:13 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:89 
+2011-10-14 12:29:08 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:29:08 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:29:10 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:29:10 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:29:11 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:29:11 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:29:14 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:29:14 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:29:16 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:29:16 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:29:17 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:29:17 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:30:28 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:30:28 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:30:29 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:30:29 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:30:31 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:30:31 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:30:32 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:30:32 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:30:33 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:30:33 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:40:45 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:40:45 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:46:51 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:46:51 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:57:28 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:57:28 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:57:29 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 12:57:29 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 13:08:47 | error | E_WARNING | mssql_query(): message: Sintaxis incorrecta cerca de '='. (severity 15) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:08:47 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:08:47 | error | E_WARNING | mssql_fetch_assoc() expects parameter 1 to be resource, boolean given | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:58 
+2011-10-14 13:08:47 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 13:08:47 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 13:09:37 | error | E_WARNING | mssql_query(): message: Sintaxis incorrecta cerca de '='. (severity 15) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:09:37 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:09:37 | error | E_WARNING | mssql_fetch_assoc() expects parameter 1 to be resource, boolean given | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:58 
+2011-10-14 13:09:37 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 13:09:37 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 13:10:30 | error | E_WARNING | mssql_query(): message: Sintaxis incorrecta cerca de '='. (severity 15) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:10:30 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:10:30 | error | E_WARNING | mssql_fetch_assoc() expects parameter 1 to be resource, boolean given | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:58 
+2011-10-14 13:10:30 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 13:10:30 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 13:14:53 | error | E_WARNING | mssql_query(): message: Sintaxis incorrecta cerca de '='. (severity 15) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:14:53 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:14:53 | error | E_WARNING | mssql_fetch_assoc() expects parameter 1 to be resource, boolean given | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:58 
+2011-10-14 13:14:53 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 13:14:53 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 13:15:53 | error | E_WARNING | mssql_query(): message: Sintaxis incorrecta cerca de '='. (severity 15) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:15:53 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:15:53 | error | E_WARNING | mssql_fetch_assoc() expects parameter 1 to be resource, boolean given | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:58 
+2011-10-14 13:15:53 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 13:15:53 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 13:16:35 | error | E_WARNING | mssql_query(): message: Sintaxis incorrecta cerca de '='. (severity 15) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:16:35 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:16:35 | error | E_WARNING | mssql_fetch_assoc() expects parameter 1 to be resource, boolean given | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:58 
+2011-10-14 13:16:35 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 13:16:35 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 13:16:35 | error | E_WARNING | mssql_query(): message: Sintaxis incorrecta cerca de '='. (severity 15) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:16:35 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:16:35 | error | E_WARNING | mssql_fetch_assoc() expects parameter 1 to be resource, boolean given | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:58 
+2011-10-14 13:16:35 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMESAS'. No se puede insertar una clave duplicada en el objeto 'dbo.AMESAS'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 13:16:35 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:137 
+2011-10-14 13:52:41 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:437 
+2011-10-14 13:53:07 | error | E_WARNING | mssql_query(): message: El nombre de objeto 'AMOVMESAS' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:53:07 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:53:07 | error | E_WARNING | mssql_fetch_assoc() expects parameter 1 to be resource, boolean given | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:58 
+2011-10-14 13:53:59 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:437 
+2011-10-14 13:54:11 | error | E_WARNING | mssql_query(): message: El nombre de objeto 'AMOVMESAS' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:54:11 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:54:11 | error | E_WARNING | mssql_fetch_assoc() expects parameter 1 to be resource, boolean given | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:58 
+2011-10-14 13:55:17 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:437 
+2011-10-14 13:55:33 | error | E_NOTICE | Undefined index: precio_unitario | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:392 
+2011-10-14 13:55:33 | error | E_WARNING | mssql_query(): message: El nombre de columna 'NaN' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 13:55:33 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 13:55:45 | error | E_NOTICE | Undefined index: precio_unitario | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:392 
+2011-10-14 13:55:45 | error | E_WARNING | mssql_query(): message: El nombre de columna 'NaN' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 13:55:45 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 13:56:32 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:437 
+2011-10-14 13:57:43 | error | E_WARNING | mssql_query(): message: El nombre de objeto 'AMOVMESAS' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:57:43 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 13:57:43 | error | E_WARNING | mssql_fetch_assoc() expects parameter 1 to be resource, boolean given | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:58 
+2011-10-14 14:01:16 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:223 
+2011-10-14 14:01:24 | error | E_WARNING | mssql_query(): message: El nombre de columna 'undefined' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 14:01:24 | error | E_WARNING | mssql_query(): message: El nombre de columna 'undefined' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 14:01:24 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 14:01:24 | error | E_WARNING | mssql_fetch_assoc() expects parameter 1 to be resource, boolean given | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:58 
+2011-10-14 14:01:24 | error | E_NOTICE | Undefined offset: 0 | D:\xampp\htdocs\aukon\ultimo\modulo\ficha\controller.php:7 
+2011-10-14 14:01:55 | error | E_NOTICE | Undefined index: precio_unitario | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:392 
+2011-10-14 14:01:55 | error | E_WARNING | mssql_query(): message: El nombre de columna 'NaN' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 14:01:55 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 14:02:17 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:223 
+2011-10-14 14:02:17 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:251 
+2011-10-14 14:02:34 | error | E_WARNING | mssql_query(): message: El nombre de columna 'undefined' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 14:02:34 | error | E_WARNING | mssql_query(): message: El nombre de columna 'undefined' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 14:02:34 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 14:02:34 | error | E_WARNING | mssql_fetch_assoc() expects parameter 1 to be resource, boolean given | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:58 
+2011-10-14 14:02:34 | error | E_NOTICE | Undefined offset: 0 | D:\xampp\htdocs\aukon\ultimo\modulo\ficha\controller.php:7 
+2011-10-14 14:04:40 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:437 
+2011-10-14 14:07:28 | error | E_NOTICE | Undefined index: precio_unitario | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:392 
+2011-10-14 14:07:28 | error | E_WARNING | mssql_query(): message: El nombre de columna 'NaN' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 14:07:28 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 14:07:54 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:437 
+2011-10-14 14:09:07 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:437 
+2011-10-14 14:17:00 | error | E_NOTICE | Undefined index: precio_unitario | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:392 
+2011-10-14 14:17:00 | error | E_WARNING | mssql_query(): message: El nombre de columna 'NaN' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 14:17:00 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 14:17:04 | error | E_NOTICE | Undefined index: precio_unitario | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:392 
+2011-10-14 14:17:04 | error | E_WARNING | mssql_query(): message: El nombre de columna 'NaN' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 14:17:04 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 14:17:44 | error | E_NOTICE | Undefined index: precio_unitario | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:392 
+2011-10-14 14:17:44 | error | E_WARNING | mssql_query(): message: El nombre de columna 'NaN' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 14:17:44 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 14:17:53 | error | E_NOTICE | Undefined index: precio_unitario | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:392 
+2011-10-14 14:17:53 | error | E_WARNING | mssql_query(): message: El nombre de columna 'NaN' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 14:17:53 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 14:18:55 | error | E_NOTICE | Undefined index: precio_unitario | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:392 
+2011-10-14 14:18:55 | error | E_WARNING | mssql_query(): message: El nombre de columna 'NaN' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 14:18:55 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 14:30:30 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:437 
+2011-10-14 14:39:33 | error | E_WARNING | mssql_query(): message: El nombre de columna 'undefined' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 14:39:33 | error | E_WARNING | mssql_query(): message: El nombre de columna 'undefined' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 14:39:33 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 14:39:33 | error | E_WARNING | mssql_fetch_assoc() expects parameter 1 to be resource, boolean given | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:58 
+2011-10-14 14:39:33 | error | E_NOTICE | Undefined offset: 0 | D:\xampp\htdocs\aukon\ultimo\modulo\ficha\controller.php:7 
+2011-10-14 14:39:55 | error | E_WARNING | mssql_query(): message: El nombre de columna 'undefined' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 14:39:55 | error | E_WARNING | mssql_query(): message: El nombre de columna 'undefined' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 14:39:55 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:53 
+2011-10-14 14:39:55 | error | E_WARNING | mssql_fetch_assoc() expects parameter 1 to be resource, boolean given | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:58 
+2011-10-14 14:39:55 | error | E_NOTICE | Undefined offset: 0 | D:\xampp\htdocs\aukon\ultimo\modulo\ficha\controller.php:7 
+2011-10-14 14:59:49 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:437 
+2011-10-14 15:10:55 | error | E_NOTICE | Undefined index: precio_unitario | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:392 
+2011-10-14 15:10:55 | error | E_WARNING | mssql_query(): message: El nombre de columna 'NaN' no es válido. (severity 16) | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 15:10:55 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\util\utiles.php:80 
+2011-10-14 15:52:30 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:437 
+2011-10-14 16:07:15 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:437 
+2011-10-14 16:27:03 | error | E_NOTICE | Undefined variable: CLI | D:\xampp\htdocs\aukon\ultimo\MFac.php:48 
+2011-10-14 16:27:03 | error | E_NOTICE | Undefined variable: FEC | D:\xampp\htdocs\aukon\ultimo\MFac.php:63 
+2011-10-14 16:27:03 | error | E_NOTICE | Undefined variable: FPA | D:\xampp\htdocs\aukon\ultimo\MFac.php:75 
+2011-10-14 16:27:03 | error | E_NOTICE | Undefined variable: NOM | D:\xampp\htdocs\aukon\ultimo\MFac.php:92 
+2011-10-14 16:27:03 | error | E_NOTICE | Undefined variable: FPAN | D:\xampp\htdocs\aukon\ultimo\MFac.php:96 
+2011-10-14 17:35:24 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:223 
+2011-10-14 17:35:24 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:251 
+2011-10-14 17:42:26 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:437 
+2011-10-14 17:43:11 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:223 
+2011-10-14 17:51:11 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:223 
+2011-10-14 17:51:27 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMAEFACT'. No se puede insertar una clave duplicada en el objeto 'dbo.AMAEFACT'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\NFac.php:214 
+2011-10-14 17:51:27 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\NFac.php:214 
+2011-10-14 17:52:29 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:223 
+2011-10-14 17:52:33 | error | E_WARNING | mssql_query(): message: Infracción de la restricción PRIMARY KEY 'PK_AMAEFACT'. No se puede insertar una clave duplicada en el objeto 'dbo.AMAEFACT'. (severity 14) | D:\xampp\htdocs\aukon\ultimo\NFac.php:214 
+2011-10-14 17:52:33 | error | E_WARNING | mssql_query(): Query failed | D:\xampp\htdocs\aukon\ultimo\NFac.php:214 
+2011-10-14 17:53:05 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:223 
+2011-10-14 17:53:05 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:251 
+2011-10-14 17:53:07 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:223 
+2011-10-14 17:53:07 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:251 
+2011-10-14 17:54:09 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:223 
+2011-10-14 17:54:32 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:223 
+2011-10-14 17:56:14 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:223 
+2011-10-14 17:56:14 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:251 
+2011-10-14 18:35:17 | error | E_STRICT | Creating default object from empty value | D:\xampp\htdocs\aukon\ultimo\restaurant\salon\controller.php:437 

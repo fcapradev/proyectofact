@@ -33,6 +33,8 @@
     left:10px;
     width: 660px;
     height: 290px;
+    overflow: hidden;
+    
 }
 
 #tblBusqueda tbody td.seccion{

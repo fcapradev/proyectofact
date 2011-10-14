@@ -2,7 +2,6 @@ function tabmanager(){
     var panel = [];
     var _panel;
     var _no_tab = false;
-    var _shortcut = [];
     
     var panel_default = {};
     
@@ -65,7 +64,8 @@ function tabmanager(){
     
     this.get_tab = function(){
         $(document).unbind("keyup");
-        $(document).bind("keyup",keyup_bind);        
+        $(document).bind("keyup",keyup_bind);   
+        this.bind_shortcut();
     }
     
     this.set_inactive = function(str){
@@ -102,23 +102,19 @@ function tabmanager(){
     }
 
     function keyup_bind (ev){
-                // cambia con tabulador pero si esta activado
-             if(ev.keyCode == 9 && !_no_tab ){
-                 ev.preventDefault(); 
-        
+            // cambia con tabulador pero si esta activado
+            if(ev.keyCode == 9 && !_no_tab ){
+                ev.preventDefault();         
 
                 _panel++;
-                if (_panel >= panel.length) _panel = 0;                
-
-
+                if (_panel >= panel.length) _panel = 0;    
                 
                 $(document).unbind("keyup");
                 $(document).bind("keyup",keyup_bind);
-                 
-             }
+            }
              
              //se evalua si se trae el panel default   
-             var panel_tmp = _panel == 1000 ? panel_default : panel[_panel] ;
+            var panel_tmp = _panel == 1000 ? panel_default : panel[_panel] ;
              
             for (atributo in panel_tmp) {
                 
@@ -135,6 +131,7 @@ function tabmanager(){
                         case "del":code = 46;break;
                         case "insert":code = 45;break;
                         case "ctrl":code = 17;break;
+                        case "end":code = 35;break;
                         case "esc":code = 27;break;
                         case "shift":code = 16;break;
                         default:break;
@@ -142,17 +139,21 @@ function tabmanager(){
                     if(ev.keyCode==code){
                         eval(panel[_panel][atributo]);
                     }                   
-                } else if ( atributo == "shortcut"){
-                    
-                    for (sc in panel[_panel][atributo]){ //carga shurcut   
-
-                        shortcut.add(sc,function() {
-                            eval(panel[_panel][atributo][sc]);
-                        });
-                    }
-                }
+                } 
             }    
     }
+    
+    this.bind_shortcut = function(){      
+        for (sc in panel[_panel]['shortcut']){ //carga shurcut 
+            var combinacion = sc;
+            shortcut.remove(combinacion);
+            var str =             'shortcut.add("'+combinacion+'",function() {                '+
+                panel[_panel]["shortcut"][combinacion]+';'+
+            '});';
+            eval(str);
+
+        }
+    }        
     
     this.not_tab = function(){
         _no_tab = true;

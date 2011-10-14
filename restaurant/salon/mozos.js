@@ -1,4 +1,5 @@
     function seleccionar_mozo_init(){
+        EnvAyuda("Seleccionar mozo o volver [Esc]");
         $("#foc").focus();       
         $(".datos_mesa").hide();        
         $(".capa_lista_mozos, .lista_mozos").show(0, function(){

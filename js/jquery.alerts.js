@@ -39,6 +39,7 @@
 		okButton: '&nbsp;Aceptar&nbsp;',      // text for the OK button
 		cancelButton: '&nbsp;Cancelar&nbsp;', // text for the Cancel button
 		dialogClass: null,                    // if specified, this class will be applied to all dialogs
+
 		
 		// Public methods
 		
@@ -123,21 +124,32 @@
 				break;
 				case 'confirm':
 					$("#popup_message").after('<div id="popup_panel"><button  class="jbutton" id="popup_ok"><img  src="js/images/ace-over.png" /></button><button  id="popup_cancel" class="jbutton"><img  src="js/images/can-over.png" /></button></div>');
+                                        
 					$("#popup_ok").click( function() {
 						$.alerts._hide();
 						if( callback ) callback(true);
 						clearTimeout(timer);
 					});
-					$("#popup_cancel").click( function() {
+					$("#popup_cancel").click( function() {                                            
 						$.alerts._hide();
 						if( callback ) callback(false);
 						clearTimeout(timer);
 					});
-					$("#popup_ok").focus();
-					$("#popup_ok, #popup_cancel").keyup( function(e) {
+					
+                                        $("#foc").focus();
+                                        $("#popup_cancel").focus();
+                                        $("#popup_ok").focus();
+                                        
+					$("#popup_cancel, #popup_ok").bind("keypress, keydown", function(e) {        
+                                            e.preventDefault();    
+                                        });                                 
+					$("#popup_cancel, #popup_ok").bind("keyup", function(e) {                                            
 						if( e.keyCode == 13 ) $("#popup_ok").trigger('click');
-						if( e.keyCode == 27 ) $("#popup_cancel").trigger('click');
+						if( e.keyCode == 27 )  $("#popup_cancel").trigger('click');
+                                                 
+                                                
 					});
+                                        
 				break;
 				case 'prompt':
 					$("#popup_message").append('<br /><input type="text" size="30" id="popup_prompt" />').after('<div id="popup_panel"><img id="popup_ok" class="jbutton" src="js/images/ace-over.png" /><img id="popup_cancel" class="jbutton" src="js/images/can-over.png" /></div>');
@@ -165,8 +177,8 @@
 			// Make draggable
 			if( $.alerts.draggable ) {
 				try {
-					$("#popup_container").draggable({ handle: $("#popup_title") });
-					$("#popup_title").css({ cursor: 'move' });
+					$("#popup_container").draggable({handle: $("#popup_title")});
+					$("#popup_title").css({cursor: 'move'});
 				} catch(e) { /* requires jQuery UI draggables */ }
 			}
 		},
@@ -206,8 +218,8 @@
 		},
 		
 		_reposition: function() {
-			var top = (($(window).height() / 2) - ($("#popup_container").outerHeight() / 2)) + $.alerts.verticalOffset;
-			var left = (($(window).width() / 2) - ($("#popup_container").outerWidth() / 2)) + $.alerts.horizontalOffset;
+			var top = ((600 / 2) - ($("#popup_container").outerHeight() / 2)) + $.alerts.verticalOffset;
+			var left = ((800 / 2) - ($("#popup_container").outerWidth() / 2)) + $.alerts.horizontalOffset;
 			if( top < 0 ) top = 0;
 			if( left < 0 ) left = 0;
 			
@@ -259,6 +271,7 @@
 		}
 				
 		timer = setTimeout("$('#popup_cancel').click();",jAlertT_V);
+                clearInterval(timer);
 		$.alerts.confirm(message, title, callback);
 		
 		eraseCookie('jAlertT');
@@ -273,6 +286,7 @@
 		}
 		
 		timer = setTimeout("$('#popup_cancel').click();",jAlertT_V);
+                
 		//setTimeout("clearInterval("+IdInterva3+")",1);
 		$.alerts.prompt(message, value, title, callback);
 		

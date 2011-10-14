@@ -24,57 +24,26 @@
     //si se estra mostrando un item (para que no pueda hacer foco en numtex
     var _bmostrar = false;
 
-//para prevenir el keyup de la edicion
+    //para prevenir el keyup de la edicion
     var _bediting = false;
 
     //estado: 1- lista mesas, 2-destalle mesa 3-busqueda mesas para pasar
     var estado;
-    var config = {};
     
+    //elementos seleccionados
     var _selected_element = {};
     
-    
-    shortcut.add("Ctrl+E",function() {
-        if ($(".lista_mesa").attr("display")!='none'){
-            $("#btnEditarMesa").click();
-        } else
-        if ($(".boton_parcial_seleccionar_mesa").attr("display")!='none'){
-            seleccionarMesa();
-        }       
-    });
-    shortcut.add("Ctrl+M",function() {
-        if (".lista_mesa"==tm.get_active_tab()){
-            $("#btnEditarMozo").click();
-        }/* else
-        if (".lista_productos" == tm.get_active_tab()){
-            seleccionar_mozo_init();
-        } */       
-    });
-    
-    
-    shortcut.add("Ctrl+F",function() {
-        alert(tm.get_active_tab());return;
-        if (tm.get_active_tab()==".parciales"){
-            facturaParcialMesa();
-        }       
-    });
-
-    shortcut.add("Ctrl+U",function() {
-        if ($(".boton_unir_mesa").attr("display")!='none'){
-            unir_mesa_init();
-        }       
-    });
-    shortcut.add("Ctrl+P",function() {
-        if ($("#btnListaParcial").attr("display")!='none'){
-            mostrar_parciales();
-        }        
-    });
-                            
+    var _bdialog = false;
+           
 
     
-    var panel0 = {};
-    panel0.tab = "#Teclado_completo";
-    panel0.esc = "salir();";
+    var panel0 = {
+        tab : "#Teclado_completo",
+        esc : "salir();",
+        shorcut : {
+
+        }
+    };
     
     var _panelListaProducto = {
         tab : ".lista_productos",
@@ -84,9 +53,13 @@
         del : "eliminarItemMesa();",
         shift : "marcaItemTeclado();",
         intro : "mostrarProductoSeleccionado();",
-        esc : "salir();",
         end : "enviarAFacTemporal();",
-        shortcut : {"Ctrl+M" : "seleccionar_mozo_init();"}
+        shortcut : {
+            "Ctrl+M" : "seleccionar_mozo_init();",
+            "Ctrl+U" : "unir_mesa_init();",
+            "Ctrl+P" : "mostrar_parciales();",
+            "Ctrl+E" : ""
+        }
     };
 
 
@@ -103,8 +76,11 @@
         tab : ".parciales",
         up : "arriba_parciales();",
         down : "abajo_parciales();",
-        intro : "busqueda_enter();",
-        esc : "busqueda_escape();"        
+        esc : "busqueda_escape();",
+        shortcut : {
+            "Ctrl+F" : "facturaParcialMesa();",
+            "Ctrl+E" : "seleccionarMesa();"
+        }
     };
     
     var _panelSeleccionMozo = {
@@ -126,6 +102,16 @@
         intro : '$(".lista_mesa_reubicar .over").click();',        
         esc : "busqueda_escape();"
     };
+
+    var _panelEnviarAMesas = {
+        tab : ".lista_mesa_reubicar",
+        left : "left_mesa_unir();",
+        right : "right_mesa_unir();",
+        up : "up_mesa_unir();",
+        down : "down_mesa_unir();",
+        intro : '$(".mesa_pos.over").click();',        
+        esc : "busqueda_escape();"
+    };
     
   
 
@@ -136,7 +122,12 @@
         up : "up_mesa();",
         down : "down_mesa();",
         intro : "mesa_enter();",
-        esc : "SalirSalon();"
+        esc : "SalirSalon();",
+        shortcut : {
+            "Ctrl+M" : '$("#btnEditarMozo").click();',
+            "Ctrl+E" : '$("#btnEditarMesa").click();'
+
+        }
     };
  
 
@@ -176,15 +167,16 @@
          //       $("#BarFac, #BarFacD").hide();                
                 break;
             case 4: //recuperar factura
-                $("#micapa1, #MiProd").hide(); 
-                $(".opciones_restaurant").hide();
                 $(".interna_salon").hide();
+                $(".opciones_restaurant").hide();
                 $("#Facturador").show();
                 $("#Teclado_Completo").html(teclado);
                 $("#Teclado_Completo").show();
                 $("#BotMins, #BotonesFac").show();
                 $("#BarFac, #BarFacD").show();                 
-                $("#LetTer").show();                 
+                $("#LetTer").show();     
+                if ($("#capasitems1 .items").length > 0)
+                    $("#Tiquet").show();           
                 break;
         }
     }
@@ -231,12 +223,15 @@
             success: function(result){
                 obtenerProductosMesa();
                 $("table#parciales tr").remove();
+                
                 estado = 2;
                 show_estate()                
             }})
     }
     
     function irASalon(){
+        EnvAyuda("Seleccione mesa ");
+        irAFactura ();
         AccBotFac(9);
     }
        
@@ -255,9 +250,12 @@
                     jAlert("no hay mesas disponibles",'Debo Retail - Global Business Solution');
                 }
                 else{
+                    tm.set_tab(_panelEnviarAMesas);
+                    $("#Teclado_Completo").hide();
                     $("#LetTexx").parent().removeClass("active");
                     $("#LetTexx").attr("disabled","true");             
                     $(".capa_mesas_iconos").html(data);
+                    $("#foc").focus();                    
                     $(".capa_mesas_iconos").show();                    
                 }                                
             }}
@@ -315,7 +313,9 @@
         var cod_sec = $(elem).find("input.cod_seccion_lista").val();
         var cod_art = $(elem).find("input.cod_articulo_lista").val();
         var numero_lista = $(elem).find("input.numero_lista").val();
+        var precio_lista = $(elem).find(".precio_lista").text();
 
+        _selected_element.precio = precio_lista;
         _selected_element.cod = cod_art;
         _selected_element.sec = cod_sec;
         _selected_element.num = numero_lista;
@@ -430,6 +430,7 @@
                     _selected_element.num = 0;
                     
                     $(".product_selected").remove();
+                    calcularTotalItems();
                     _seleccionarProducto($("#lista_prod tr").first());
                      $_scrollDetalle.scrollToElement($("#lista_prod tr").first());
                 }
@@ -471,13 +472,10 @@
                     success: function(data){
                         var $selected = $(".product_selected");
                         $selected.find(".cantidad_lista").text(_item.cantidad);
+                        $selected.find(".precio_total_lista").text(dec(_item.cantidad * _item.precio));
                         
                         //recalcula total de mesa
-                        var total = 0;
-                        $("table#lista_prod .precio_total_lista").each(function(){
-                            total = parseFloat($(this).text()) + total;
-                        });
-                        $(".res_total_mesa").text(dec(total));    
+                        calcularTotalItems();
                         busqueda_escape();
                     }
                 })   
@@ -510,6 +508,14 @@
         }                 
     }
     
+    function calcularTotalItems(){
+        var total = 0;
+        $("table#lista_prod .precio_total_lista").each(function(){
+            total = parseFloat($(this).text()) + total;
+        });        
+         $(".res_total_mesa").text(dec(total));    
+    }
+    
     function agregarItemHtml(numero, codigo_sector, codigo_articulo, detalle, precio, cantidad, res, fac){
         $("#mod_lista .numero_lista").val(numero)  ;
         $("#mod_lista .cod_articulo_lista").val(codigo_articulo)  ;
@@ -529,12 +535,7 @@
         
         $("table#lista_prod tbody").append($("#mod_lista tbody").html());
 
-        var total = 0;
-        $("table#lista_prod .precio_total_lista").each(function(){
-            total = parseFloat($(this).text()) + total;
-        });
-
-        $(".res_total_mesa").text(dec(total));          
+        calcularTotalItems();
     }
     
     //marca items para facturar o cambiar de mesa
@@ -592,9 +593,27 @@
             });                    
     }
     function asignar_eventos_opciones_productos(){
-            $(".opcion_modificar").unbind("click");
-            $(".opcion_eliminar").unbind("click");
-            $(".opcion_ver").unbind("click");
+            $("td.marca").unbind("mouseover");
+            $(".opcion_modificar").unbind("click mouseover");
+            $(".opcion_eliminar").unbind("click mouseover");
+            $(".opcion_ver").unbind("click mouseover");
+            
+            $("td.marca").mouseover(function(){
+                EnvAyuda("Selecciona articulo para factura parcial o enviar a otra mesa [Shift]");
+            });
+            $(".opcion_modificar").mouseover(function(){
+                EnvAyuda("Modificar cantidad [Insert]");
+            });
+            $(".opcion_eliminar").mouseover(function(){
+                EnvAyuda("Eiminar item [Supr]");
+            });
+            $(".opcion_ver").mouseover(function(){
+                EnvAyuda("Ver articulo [Intro]");
+            });
+            
+            $(".opcion_modificar, .opcion_eliminar, .opcion_ver, td.marca").mouseout(function(){
+                EnvAyuda("Para facturar click en Terminar[Fin] o ingrese nueva busqueda");
+            });
             
             $(".opcion_modificar").click(function(){
             if(!$(this).parent().hasClass("item_marcado"))
@@ -612,6 +631,7 @@
     }
      
     function LetTerChange(){
+        EnvAyuda("Para facturar click en Terminar(Fin) o ingrese nueva busqueda");
         replace_button("LetTer","enviarAFacTemporal();","botones/ter-up.png","botones/ter-over.png");
         replace_func("LetEnt"," _inicio_busqueda();");
         replace_func("NumVol","_inicio_busqueda();")
@@ -732,6 +752,7 @@
 /***************************************************************************/    
     
     $(document).ready(function(){
+        EnvAyuda("Seleccione mesa ");
         _inside_mesa = false;
 
 /*tabmanager*/        
@@ -743,6 +764,7 @@
         tm.add(_panelSeleccionMozo);
         tm.add(_panelUnirMesas);
         tm.add(_panelSalonMesas);
+        tm.add(_panelEnviarAMesas);
 
         tm.not_tab();
         tm.get_tab();
@@ -761,7 +783,7 @@
         $("#numero_comprobante").val(0);
         $("#numero_mesa").val(0);        
         $("#mesa_cierre").val(0);         
-        LetTerChange();
+        
         $("#Facturador").hide();
         $("#interna_mesa").hide();
         
@@ -779,6 +801,7 @@
         show_estate();
         
         $(".mesa_desocupada, .mesa_ocupada, .mesa_ocupada_unida").click(function(){
+            LetTerChange();
             tm.set_tab("#Teclado_completo");
             
             _inside_mesa = true;
@@ -794,7 +817,7 @@
             });
 
             //remplaza letex
-            $("#ConReCodigo").appendTo(".none");
+            $("#ConReCodigo").appendTo("#none");
             $("#LetTexDiv").html('<input class="teclado_letras" type="text" name="LetTexx" id="LetTexx" maxlength="20" />');
             
             replace_func("LetEnt"," _inicio_busqueda();");
@@ -820,7 +843,7 @@
             });
                 
             //remplaza numtex
-            $("#NumTex").appendTo(".none");
+            $("#NumTex").appendTo("#none");
             $("#NumTexDiv").html('<input class="teclado_numero" type="text" name="NumTexx" id="NumTexx" maxlength="6" />');
             $("#NumTexx").keyup(function(ev){
                 if (ev.keyCode == 13){
@@ -863,7 +886,7 @@
             
             
             $("#NumTexx").focus(function(){
-                
+                //modificar cantidad
                 if ((_item.codigo > 0  && !_bmostrar) || _is_modified > 1){
                 
                     $("#NumTexx").val("1");
@@ -874,14 +897,18 @@
                     //asigna nueva funcion para agregar a la mesa                    
                     replace_func("LetEnt","enviar_cantidad();")
                     replace_func("NumVol","enviar_cantidad();")
+                    
+                    $("#NumTexx").unbind("keyup");
                     $("#NumTexx").bind("keyup",function(event){
                         if (event.which == 13){
+                            _item.precio = _selected_element.precio;
                             enviar_cantidad();
                         }
                         if (event.which == 27) busqueda_escape();
                         
                     });      
-                    _is_modified = _is_modified - 1;                                        
+                    _is_modified = _is_modified - 1;    
+                    EnvAyuda("Ingrese nueva cantidad para producto seleccionado");
                 }
                 else{
                     set_next("LetTexx", 20, 0,1);
@@ -981,7 +1008,7 @@
                             url : "Restaurant_salon.php",
                             type : "post", 
                             success: function(datax){
-                                alert(datax);
+
                                 for (var i = 0 ; i < data.length; i++){
 //                                    alert( data[i].cod_seccion_lista+" - "+data[i].cod_articulo_lista+" - "+data[i].precio_lista+" - "+data[i].descripcion_lista+" - "+data[i].newcant);
                                     NUU( data[i].cod_seccion_lista ,data[i].cod_articulo_lista, data[i].precio_lista, data[i].descripcion_lista, data[i].newcant);
@@ -1055,17 +1082,20 @@
 
 //CONFIGURA LOS ELEMENTOS PARA VOLVER A OPERAR CON LA FACTURA
     function irAFactura(){
+
         shortcut.remove("Shift+U");
         shortcut.remove("Shift+P");
         shortcut.remove("Shift+M");               
         
         if (_inside_mesa){
+            
             $("#NumTexDiv").html('');
             $("#NumTex").appendTo("#NumTexDiv");
 
 
 
             $("#LetTexDiv").html("");
+            
             $("#ConReCodigo").appendTo("#LetTexDiv");                 
         }
         
@@ -1079,6 +1109,8 @@
         
        $("#Monedas").show();
        $("#Restaurant").hide();
+       tm.reset();
+       
     }
     
     function _irAFacturador(){
@@ -1093,16 +1125,22 @@
     }
 
     function _inicio_busqueda(){
+        EnvAyuda("Seleccione artículo o click en volver para regresar[esc] ");
         
         if ($("#tblBusqueda").length == 0 && $("#LetTexx").val().length > 0){
+            $("#tblBusquedaScroll").hide();
             $(".capa_lista_productos").load("modulo.php?modulo=busqueda&param="+php_urlencode($("#LetTexx").val()),function(){
                 $(".datos_mesa").hide();
                 $(".boton_seleccionar_mozo, .boton_unir_mesa").hide();
+                
                 if ($("#cantidad_encontrado").val() > 1){
-                     $(".capa_lista_productos").show(function(){
+                    
+                     $(".capa_lista_productos").show(0,function(){
                          $_scrollBusqueda = _jscrollshow("#tblBusquedaScroll");
+  
                          tm.set_tab(_panelBusqueda);
                          $(".capa_lista_productos").focus();
+                         $("#tblBusquedaScroll").show();
                        
                      });
                      replace_button("LetTer","busqueda_escape();","botones/vol-up.png","botones/vol-over.png");                      
@@ -1132,26 +1170,36 @@
         
         if (cantidad_cod_bar > 0){
             $(".capa_ficha_producto").load("modulo.php?modulo=ficha&codigo="+codigo+"&seccion="+seccion, function(){
-                $(".capa_ficha_producto").hide();
-                $("#NumTexx").val(cantidad_cod_bar);
-                _item.sector = seccion;
-                _item.codigo = codigo;
-                _item.precio = $("#precio").val();
-                _item.cantidad = $("#NumTexx").val();        
-                _item.detalle = $("#detalle_articulo").val();  
-                set_next("NumTexx", 5, 1,1);return;
-                
+                if ($("#pid").val()==0){
+                    $(".capa_ficha_producto").hide();
+                    $("#NumTexx").val(cantidad_cod_bar);
+                    _item.sector = seccion;
+                    _item.codigo = codigo;
+                    _item.precio = $("#precio").val();
+                    _item.cantidad = $("#NumTexx").val();        
+                    _item.detalle = $("#detalle_articulo").val();  
+                    set_next("NumTexx", 5, 1,1);return;
+                }
+                else{
+                    jAlert("No se puede agregar este producto en la comanda, agregarlo desde el facturador", "Debo Retail - Global Business Solution");
+                    busqueda_escape();
+                }               
             }) ;     
         }
         else{
             $(".capa_ficha_producto").load("modulo.php?modulo=ficha&codigo="+codigo+"&seccion="+seccion, function(){
-                $(".capa_ficha_producto").show();
-                _item.codigo = codigo;
-                _item.sector = seccion;
-                _item.precio = $("#precio").val();
-                _item.detalle = $("#detalle_articulo").val();                    
-                
-                set_next("NumTexx", 5, 1,1);return;
+                if ($("#pid").val()==0){
+                    $(".capa_ficha_producto").show();
+                    _item.codigo = codigo;
+                    _item.sector = seccion;
+                    _item.precio = $("#precio").val();
+                    _item.detalle = $("#detalle_articulo").val();                    
+                    set_next("NumTexx", 5, 1,1);return;
+                }
+                else{
+                    jAlert("No se puede agregar este producto en la comanda, agregarlo desde el facturador", "Debo Retail - Global Business Solution");
+                    busqueda_escape();
+                }
             }) ;             
         }        
         tm.reset();
@@ -1159,7 +1207,7 @@
     
     function busqueda_escape(){
         if (_numero_mozo > -1){
-            
+            $("#Teclado_Completo").show();
             $("#LetTexx").removeAttr("disabled");               
 
             $(".capa_ficha_producto").html("");
@@ -1177,6 +1225,7 @@
 
             $(".parciales").hide(); 
             $(".lista_mozos").hide();
+            $(".capa_lista_mozos").hide();
 
             $(".datos_mesa").show();
             $(".in_parcial").hide();
@@ -1237,36 +1286,39 @@
     }   
     
     function mostrar_parciales(){
-        $(".boton_unir_mesa").eq(0).focus();
-     
+        EnvAyuda("Facturación parcial[Ctrl+F] o Enviar productos a otra mesa[Ctrol+E]");
+        if ($("#btnListaParcial").attr("display")!='none'){
+            $(".boton_unir_mesa").eq(0).focus();   
 
-        
-        
-        if ($(".item_marcado").length == 0) return;
-        $(".capa_ficha_producto").html("");
-        $(".capa_ficha_producto").hide(); 
-        
-        $(".capa_lista_productos").html("");
-        $(".capa_lista_productos").hide(); 
-        
-        $(".parciales").hide(); 
-        $(".lista_mozos").hide();
-  
-        
-        $(".boton_seleccionar_mozo, .boton_unir_mesa").hide();
-        $(".datos_mesa").hide();
-        
-        _bmostrar = true;
-        $(".parciales").show(function(){
-            $(".newcant").eq(0).focus();
-            tm.set_tab(_panelParciales);
-        });
-        $("#btnListaParcial").hide();
-        $("#btnCerrarListaParcial").show();
-        
-        $(".selected_cant").removeClass("selected_cant");
-        $("#parciales tr").first().addClass("selected_cant");
-        $(".in_parcial").show();        
+
+
+            if ($(".item_marcado").length == 0) return;
+            $(".capa_ficha_producto").html("");
+            $(".capa_ficha_producto").hide(); 
+
+            $(".capa_lista_productos").html("");
+            $(".capa_lista_productos").hide(); 
+
+            $(".parciales").hide(); 
+            $(".lista_mozos").hide();
+
+
+            $(".boton_seleccionar_mozo, .boton_unir_mesa").hide();
+            $(".datos_mesa").hide();
+
+            _bmostrar = true;
+            $(".parciales").show(function(){
+                $(".newcant").eq(0).focus();
+                tm.set_tab(_panelParciales);
+            });
+            $("#btnListaParcial").hide();
+            $("#btnCerrarListaParcial").show();
+
+            $(".selected_cant").removeClass("selected_cant");
+            $("#parciales tr").first().addClass("selected_cant");
+            $(".in_parcial").show();     
+        }
+   
     }
     
     function arriba_parciales(){
@@ -1312,6 +1364,7 @@
     }
     
     function unir_mesa_init(){
+        EnvAyuda("Seleccione mesa para unir o una mesa unida a esta para separar");
         $(".boton_unir_mesa").hide();
         
         if (_numero_mozo < 0) {
@@ -1323,6 +1376,7 @@
                 data: {LISTA_MESAS: 1, numero_mesa: _numero_mesa},
                 type: "POST",
                 success: function(data){
+                    $("#Teclado_Completo").hide();
                     $(".boton_unir_mesa, #btnListaParcial, .boton_seleccionar_mozo").hide();
                     $(".capa_mesas_iconos").html(data);
                     $(".capa_mesas_iconos").show();  
@@ -1344,16 +1398,23 @@
 
      function salir(){
          
-         if ($("#LetTexx").val().length == 0){
+         if ($("#LetTexx").val().length == 0 && !_bdialog ){            
+             
              jConfirm("Desea salir de la mesa?","Debo Retail - Global Business Solution",function(r){
-                 if (r){
+                 
+                 if (r ){
                      irASalon();
                  }
-                 else busqueda_escape();
+                 else 
+                 {
+                     busqueda_escape();
+                     _bdialog = false;
+                 }
              })
          }
          else{
-             busqueda_escape();
+             if (!_bdialog)
+                busqueda_escape();
          }
      }
      

@@ -154,5 +154,6 @@
 
 <input type="hidden" value="" id="retorno_salon" />
 
-<input type="text" id="foc" style="position: absolute; left:850px; top: 0px"/>
+<input type="text" id="foc" style="position: absolute; left:0px; top: 0px; background: transparent; border: none; width: 0px;"/>
 
+<div class="none" id="none"></div>
